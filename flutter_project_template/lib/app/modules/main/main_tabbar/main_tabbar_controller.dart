@@ -1,0 +1,29 @@
+import 'package:get/get.dart';
+
+class MainTabbarController extends GetxController {
+  var showCalendarBadge = false.obs;
+  var currentIndex = 0.obs;
+
+  @override
+  void onReady() async {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {}
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  // tab栏页码切换
+  void switchTab(index) {
+    currentIndex.value = index;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+}
