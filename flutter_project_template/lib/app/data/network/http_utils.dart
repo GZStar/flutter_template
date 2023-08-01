@@ -33,7 +33,7 @@ class HttpUtils {
     }
 
     // 组装URL
-    var urlobj = EnvConfig.setUrl(target.domainNameType);
+    var urlobj = EnvConfig.getPathTypeUrlDic(target.domainNameType);
     var headerURL = urlobj[target.pathType]!;
     var url = headerURL + target.path;
 

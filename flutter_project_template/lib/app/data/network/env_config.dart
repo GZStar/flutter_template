@@ -39,7 +39,7 @@ class EnvConfig {
     'prod': 'https://tcms.jtexpress.com.cn',
   };
 
-  static getUrl(String baseURL) {
+  static pathTypeUrlDic(String baseURL) {
     return {
       URLPathType.normal: baseURL,
       URLPathType.reportapp: '$baseURL/reportapp',
@@ -48,17 +48,17 @@ class EnvConfig {
     };
   }
 
-  static setUrl(DomainNameType type) {
+  static getPathTypeUrlDic(DomainNameType type) {
     Map dn = domainNames[type]!;
     switch (server) {
       case 'uat':
-        return getUrl(dn['uat']);
+        return pathTypeUrlDic(dn['uat']);
       case 'test':
-        return getUrl(dn['test']);
+        return pathTypeUrlDic(dn['test']);
       case 'dev':
-        return getUrl(dn['dev']);
+        return pathTypeUrlDic(dn['dev']);
       default:
-        return getUrl(dn['prod']);
+        return pathTypeUrlDic(dn['prod']);
     }
   }
 }
