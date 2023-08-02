@@ -1,4 +1,5 @@
 import '../network/env_config.dart';
+import 'package:dio/dio.dart';
 
 class RequestTargetModel {
   String path;
@@ -7,6 +8,7 @@ class RequestTargetModel {
   int successCode = 1;
   DomainNameType domainNameType;
   URLPathType pathType;
+  FormData? file;
 
   RequestTargetModel({
     required this.path,

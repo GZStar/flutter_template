@@ -12,6 +12,7 @@ typedef NetErrorCallback = Function(int code, String msg);
 class DioUtils {
   static DioUtils instance = DioUtils.internal();
   factory DioUtils() => instance;
+  ProgressCallback? sendProgress;
 
   late Dio dio;
 
@@ -51,13 +52,12 @@ class DioUtils {
         _onError(ExceptionHandle.net_error, '网络异常，请检查你的网络！', onError);
         return;
       }
-      final Response response = await dio.request(
-        url,
-        data: data,
-        queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken,
-      );
+      final Response response = await dio.request(url,
+          data: data,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onSendProgress: sendProgress);
       onSuccess?.call(response.data);
     } on DioError catch (e) {
       final NetError error = ExceptionHandle.handleException(e);

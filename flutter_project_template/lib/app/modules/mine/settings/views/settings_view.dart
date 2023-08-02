@@ -52,6 +52,7 @@ class SettingsView extends BaseView<SettingsController> {
           child: TextButton(
             onPressed: () {
               UserStore.to.onLogout();
+              Get.offAllNamed(AppRoutes.login);
             },
             child: Text('logout'.tr,
                 style: const TextStyle(color: Colors.red, fontSize: 20)),

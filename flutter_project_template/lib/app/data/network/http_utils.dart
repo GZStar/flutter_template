@@ -26,7 +26,11 @@ class HttpUtils {
     if (target.method == Method.get) {
       queryParameters = target.params;
     } else if (target.method == Method.post) {
-      data = target.params;
+      if (target.file != null) {
+        data = target.file;
+      } else {
+        data = target.params;
+      }
       tempHeader = {"Accept": CONTENT_TYPE_JSON};
     } else {
       data = target.params;
@@ -48,7 +52,11 @@ class HttpUtils {
     options.headers = tempHeader;
     options.method = MethodValues[target.method];
 
-    DioUtils().request(url,
+    ProgressCallback sendProgress = (int count, int total) {};
+
+    DioUtils dioUtils = DioUtils();
+    dioUtils.sendProgress = sendProgress;
+    dioUtils.request(url,
         data: data,
         queryParameters: queryParameters,
         options: options, onSuccess: (result) {
