@@ -34,12 +34,12 @@ class LoginView extends BaseView<LoginController> {
               labelText: 'Phone',
               placeholder: 'Enter Phone number',
               validator: (value) {
-                if (!GetUtils.isPhoneNumber(value!)) {
-                  return 'Phone format error.';
+                if (value!.isEmpty) {
+                  return 'Phone is required.';
                 }
 
-                if (value.isEmpty) {
-                  return 'Phone is required.';
+                if (!GetUtils.isPhoneNumber(value!)) {
+                  return 'Phone format error.';
                 }
                 return null;
               },

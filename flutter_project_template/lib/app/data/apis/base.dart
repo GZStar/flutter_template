@@ -8,7 +8,7 @@ class RequestTargetModel {
   int successCode = 1;
   DomainNameType domainNameType;
   URLPathType pathType;
-  FormData? file;
+  FormData? file; //文件上传时使用
 
   RequestTargetModel({
     required this.path,

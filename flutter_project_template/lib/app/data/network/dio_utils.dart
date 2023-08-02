@@ -5,14 +5,10 @@ import 'package:cookie_jar/cookie_jar.dart';
 
 import 'error_handle.dart';
 
-typedef NetSuccessCallback<T> = Function(T data);
-typedef NetErrorCallback = Function(int code, String msg);
-
 // 单例
 class DioUtils {
   static DioUtils instance = DioUtils.internal();
   factory DioUtils() => instance;
-  ProgressCallback? sendProgress;
 
   late Dio dio;
 
@@ -40,8 +36,7 @@ class DioUtils {
     String url, {
     Object? data,
     Map<String, dynamic>? queryParameters,
-    NetSuccessCallback? onSuccess,
-    NetErrorCallback? onError,
+    ProgressCallback? sendProgress,
     CancelToken? cancelToken,
     Options? options,
   }) async {
@@ -49,27 +44,27 @@ class DioUtils {
       // 没有网络
       var connectivityResult = await (Connectivity().checkConnectivity());
       if (connectivityResult == ConnectivityResult.none) {
-        _onError(ExceptionHandle.net_error, '网络异常，请检查你的网络！', onError);
-        return;
+        throw _onError(ExceptionHandle.net_error, '网络异常，请检查你的网络！');
       }
-      final Response response = await dio.request(url,
+
+      return await dio.request(url,
           data: data,
           queryParameters: queryParameters,
           options: options,
           cancelToken: cancelToken,
           onSendProgress: sendProgress);
-      onSuccess?.call(response.data);
     } on DioError catch (e) {
-      final NetError error = ExceptionHandle.handleException(e);
-      _onError(error.code, error.msg, onError);
+      ///抛出NetError
+      final NetError netError = ExceptionHandle.handleException(e);
+      throw _onError(netError.code, netError.msg);
     }
   }
 }
 
-void _onError(int? code, String msg, NetErrorCallback? onError) {
+_onError(int? code, String msg) {
   if (code == null) {
     code = ExceptionHandle.unknown_error;
     msg = '未知异常';
   }
-  onError?.call(code, msg);
+  return NetError(code, msg);
 }

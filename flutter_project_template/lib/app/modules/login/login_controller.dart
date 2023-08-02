@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_project_template/app/common/widgets/toast.dart';
+import 'package:flutter_project_template/app/data/network/error_handle.dart';
 
 import 'package:get/get.dart';
 import '../../common/utils/encrypt_utils.dart';
@@ -25,7 +28,7 @@ class LoginController extends GetxController {
   @override
   void onClose() {}
 
-  void login() async {
+  void login() {
     if (loginFormKey.currentState!.validate()) {
       var params = {
         "phoneNum": loginAccountController.value.text,
@@ -33,22 +36,22 @@ class LoginController extends GetxController {
         "countryCode": "+86"
       };
 
-      Loading.show();
-      HttpUtils.request(
-        LoginAPI.loginWithPassword(params),
-        success: (data) {
-          UserLoginResponseModel userProfile =
-              UserLoginResponseModel.fromJson(data);
-          UserStore.to.saveProfile(userProfile);
-          Loading.dismiss();
+      fetchLogin(params);
+    }
+  }
 
-          Get.offAndToNamed(AppRoutes.mainTabbar);
-        },
-        fail: (code, msg) {
-          Loading.dismiss();
-          Get.offAndToNamed(AppRoutes.mainTabbar);
-        },
-      );
+  void fetchLogin(params) async {
+    Loading.show();
+    try {
+      UserLoginResponseModel userProfile =
+          await LoginAPI.loginWithPassword(params);
+      UserStore.to.saveProfile(userProfile);
+      Loading.dismiss();
+      Get.offAndToNamed(AppRoutes.mainTabbar);
+    } on NetError catch (e) {
+      Loading.dismiss();
+      showWarnToast(e.msg);
+      Get.offAndToNamed(AppRoutes.mainTabbar);
     }
   }
 }
