@@ -10,6 +10,7 @@ const Map<String, String> zh_CN = {
   'work': '工作台',
   'discover': '发现',
   'mine': '我',
+  'travel': '旅行',
 
   // 设置
   'settings': '设置',

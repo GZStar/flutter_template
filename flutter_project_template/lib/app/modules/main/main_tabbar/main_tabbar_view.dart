@@ -1,12 +1,12 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
+import 'package:flutter_project_template/app/modules/travel/views/travel_view.dart';
 
 import 'package:get/get.dart';
 
 import '../../../common/style/my_icons.dart';
 import 'main_tabbar_controller.dart';
-import '../../contacts/contact_index.dart';
 import '../../discover/discover_index.dart';
 import '../../home/home_index.dart';
 import '../../mine/mine/mine_index.dart';
@@ -14,7 +14,7 @@ import '../../mine/mine/mine_index.dart';
 class MainTabbarView extends GetView<MainTabbarController> {
   List<Widget> indexedStackPages = [
     HomeView(),
-    ContactView(),
+    TravelView(),
     DiscoverView(),
     MineView()
   ];
@@ -61,7 +61,7 @@ class MainTabbarView extends GetView<MainTabbarController> {
       BottomNavigationBarItem(
         icon: const Icon(MyIcons.work),
         activeIcon: const Icon(MyIcons.work),
-        label: "work".tr,
+        label: "travel".tr,
       ),
       BottomNavigationBarItem(
         icon: badges.Badge(

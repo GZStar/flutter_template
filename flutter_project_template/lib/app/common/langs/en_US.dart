@@ -10,6 +10,7 @@ const Map<String, String> en_US = {
   'work': 'Work',
   'discover': 'Discover',
   'mine': 'Me',
+  'travel': 'Travel',
 
   // 设置
   'settings': 'Settings',

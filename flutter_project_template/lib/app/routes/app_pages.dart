@@ -7,6 +7,8 @@ import 'package:flutter_project_template/app/modules/mine/settings/bindings/sett
 import 'package:flutter_project_template/app/modules/mine/settings/views/about_view.dart';
 import 'package:flutter_project_template/app/modules/mine/settings/views/env_setting_view.dart';
 import 'package:flutter_project_template/app/modules/mine/settings/views/theme_setting_view.dart';
+import 'package:flutter_project_template/app/modules/travel/bindings/travel_binding.dart';
+import 'package:flutter_project_template/app/modules/travel/views/travel_view.dart';
 import 'package:get/get.dart';
 
 import '../common/widgets/qr_code_scanner_page.dart';
@@ -89,6 +91,10 @@ class AppPages {
     GetPage(
         name: AppRoutes.friendsCircle,
         page: () => FriendsCircleView(),
-        binding: FriendsCirlcelBinding())
+        binding: FriendsCirlcelBinding()),
+    GetPage(
+        name: AppRoutes.travel,
+        page: () => TravelView(),
+        binding: TravelBinding()),
   ];
 }

@@ -21,4 +21,7 @@ abstract class AppRoutes {
 
   // 朋友圈
   static const friendsCircle = '/friendsCircle';
+
+  // 旅游
+  static const travel = '/travel';
 }

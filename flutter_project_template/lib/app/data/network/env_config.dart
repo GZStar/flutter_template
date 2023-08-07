@@ -10,9 +10,7 @@ enum DomainNameType {
 /// 路径中可能存在不同的前缀路径，所以根据参数获取对应前缀路径
 enum URLPathType {
   normal, // 常规前缀
-  reportapp, //
-  orderapi,
-  cssztapi,
+  allUrl, // 不使用domainNameType,直接使用path中的全url作为地址。
 }
 
 class EnvConfig {
@@ -41,10 +39,8 @@ class EnvConfig {
 
   static pathTypeUrlDic(String baseURL) {
     return {
-      URLPathType.normal: baseURL,
-      URLPathType.reportapp: '$baseURL/reportapp',
-      URLPathType.orderapi: '$baseURL/orderapi',
-      URLPathType.cssztapi: '$baseURL/cssztapi', //服务质量// 历史版本 使用版本升级域名
+      URLPathType.normal: baseURL,//服务质量// 历史版本 使用版本升级域名
+      URLPathType.allUrl: ""
     };
   }
 
