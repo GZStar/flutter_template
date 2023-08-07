@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/data/model/travel_tab_model.dart';
+import 'package:flutter_project_template/app/modules/travel/views/travel_tab_view.dart';
 
 import 'package:get/get.dart';
 
@@ -53,17 +54,17 @@ class TravelView extends BaseView<TravelController> {
 
   Widget _travelPage() {
     return Flexible(
-              child: Container(
-            padding: const EdgeInsets.fromLTRB(6, 3, 6, 0),
-            child: TabBarView(
-                controller: controller.tabcontroller,
-                children: controller.tabs.map((TabGroups tab) {
-                  return TravelTabPage(
-                    travelUrl: travelParamsModel?.url,
-                    params: travelParamsModel?.params,
-                    groupChannelCode: tab?.code,
-                  );
-                }).toList()),
-          )),;
+        child: Container(
+      padding: const EdgeInsets.fromLTRB(6, 3, 6, 0),
+      child: TabBarView(
+          controller: controller.tabcontroller,
+          children: controller.tabs.map((TabGroups tab) {
+            return TravelTabView(
+              travelUrl: controller.travelParamsModel?.url,
+              params: controller.travelParamsModel?.params,
+              groupChannelCode: tab.code,
+            );
+          }).toList()),
+    ));
   }
 }

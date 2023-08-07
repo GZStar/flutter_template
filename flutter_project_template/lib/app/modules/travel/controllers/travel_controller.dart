@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/model/trave_model.dart';
+import '../../../data/model/trave_param_model.dart';
 import '../../../data/model/travel_tab_model.dart';
 
 class TravelController extends GetxController {
@@ -12,6 +14,8 @@ class TravelController extends GetxController {
   var loadMore = false.obs;
 
   late RxList<TabGroups> tabs;
+  late RxList<ResultList> travelItems;
+  TravelParamsModel? travelParamsModel;
 
   @override
   void onInit() {
