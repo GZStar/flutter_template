@@ -59,10 +59,7 @@ class HttpUtils {
     if (result['code'] == target.successCode) {
       return result['data'];
     } else {
-      if ([401, 402, 405, 410].contains(result['code'])) {
-        EasyLoading.showError(result['msg']);
-        UserStore.to.onLogout();
-      } else if (result['code'] == 403) {
+      if (result['code'] == 4038) {
         // 菜单权限被收回
         UserStore.to.onLogout();
       } else if (result['code'] == 135010037) {
