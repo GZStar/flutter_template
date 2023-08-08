@@ -44,10 +44,10 @@ class TravelItemView extends StatelessWidget {
   _itemImage(BuildContext context) {
     return Stack(
       children: <Widget>[
-        // FadeInImage.assetNetwork(
-        //     placeholder: "assets/images/wechat/mine/ic_wallet.png",
-        //     image: item.article.images[0].dynamicUrl),
-        Image.network(item.article.images[0].dynamicUrl),
+        FadeInImage.assetNetwork(
+            placeholder: "assets/images/picture/picture0.jpeg",
+            image: item.article.images[0].dynamicUrl),
+        // Image.network(item.article.images[0].dynamicUrl),
         Positioned(
             bottom: 8,
             left: 8,
