@@ -1,8 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class MainTabbarController extends GetxController {
   var showCalendarBadge = false.obs;
   var currentIndex = 0.obs;
+  late List<Widget> pages;
+
+  static int initialPage = 0;
+  final PageController pageController =
+      PageController(initialPage: initialPage);
 
   @override
   void onReady() async {
@@ -17,13 +23,14 @@ class MainTabbarController extends GetxController {
     super.onInit();
   }
 
-  // tab栏页码切换
-  void switchTab(index) {
+  void onJumpTo(int index) {
+    pageController.jumpToPage(index);
     currentIndex.value = index;
   }
 
   @override
   void dispose() {
+    pageController.dispose();
     super.dispose();
   }
 }

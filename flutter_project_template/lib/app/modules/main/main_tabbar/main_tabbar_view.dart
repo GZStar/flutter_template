@@ -12,28 +12,20 @@ import '../../home/home_index.dart';
 import '../../mine/mine/mine_index.dart';
 
 class MainTabbarView extends GetView<MainTabbarController> {
-  List<Widget> indexedStackPages = [
-    HomeView(),
-    TravelView(),
-    DiscoverView(),
-    MineView()
-  ];
-
-  @override
   @override
   Widget build(BuildContext context) {
+    controller.pages = [HomeView(), TravelView(), DiscoverView(), MineView()];
+
     return Scaffold(
       backgroundColor: Colors.orange,
-      body: buildBody(),
+      body: PageView(
+        controller: controller.pageController,
+        onPageChanged: (index) => controller.onJumpTo(index),
+        physics: const NeverScrollableScrollPhysics(),
+        children: controller.pages,
+      ),
       bottomNavigationBar: buildBottomNavigationBar(),
     );
-  }
-
-  Widget buildBody() {
-    return Obx(() => IndexedStack(
-          index: controller.currentIndex.value,
-          children: indexedStackPages,
-        ));
   }
 
   // 底部导航
@@ -46,7 +38,7 @@ class MainTabbarView extends GetView<MainTabbarController> {
           // backgroundColor: Colors.green,
           selectedItemColor: AppColors.primaryColor,
           currentIndex: controller.currentIndex.value,
-          onTap: (index) => controller.switchTab(index),
+          onTap: (index) => controller.onJumpTo(index),
         ));
   }
 

@@ -59,17 +59,21 @@ class HttpUtils {
     if (result['code'] == target.successCode) {
       return result['data'];
     } else {
-      if (result['code'] == 4038) {
-        // 菜单权限被收回
-        UserStore.to.onLogout();
-      } else if (result['code'] == 135010037) {
-        EasyLoading.showError('login_has_expired');
-        UserStore.to.onLogout();
+      if (target.pathType == URLPathType.allUrl) {
+        return result;
       } else {
-        // 其他状态，弹出错误提示信息
-        // EasyLoading.showError(result['msg']);
+        if (result['code'] == 4038) {
+          // 菜单权限被收回
+          UserStore.to.onLogout();
+        } else if (result['code'] == 135010037) {
+          EasyLoading.showError('login_has_expired');
+          UserStore.to.onLogout();
+        } else {
+          // 其他状态，弹出错误提示信息
+          // EasyLoading.showError(result['msg']);
+        }
+        throw NetError(result['code'], result['msg']);
       }
-      throw NetError(result['code'], result['msg']);
     }
   }
 }

@@ -113,6 +113,7 @@ class BannerState extends State<BannerWidget> {
   @override
   void dispose() {
     stop();
+    controller.dispose();
     super.dispose();
   }
 

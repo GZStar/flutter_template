@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_project_template/app/common/widgets/toast.dart';
 import 'package:flutter_project_template/app/data/network/error_handle.dart';
 
@@ -9,7 +8,6 @@ import '../../common/utils/loading.dart';
 import '../../data/apis/login.dart';
 import '../../data/local/store/user_store.dart';
 import '../../data/model/user_model.dart';
-import '../../data/network/http_utils.dart';
 import '../../routes/app_pages.dart';
 
 class LoginController extends GetxController {
@@ -51,6 +49,8 @@ class LoginController extends GetxController {
     } on NetError catch (e) {
       Loading.dismiss();
       showWarnToast(e.msg);
+
+      UserStore.to.isLogin = true;
       Get.offAndToNamed(AppRoutes.mainTabbar);
     }
   }

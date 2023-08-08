@@ -9,7 +9,7 @@ void showWarnToast(String text) {
       gravity: ToastGravity.CENTER,
       backgroundColor: Colors.red,
       textColor: Colors.white,
-      timeInSecForIosWeb: 3);
+      timeInSecForIosWeb: 2);
 }
 
 /// 正常通知

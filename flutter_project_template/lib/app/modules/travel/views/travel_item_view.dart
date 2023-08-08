@@ -44,6 +44,9 @@ class TravelItemView extends StatelessWidget {
   _itemImage(BuildContext context) {
     return Stack(
       children: <Widget>[
+        // FadeInImage.assetNetwork(
+        //     placeholder: "assets/images/wechat/mine/ic_wallet.png",
+        //     image: item.article.images[0].dynamicUrl),
         Image.network(item.article.images[0].dynamicUrl),
         Positioned(
             bottom: 8,
@@ -79,7 +82,7 @@ class TravelItemView extends StatelessWidget {
   }
 
   String _poiName() {
-    return item.article.pois.isEmpty ? '未知' : item.article.pois[0].poiName;
+    return "深圳"; //item.article.pois == null ? '未知' : item.article.pois![0].poiName;
   }
 
   _infoText() {
@@ -102,7 +105,7 @@ class TravelItemView extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.all(5),
-                width: 80,
+                width: 100,
                 child: Text(
                   item.article.author.nickName,
                   maxLines: 1,

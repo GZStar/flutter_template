@@ -17,6 +17,8 @@ class UserStore extends GetxController {
   final _profile = UserLoginResponseModel().obs;
 
   bool get isLogin => _isLogin.value;
+  set isLogin(value) => _isLogin.value = value;
+
   UserLoginResponseModel get profile => _profile.value;
   bool get hasToken => token.isNotEmpty;
 

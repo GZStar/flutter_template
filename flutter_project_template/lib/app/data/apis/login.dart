@@ -4,11 +4,11 @@ import 'base.dart';
 
 class LoginAPI {
   // 手机密码登录
-  static loginWithPassword(params) async {
+  static Future<UserLoginResponseModel> loginWithPassword(params) async {
     var target = RequestTargetModel(
         path: '/user/loginWithPwd', method: Method.post, params: params);
 
-    var reslut = await HttpUtils.request(target);
-    return UserLoginResponseModel.fromJson(reslut);
+    var result = await HttpUtils.request(target);
+    return UserLoginResponseModel.fromJson(result);
   }
 }

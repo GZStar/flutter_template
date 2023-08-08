@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_template/app/data/apis/travel.dart';
 import 'package:get/get.dart';
 
+import '../../../common/utils/loading.dart';
+import '../../../common/widgets/toast.dart';
 import '../../../data/model/trave_model.dart';
 import '../../../data/model/trave_param_model.dart';
 import '../../../data/model/travel_tab_model.dart';
+import '../../../data/network/error_handle.dart';
 
-class TravelController extends GetxController {
-  //TODO: Implement TravelController
+class TravelController extends GetxController with GetTickerProviderStateMixin {
   late TabController tabcontroller;
 
-  int pageIndex = 1;
-  var loading = true.obs;
-  var loadMore = false.obs;
-
-  late RxList<TabGroups> tabs;
-  late RxList<ResultList> travelItems;
+  RxList<TabGroups> tabs = <TabGroups>[].obs;
   TravelParamsModel? travelParamsModel;
 
   @override
   void onInit() {
+    tabs.value = [];
+    tabcontroller = TabController(length: 0, vsync: this);
+
+    loadParamsAndTabData();
     super.onInit();
   }
 
@@ -29,55 +31,25 @@ class TravelController extends GetxController {
 
   @override
   void onClose() {
+    tabcontroller.dispose();
     super.onClose();
   }
 
-  void loadData({loadMore = false}) {
-    if (loadMore) {
-      loadMore.value = true;
-      pageIndex++;
-    } else {
-      pageIndex = 1;
+  void loadParamsAndTabData() async {
+    try {
+      TravelParamsModel paramsModel = await TravelAPI.loadTravelParams();
+      travelParamsModel = paramsModel;
+
+      TravelTabModel travelTabModel = await TravelAPI.loadTravelTabData();
+      tabs.value = travelTabModel.district.groups;
+      tabcontroller = TabController(length: tabs.length, vsync: this);
+
+      print('555555555555555555');
+      print(tabs.length);
+      //非.obs声明的属性需手动更新
+      update();
+    } on NetError catch (e) {
+      print(e);
     }
-
-    // TravelDao.fetch(widget.travelUrl ?? _TRAVEL_URL, widget.params,
-    //         widget.groupChannelCode, pageIndex, PAGE_SIZE)
-    //     .then((TravelItemModel model) {
-    //   _loading = false;
-    //   setState(() {
-    //     List<TravelItem> items = _filterItems(model.resultList);
-    //     if (travelItems != null) {
-    //       travelItems.addAll(items);
-    //       _loadMore = false;
-    //     } else {
-    //       travelItems = items;
-    //     }
-    //   });
-    // }).catchError((e) {
-    //   _loading = false;
-    //   print(e);
-    // });
-  }
-
-  // List<TravelItem> _filterItems(List<TravelItem> resultList) {
-  //   if (resultList == null) {
-  //     return [];
-  //   }
-  //   List<TravelItem> filterItems = [];
-  //   resultList.forEach((item) {
-  //     if (item.article != null) {
-  //       //移除article为空的模型
-  //       filterItems.add(item);
-  //     }
-  //   });
-  //   return filterItems;
-  // }
-
-  // @override
-  // bool get wantKeepAlive => true;
-
-  Future<void> handleRefresh() async {
-    loadData();
-    return;
   }
 }
