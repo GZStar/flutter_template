@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:flutter_project_template/app/common/values/app_values.dart';
 import 'package:flutter_project_template/app/routes/app_pages.dart';
@@ -6,6 +7,7 @@ import 'package:get/get.dart';
 
 import '../../../common/base/base_view.dart';
 import '../../../common/utils/screen_utils.dart';
+import '../../../common/widgets/common_widget.dart';
 import '../../../common/widgets/set_cell.dart';
 import '../../../common/widgets/update_dialog.dart';
 import 'mine_controller.dart';
@@ -18,7 +20,8 @@ class MineView extends BaseView<MineController> {
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
-    return null;
+    return CommonWidget.appBar('',
+        systemOverlayStyle: SystemUiOverlayStyle.dark);
   }
 
   @override

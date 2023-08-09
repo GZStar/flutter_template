@@ -86,66 +86,65 @@ class CommonSetCellState extends State<CommonSetCell> {
     textStyle = widget.textStyle ?? textStyle;
 
     return Material(
-        color: bgColor,
+        // color: bgColor,
         child: InkWell(
-          child: Container(
-            constraints: BoxConstraints(
-                minWidth: double.infinity, // 宽度尽可能大
-                minHeight: widget.cellHeight // 最小高度为50像素
-                ),
-            padding: const EdgeInsets.fromLTRB(_leftEdge, 0, _rightEdge, 0),
-            decoration: UnderlineTabIndicator(
-                borderSide: BorderSide(
-                    width: _lineHeight,
-                    color: widget.hiddenLine == true
-                        ? Colors.transparent
-                        : lineColor),
-                insets: EdgeInsets.fromLTRB(
-                    widget.lineLeftEdge, 0, widget.lineRightEdge, 0)),
-            child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  widget.leftImgPath != null
-                      ? Image.asset(
-                          widget.leftImgPath!,
-                          width: widget.leftImgWH,
-                          height: widget.leftImgWH,
-                        )
-                      : (widget.leftWidget ?? Container()),
-                  SizedBox(
-                      width: (widget.leftImgPath != null ||
-                              widget.leftWidget != null)
+      child: Container(
+        constraints: BoxConstraints(
+            minWidth: double.infinity, // 宽度尽可能大
+            minHeight: widget.cellHeight // 最小高度为50像素
+            ),
+        padding: const EdgeInsets.fromLTRB(_leftEdge, 0, _rightEdge, 0),
+        decoration: UnderlineTabIndicator(
+            borderSide: BorderSide(
+                width: _lineHeight,
+                color:
+                    widget.hiddenLine == true ? Colors.transparent : lineColor),
+            insets: EdgeInsets.fromLTRB(
+                widget.lineLeftEdge, 0, widget.lineRightEdge, 0)),
+        child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              widget.leftImgPath != null
+                  ? Image.asset(
+                      widget.leftImgPath!,
+                      width: widget.leftImgWH,
+                      height: widget.leftImgWH,
+                    )
+                  : (widget.leftWidget ?? Container()),
+              SizedBox(
+                  width:
+                      (widget.leftImgPath != null || widget.leftWidget != null)
                           ? 10
                           : 0),
-                  Offstage(
-                    offstage: widget.title.isEmpty ? true : false,
-                    child: Container(
-                      width: widget.titleWidth,
-                      child: Text(widget.title, style: titleStyle),
-                    ),
-                  ),
-                  Expanded(
-                      child: CommonTextField(
-                    text: widget.text,
-                    hintText: '',
-                    enabled: false,
-                    textStyle: textStyle,
-                    textAlign: widget.textAlign,
-                    border: InputBorder.none,
-                  )),
-                  widget.rightWidget ?? Container(),
-                  Offstage(
-                    offstage: _hiddenArrow,
-                    child: const Icon(Icons.arrow_forward_ios,
-                        size: 18, color: Color(0xFFC8C8C8)),
-                  ),
-                ]),
-          ),
-          onTap: () {
-            if (widget.clickCallBack != null) {
-              widget.clickCallBack!();
-            }
-          },
-        ));
+              Offstage(
+                offstage: widget.title.isEmpty ? true : false,
+                child: Container(
+                  width: widget.titleWidth,
+                  child: Text(widget.title, style: titleStyle),
+                ),
+              ),
+              Expanded(
+                  child: CommonTextField(
+                text: widget.text,
+                hintText: '',
+                enabled: false,
+                textStyle: textStyle,
+                textAlign: widget.textAlign,
+                border: InputBorder.none,
+              )),
+              widget.rightWidget ?? Container(),
+              Offstage(
+                offstage: _hiddenArrow,
+                child: const Icon(Icons.arrow_forward_ios,
+                    size: 18, color: Color(0xFFC8C8C8)),
+              ),
+            ]),
+      ),
+      onTap: () {
+        if (widget.clickCallBack != null) {
+          widget.clickCallBack!();
+        }
+      },
+    ));
   }
 }

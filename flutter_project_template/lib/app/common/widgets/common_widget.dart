@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../style/app_colors.dart';
@@ -7,13 +8,16 @@ import '../values/app_values.dart';
 
 class CommonWidget {
   static AppBar appBar(String appBarTitleText,
-      {bool isBackButtonEnabled = true, List<Widget>? actions}) {
+      {bool isBackButtonEnabled = true,
+      List<Widget>? actions,
+      SystemUiOverlayStyle systemOverlayStyle = SystemUiOverlayStyle.light}) {
     return AppBar(
       toolbarHeight: AppValues.appBarbarHeight,
       backgroundColor: AppColors.appBarColor,
       elevation: 0,
       automaticallyImplyLeading: isBackButtonEnabled,
       actions: actions,
+      systemOverlayStyle: systemOverlayStyle,
       // iconTheme: const IconThemeData(color: AppColors.appBarIconColor),
       title: Text(
         appBarTitleText,
