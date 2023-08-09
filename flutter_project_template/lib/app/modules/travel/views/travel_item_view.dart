@@ -45,7 +45,7 @@ class TravelItemView extends StatelessWidget {
     return Stack(
       children: <Widget>[
         FadeInImage.assetNetwork(
-            placeholder: "assets/images/picture/picture0.jpeg",
+            placeholder: "assets/images/swiper/swiper_gif5.gif",
             image: item.article.images[0].dynamicUrl),
         // Image.network(item.article.images[0].dynamicUrl),
         Positioned(
@@ -105,7 +105,7 @@ class TravelItemView extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.all(5),
-                width: 100,
+                width: 80,
                 child: Text(
                   item.article.author.nickName,
                   maxLines: 1,
