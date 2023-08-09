@@ -9,7 +9,7 @@ class SplashView extends GetView<SplashController> {
     return Material(
       color: Colors.blue,
       child: Container(
-        color: Colors.yellow,
+        color: AppColors.appBarColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
