@@ -25,15 +25,8 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
 
   @override
   Widget body(BuildContext context) {
-    // return Obx(() => _body(context, controller.dataArr));
     return _body(context, controller.dataArr);
-    // return Text('');
   }
-
-  // @override
-  // Widget pageScaffold(BuildContext context) {
-  //   return _body(context, controller.dataArr);
-  // }
 
   Widget _body(context, dataArr) {
     return CustomScrollView(
@@ -52,16 +45,6 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
           flexibleSpace: FlexibleSpaceBar(
             collapseMode: CollapseMode.pin,
             stretchModes: const <StretchMode>[StretchMode.zoomBackground],
-            // background: Image.network(
-            //   "https://r11.realme.net/CN/thread/1555770224727732224.jpg",
-            //   //默认是 fit: BoxFit.contain，在容器宽高比背景图片的宽高都大时
-            //   //（比如原始图片比较小），不再放大。可以设置为其它效果，让其放大
-            //   fit: BoxFit.fitWidth,
-            // )
-            // background: Image.asset(
-            //   "assets/images/wechat/discover/friends/wx_bg0.jpeg",
-            //   fit: BoxFit.fitWidth,
-            // )
             background: Container(
               color: Colors.white,
               child: _header(context),
@@ -242,20 +225,5 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
 
   _jumpInfo() {
     // 跳转个人信息页 跳转传递model
-
-    // ContactsModel model = ContactsModel();
-    // model.id = 123;
-    // model.name = '小于';
-    // model.namePinyin = '小于';
-    // model.phone = '17372826674';
-    // model.sex = '0';
-    // model.region = '淮北市';
-    // model.label = '';
-    // model.color = '#c579f2';
-    // model.avatarUrl = 'https://gitee.com/iotjh/Picture/raw/master/lufei.png';
-    // model.isStar = false;
-
-    // String jsonStr = Uri.encodeComponent(jsonEncode(model));
-    // JhNavUtils.pushNamed(context, '${'WxUserInfoPage'}?passValue=$jsonStr');
   }
 }
