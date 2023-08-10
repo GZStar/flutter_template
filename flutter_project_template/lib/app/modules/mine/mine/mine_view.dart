@@ -34,8 +34,10 @@ class MineView extends BaseView<MineController> {
       backgroundColor: AppColors.backgroundColor,
       // 创建一个公共的 Scrollable 和 Viewport
       body: CustomScrollView(
+        primary: true,
         // 弹性效果（在滚动到尽头时仍可继续滚动）
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.transparent,

@@ -66,6 +66,7 @@ class LoginView extends BaseView<LoginController> {
             const SizedBox(height: 80),
             ElevatedButton(
                 onPressed: () {
+                  FocusScope.of(context).unfocus();
                   controller.login();
                 },
                 child: Text('Sign In')),

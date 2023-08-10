@@ -12,7 +12,7 @@ class CommonWidget {
       List<Widget>? actions,
       SystemUiOverlayStyle systemOverlayStyle = SystemUiOverlayStyle.light}) {
     return AppBar(
-      toolbarHeight: AppValues.appBarbarHeight,
+      // toolbarHeight: AppValues.appBarbarHeight,
       backgroundColor: AppColors.appBarColor,
       elevation: 0,
       automaticallyImplyLeading: isBackButtonEnabled,
