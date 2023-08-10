@@ -31,7 +31,7 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
   Widget _body(context, dataArr) {
     return CustomScrollView(
       // 弹性效果（在滚动到尽头时仍可继续滚动）
-      physics: const BouncingScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       slivers: [
         SliverAppBar(
           backgroundColor: AppColors.appBarColor,

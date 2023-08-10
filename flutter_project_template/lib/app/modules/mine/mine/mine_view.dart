@@ -30,96 +30,105 @@ class MineView extends BaseView<MineController> {
 
   @override
   Widget body(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          color: AppColors.backgroundColor,
-          child: MediaQuery.removePadding(
-            context: context,
-            removeTop: true,
-            child: getContentCell(),
+    return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
+      // 创建一个公共的 Scrollable 和 Viewport
+      body: CustomScrollView(
+        // 弹性效果（在滚动到尽头时仍可继续滚动）
+        physics: const AlwaysScrollableScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            collapsedHeight: 100,
+            expandedHeight: 100,
+            // pinned: true, // 是否固定
+            // floating: true, //是否漂浮
+            // snap: false, // 当漂浮时，此参数才有效
+            // 让 FlexibleSpaceBar 与外部组件同步滚动（在内部滚动结束后）
+            stretch: true,
+            flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.pin,
+                stretchModes: const <StretchMode>[StretchMode.zoomBackground],
+                background: _header()),
           ),
+          getSliverList(),
+        ],
+      ),
+    );
+  }
+
+  Widget _header() {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Image.asset(
+          'assets/images/service/bg_service_fuwufankui.png',
+          fit: BoxFit.cover,
         ),
-        Positioned(
-          top: 0,
-          child: Obx(() => Container(
-                color: Colors.blue,
-                constraints: BoxConstraints(
-                  minWidth: ScreenUtils.screenWidth,
-                  maxHeight: controller.topH.value,
-                ),
-              )),
-        ),
+        Positioned(left: 15, right: 15, bottom: 10, child: getHeader())
       ],
     );
   }
 
-  // cell
-  Widget getContentCell() {
-    return ListView(
-      controller: controller.scrollController,
-      // physics: const AlwaysScrollableScrollPhysics(),
-      physics:
-          const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-      children: <Widget>[
-        getHeader(),
-        const SizedBox(height: AppValues.smallMargin),
-        CommonSetCell(
-            cellHeight: cellH,
-            lineLeftEdge: leftSpace,
-            leftImgPath: 'assets/images/wechat/mine/ic_wallet.png',
-            title: '服务',
-            hiddenLine: true,
-            clickCallBack: () {}),
-        SizedBox(height: rowSpace),
-        CommonSetCell(
-            cellHeight: cellH,
-            lineLeftEdge: leftSpace,
-            leftImgPath: 'assets/images/wechat/mine/ic_collections.png',
-            title: '收藏'),
-        CommonSetCell(
-            cellHeight: cellH,
-            lineLeftEdge: leftSpace,
-            leftImgPath: 'assets/images/wechat/mine/ic_album.png',
-            title: '相册'),
-        CommonSetCell(
-            cellHeight: cellH,
-            lineLeftEdge: leftSpace,
-            leftImgPath: 'assets/images/wechat/mine/ic_cards_wallet.png',
-            title: '卡包'),
-        CommonSetCell(
+  Widget getSliverList() {
+    return SliverList(
+        delegate: SliverChildListDelegate([
+      const SizedBox(height: AppValues.smallMargin),
+      CommonSetCell(
           cellHeight: cellH,
           lineLeftEdge: leftSpace,
-          leftImgPath: 'assets/images/wechat/mine/ic_emotions.png',
-          title: '表情',
+          leftImgPath: 'assets/images/wechat/mine/ic_wallet.png',
+          title: '服务',
           hiddenLine: true,
-        ),
-        SizedBox(height: rowSpace),
-        CommonSetCell(
+          clickCallBack: () {}),
+      SizedBox(height: rowSpace),
+      CommonSetCell(
           cellHeight: cellH,
           lineLeftEdge: leftSpace,
-          leftImgPath: 'assets/images/wechat/mine/ic_settings.png',
-          title: '设置',
-          hiddenLine: true,
-          clickCallBack: () {
-            Get.toNamed(AppRoutes.settings);
-          },
-        ),
-        SizedBox(height: rowSpace),
-        CommonSetCell(
+          leftImgPath: 'assets/images/wechat/mine/ic_collections.png',
+          title: '收藏'),
+      CommonSetCell(
           cellHeight: cellH,
-          leftImgPath: 'assets/images/other/ic_about.png',
-          title: '检查更新',
-          text: '有新版本',
-          textStyle: const TextStyle(fontSize: 14.0, color: Colors.red),
-          hiddenLine: true,
-          clickCallBack: () {
-            showUpdateDialog();
-          },
-        ),
-        const SizedBox(height: 50),
-      ],
-    );
+          lineLeftEdge: leftSpace,
+          leftImgPath: 'assets/images/wechat/mine/ic_album.png',
+          title: '相册'),
+      CommonSetCell(
+          cellHeight: cellH,
+          lineLeftEdge: leftSpace,
+          leftImgPath: 'assets/images/wechat/mine/ic_cards_wallet.png',
+          title: '卡包'),
+      CommonSetCell(
+        cellHeight: cellH,
+        lineLeftEdge: leftSpace,
+        leftImgPath: 'assets/images/wechat/mine/ic_emotions.png',
+        title: '表情',
+        hiddenLine: true,
+      ),
+      SizedBox(height: rowSpace),
+      CommonSetCell(
+        cellHeight: cellH,
+        lineLeftEdge: leftSpace,
+        leftImgPath: 'assets/images/wechat/mine/ic_settings.png',
+        title: '设置',
+        hiddenLine: true,
+        clickCallBack: () {
+          Get.toNamed(AppRoutes.settings);
+        },
+      ),
+      SizedBox(height: rowSpace),
+      CommonSetCell(
+        cellHeight: cellH,
+        leftImgPath: 'assets/images/other/ic_about.png',
+        title: '检查更新',
+        text: '有新版本',
+        textStyle: const TextStyle(fontSize: 14.0, color: Colors.red),
+        hiddenLine: true,
+        clickCallBack: () {
+          showUpdateDialog();
+        },
+      ),
+      const SizedBox(height: 50),
+    ]));
   }
 
   void showUpdateDialog() {
@@ -131,51 +140,64 @@ class MineView extends BaseView<MineController> {
 
   // 头部
   Widget getHeader() {
-    return Container(
-      padding: EdgeInsets.only(
-          left: 15, bottom: 40.0, top: ScreenUtils.topSafeHeight + 40),
-      color: Colors.white,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Row(
-          children: <Widget>[
-            getUserPhoto(),
-            getUserMoreInfo(),
-          ],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Row(
+          children: [getUserPhoto(), getUserMoreInfo()],
         ),
-      ),
+        Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: Image.asset(
+                'assets/images/wechat/mine/ic_setting_myQR.png',
+                width: 18.0,
+                height: 18.0,
+                color: Colors.white,
+              ),
+            ),
+            const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.white)
+          ],
+        )
+      ],
     );
   }
 
   Widget getUserPhoto() {
+    // return InkWell(
+    //   child: Container(
+    //     height: 75,
+    //     width: 75,
+    //     child: ClipRRect(
+    //       borderRadius: BorderRadius.circular(10),
+    //       child: (controller.userProfile.avatarUrl ?? "").isNotEmpty
+    //           ? Image.network(
+    //               controller.userProfile.avatarUrl ?? "",
+    //               errorBuilder: (context, error, stackTrace) {
+    //                 return Image.asset('assets/images/other/lufei.png');
+    //               },
+    //             )
+    //           : Image.asset('assets/images/other/lufei.png'),
+    //     ),
+    //   ),
+    //   onTap: () {
+    //     onPhotoClick();
+    //   },
+    // );
     return InkWell(
       child: Container(
-        height: 75,
-        width: 75,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: (controller.userProfile.avatarUrl ?? "").isNotEmpty
-              ? Image.network(
-                  controller.userProfile.avatarUrl ?? "",
-                  errorBuilder: (context, error, stackTrace) {
-                    return Image.asset(
-                        'assets/images/wechat/mine/default_nor_avatar.png');
-                  },
-                )
-              : Image.asset('assets/images/wechat/mine/default_nor_avatar.png'),
-          // child: FadeInImage(
-          //   placeholder: const AssetImage(
-          //       'assets/images/wechat/mine/default_nor_avatar.png'),
-          //   image: NetworkImage(''),
-          //   imageErrorBuilder: (ctx, exception, stackTrace) {
-          //     return Container(); //THE WIDGET YOU WANT TO SHOW IF URL NOT RETURN IMAGE
-          //   },
-          // ),
+        height: 80,
+        width: 80,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          image: const DecorationImage(
+            fit: BoxFit.fitHeight,
+            image: AssetImage('assets/images/other/lufei.png'),
+          ),
         ),
       ),
-      onTap: () {
-        onPhotoClick();
-      },
+      onTap: () => onPhotoClick(),
     );
   }
 
@@ -206,61 +228,41 @@ class MineView extends BaseView<MineController> {
   }
 
   Widget getUserMoreInfo() {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.only(left: 16.0),
-        child: Column(
-          children: <Widget>[
-            InkWell(
-              onTap: () {
-                print('点击昵称==  ${controller.userProfile.name}');
-                // JhNavUtils.pushNamed(context, 'WxPersonInfoPage');
-              },
-              child: Container(
-                width: double.maxFinite,
-                child: Text(
-                  controller.userProfile.name ?? '',
-                  style: const TextStyle(
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  textAlign: TextAlign.left,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        InkWell(
+          onTap: () {
+            print('点击昵称==  ${controller.userProfile.name}');
+            // JhNavUtils.pushNamed(context, 'WxPersonInfoPage');
+          },
+          child: Container(
+            margin: EdgeInsets.only(left: 10),
+            // width: 120,
+            child: Text(
+              controller.userProfile.name ?? '路飞',
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 28.0,
+                fontWeight: FontWeight.w700,
               ),
+              textAlign: TextAlign.left,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            InkWell(
-              onTap: () {
-                print('跳转个人信息');
-              },
-              child: Padding(
-                padding: EdgeInsets.only(top: 5.0),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(controller.userProfile.phoneNum ?? '',
-                          style: const TextStyle(
-                              fontSize: 17, color: Colors.grey)),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 20.0),
-                      child: Image.asset(
-                        'assets/images/wechat/mine/ic_setting_myQR.png',
-                        width: 18.0,
-                        height: 18.0,
-                        color: AppColors.tipsColor,
-                      ),
-                    ),
-                    const Icon(Icons.arrow_forward_ios,
-                        size: 18, color: Color(0xFFC8C8C8))
-                  ],
-                ),
-              ),
-            )
-          ],
+          ),
         ),
-      ),
+        InkWell(
+          onTap: () {
+            print('跳转个人信息');
+          },
+          child: Container(
+            margin: EdgeInsets.only(left: 10, top: 5),
+            child: Text(controller.userProfile.phoneNum ?? '13100002222',
+                style: const TextStyle(fontSize: 17, color: Colors.white)),
+          ),
+        )
+      ],
     );
   }
 }
