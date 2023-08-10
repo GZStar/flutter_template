@@ -20,8 +20,7 @@ class MineView extends BaseView<MineController> {
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('',
-        systemOverlayStyle: SystemUiOverlayStyle.dark);
+    return null;
   }
 
   @override
@@ -44,7 +43,7 @@ class MineView extends BaseView<MineController> {
         Positioned(
           top: 0,
           child: Obx(() => Container(
-                color: Colors.white,
+                color: Colors.blue,
                 constraints: BoxConstraints(
                   minWidth: ScreenUtils.screenWidth,
                   maxHeight: controller.topH.value,

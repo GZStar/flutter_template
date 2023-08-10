@@ -59,14 +59,10 @@ class BannerWidget extends StatefulWidget {
   }
 }
 
-class BannerState extends State<BannerWidget>
-    with AutomaticKeepAliveClientMixin {
+class BannerState extends State<BannerWidget> {
   Timer? timer;
   int selectedIndex = 0;
   late PageController controller;
-
-  @override
-  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -123,7 +119,6 @@ class BannerState extends State<BannerWidget>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return Container(
       height: widget.height,
       color: Colors.black12,

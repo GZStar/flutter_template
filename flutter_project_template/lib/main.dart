@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_project_template/app/common/style/app_colors.dart';
 
 import 'package:get/get.dart';
 

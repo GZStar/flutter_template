@@ -14,61 +14,70 @@ import 'friends_circle_controller.dart';
 class FriendsCircleView extends BaseView<FriendsCircleController> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('朋友圈'.tr);
+    // return CommonWidget.appBar('朋友圈'.tr);
+    return null;
+  }
+
+  @override
+  Widget pageContent(BuildContext context) {
+    return body(context);
   }
 
   @override
   Widget body(BuildContext context) {
-    return Obx(() => _body(context, controller.dataArr));
+    // return Obx(() => _body(context, controller.dataArr));
+    return _body(context, controller.dataArr);
+    // return Text('');
   }
 
-  Widget _body(context, dataArr) {
-    var navBgColor = AppColors.appBarColor;
-    navBgColor = navBgColor.withOpacity(controller.appbarOpacity.value);
+  // @override
+  // Widget pageScaffold(BuildContext context) {
+  //   return _body(context, controller.dataArr);
+  // }
 
-    return Stack(children: <Widget>[
-      Container(
-        color: AppColors.backgroundColor,
-        child: MediaQuery.removePadding(
-          context: context,
-          removeTop: true,
-          child: ListView.builder(
-              controller: controller.scrollController,
-              physics: const BouncingScrollPhysics(
-                  parent: AlwaysScrollableScrollPhysics()),
-              itemCount: dataArr.length + 1,
-              itemBuilder: (BuildContext context, int index) {
-                if (index == 0) {
-                  return Container(
-                    width: double.infinity,
-                    height: controller.imgNormalHeight,
-                  );
-                }
-                return _cell(context, dataArr[index - 1]);
-              }),
+  Widget _body(context, dataArr) {
+    return CustomScrollView(
+      // 弹性效果（在滚动到尽头时仍可继续滚动）
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        SliverAppBar(
+          backgroundColor: AppColors.appBarColor,
+          title: const Text('朋友圈'),
+          expandedHeight: 250,
+          pinned: true, // 是否固定
+          floating: false, //是否漂浮
+          snap: false, // 当漂浮时，此参数才有效
+          // 让 FlexibleSpaceBar 与外部组件同步滚动（在内部滚动结束后）
+          stretch: true,
+          flexibleSpace: FlexibleSpaceBar(
+            collapseMode: CollapseMode.pin,
+            stretchModes: const <StretchMode>[StretchMode.zoomBackground],
+            // background: Image.network(
+            //   "https://r11.realme.net/CN/thread/1555770224727732224.jpg",
+            //   //默认是 fit: BoxFit.contain，在容器宽高比背景图片的宽高都大时
+            //   //（比如原始图片比较小），不再放大。可以设置为其它效果，让其放大
+            //   fit: BoxFit.fitWidth,
+            // )
+            // background: Image.asset(
+            //   "assets/images/wechat/discover/friends/wx_bg0.jpeg",
+            //   fit: BoxFit.fitWidth,
+            // )
+            background: Container(
+              color: Colors.white,
+              child: _header(context),
+            ),
+          ),
+          actions: [
+            IconButton(onPressed: () => {}, icon: const Icon(Icons.camera_alt))
+          ],
         ),
-      ),
-      Positioned(
-        top: 0,
-        left: 0,
-        right: 0,
-        height: controller.imgChangeHeight.value,
-        child: _header(context),
-      ),
-      // Positioned(
-      //   top: 0,
-      //   left: 0,
-      //   right: 0,
-      //   child: BaseAppBar('朋友圈',
-      //       bgColor: _navBgColor,
-      //       brightness:
-      //           _appbarOpacity == 1.0 ? Brightness.light : Brightness.dark,
-      //       rightImgPath: 'assets/wechat/discover/ic_xiangji.png',
-      //       rightItemCallBack: () {
-      //     _clickNav();
-      //   }),
-      // ),
-    ]);
+        Obx(() => SliverList.builder(
+            itemCount: dataArr.length,
+            itemBuilder: (BuildContext context, int index) {
+              return _cell(context, dataArr[index]);
+            }))
+      ],
+    );
   }
 
   // _header
@@ -77,11 +86,7 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
       fit: StackFit.expand,
       children: [
         Container(
-          margin: EdgeInsets.only(bottom: 20),
-          // child: Image.network(
-          //   'http://img1.mukewang.com/5c18cf540001ac8206000338.jpg',
-          //   fit: BoxFit.cover,
-          // ),
+          margin: const EdgeInsets.only(bottom: 20),
           child: Image.asset(
             'assets/images/wechat/discover/friends/wx_bg0.jpeg',
             fit: BoxFit.cover,
@@ -95,7 +100,7 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
                 Container(
                   margin: EdgeInsets.only(bottom: 10),
                   child: const Text(
-                    '小于',
+                    '路飞',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
@@ -103,7 +108,7 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
                     ),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 10),
                 InkWell(
                   child: Container(
                     height: 75,
