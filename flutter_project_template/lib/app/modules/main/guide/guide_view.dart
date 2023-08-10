@@ -1,5 +1,7 @@
 import 'dart:ui' as ui show window;
 
+import 'package:card_swiper/card_swiper.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -11,9 +13,10 @@ class GuideView extends GetView<GuideController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: Colors.blue,
         height: Get.height,
         child: Stack(
+          alignment: Alignment.center,
           children: [
             getBanner(),
             Obx(() {
@@ -49,8 +52,25 @@ class GuideView extends GetView<GuideController> {
     );
   }
 
+  // banner() {
+  //   return Swiper(
+  //     itemCount: controller.imageUrls.length,
+  //     autoplay: false,
+  //     loop: false,
+  //     itemBuilder: (BuildContext context, int index) {
+  //       return Image.asset(controller.imageUrls[index]);
+  //     },
+  //     //自定义指示器
+  //     pagination: const SwiperPagination(
+  //         alignment: Alignment.bottomCenter,
+  //         margin: EdgeInsets.only(bottom: 100),
+  //         builder: DotSwiperPaginationBuilder(
+  //             color: Colors.white60, size: 6, activeSize: 12)),
+  //   );
+  // }
+
   Widget getSkipButton() {
-    MediaQueryData mediaQuery = MediaQueryData.fromWindow(ui.window);
+    MediaQueryData mediaQuery = MediaQueryData.fromView(ui.window);
 
     return Positioned(
       top: mediaQuery.padding.top + 18.0,
@@ -64,17 +84,15 @@ class GuideView extends GetView<GuideController> {
   }
 
   Widget getStartButton() {
-    MediaQueryData mediaQuery = MediaQueryData.fromWindow(ui.window);
+    MediaQueryData mediaQuery = MediaQueryData.fromView(ui.window);
 
-    return Center(
-      child: Positioned(
-        bottom: mediaQuery.padding.bottom + 50.0,
-        child: ElevatedButton(
-            onPressed: (() {
-              controller.closeView();
-            }),
-            child: const Text('Start')),
-      ),
+    return Positioned(
+      bottom: mediaQuery.padding.bottom + 50.0,
+      child: ElevatedButton(
+          onPressed: (() {
+            controller.closeView();
+          }),
+          child: const Text('Start')),
     );
   }
 }

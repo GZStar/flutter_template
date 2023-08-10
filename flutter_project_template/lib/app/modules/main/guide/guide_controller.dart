@@ -8,6 +8,12 @@ import '../../../routes/app_pages.dart';
 class GuideController extends GetxController {
   List<BannerItem> bannerList = [];
   var isLastPage = false.obs;
+  final imageUrls = [
+    'assets/images/guide/guide1.png',
+    'assets/images/guide/guide2.png',
+    'assets/images/guide/guide3.png',
+    'assets/images/guide/guide4.png',
+  ];
 
   @override
   void onInit() {
