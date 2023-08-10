@@ -57,7 +57,8 @@ class TravelTabPageState extends State<TravelTabPage>
 
   @override
   Widget build(BuildContext context) {
-    // super.build(context);
+    print('travel page build');
+    super.build(context); // 必须调用
     return Scaffold(
       body: LoadingContainer(
         isLoading: loading,
@@ -101,8 +102,6 @@ class TravelTabPageState extends State<TravelTabPage>
           travelItems.clear();
           travelItems.addAll(tempList);
         }
-        print('32323333333333333');
-        print(travelItems.length);
       });
       loading = false;
     } on NetError catch (e) {

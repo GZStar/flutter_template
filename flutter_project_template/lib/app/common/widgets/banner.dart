@@ -59,10 +59,14 @@ class BannerWidget extends StatefulWidget {
   }
 }
 
-class BannerState extends State<BannerWidget> {
+class BannerState extends State<BannerWidget>
+    with AutomaticKeepAliveClientMixin {
   Timer? timer;
   int selectedIndex = 0;
   late PageController controller;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -119,6 +123,7 @@ class BannerState extends State<BannerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
       height: widget.height,
       color: Colors.black12,
@@ -148,6 +153,7 @@ class BannerState extends State<BannerWidget> {
       itemCount: count,
       controller: controller,
       onPageChanged: onPageChanged,
+      allowImplicitScrolling: true,
       itemBuilder: (context, index) {
         return InkWell(
             onTap: () {

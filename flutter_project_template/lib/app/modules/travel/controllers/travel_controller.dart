@@ -36,6 +36,7 @@ class TravelController extends GetxController with GetTickerProviderStateMixin {
   }
 
   void loadParamsAndTabData() async {
+    Loading.show();
     try {
       TravelParamsModel paramsModel = await TravelAPI.loadTravelParams();
       travelParamsModel = paramsModel;
@@ -44,12 +45,12 @@ class TravelController extends GetxController with GetTickerProviderStateMixin {
       tabs.value = travelTabModel.district.groups;
       tabcontroller = TabController(length: tabs.length, vsync: this);
 
-      print('555555555555555555');
-      print(tabs.length);
       //非.obs声明的属性需手动更新
       update();
+      Loading.dismiss();
     } on NetError catch (e) {
       print(e);
+      Loading.dismiss();
     }
   }
 }
