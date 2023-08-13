@@ -18,7 +18,7 @@ class TravelView extends BaseView<TravelController> {
   @override
   Widget body(BuildContext context) {
     return Container(
-      color: AppColors.backgroundColor,
+      // color: AppColors.backgroundColor,
       child: MediaQuery.removePadding(
         context: context,
         removeTop: true,
@@ -38,13 +38,11 @@ class TravelView extends BaseView<TravelController> {
 
   Widget _tabBar() {
     return Container(
-      color: Colors.white,
+      // color: Colors.white,
       padding: EdgeInsets.only(left: 2),
       child: Obx(() => TabBar(
             controller: controller.tabcontroller,
             isScrollable: true,
-            labelColor: Colors.black,
-            // labelPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
             indicatorColor: Color(0xff2FCFBB),
             indicatorPadding: EdgeInsets.all(6),
             indicatorSize: TabBarIndicatorSize.label,

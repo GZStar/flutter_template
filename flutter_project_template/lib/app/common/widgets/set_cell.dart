@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:flutter_project_template/app/common/widgets/text_field.dart';
+import 'package:get/get.dart';
 
 const double _imgWH = 22.0; // 左侧图片宽高
 const double _titleSpace = 100.0; // 左侧title默认宽
@@ -74,11 +75,10 @@ class CommonSetCellState extends State<CommonSetCell> {
   Widget build(BuildContext context) {
     // 默认颜色
     var bgColor = Colors.white;
-    var titleColor = AppColors.titleColor;
+    var titleColor = Get.isDarkMode ? AppColors.textDark : AppColors.text;
     var titleStyle = TextStyle(fontSize: _titleFontSize, color: titleColor);
-    var textColor = AppColors.iwordsColor;
+    var textColor = Get.isDarkMode ? AppColors.textDark : AppColors.text;
     var textStyle = TextStyle(fontSize: _textFontSize, color: textColor);
-    var lineColor = AppColors.borderBackgroundColor;
 
     // 设置的颜色优先级高于暗黑模式
     bgColor = widget.bgColor ?? bgColor;
@@ -94,51 +94,57 @@ class CommonSetCellState extends State<CommonSetCell> {
             minHeight: widget.cellHeight // 最小高度为50像素
             ),
         padding: const EdgeInsets.fromLTRB(_leftEdge, 0, _rightEdge, 0),
-        decoration: UnderlineTabIndicator(
-            borderSide: BorderSide(
-                width: _lineHeight,
-                color:
-                    widget.hiddenLine == true ? Colors.transparent : lineColor),
-            insets: EdgeInsets.fromLTRB(
-                widget.lineLeftEdge, 0, widget.lineRightEdge, 0)),
-        child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              widget.leftImgPath != null
-                  ? Image.asset(
-                      widget.leftImgPath!,
-                      width: widget.leftImgWH,
-                      height: widget.leftImgWH,
-                    )
-                  : (widget.leftWidget ?? Container()),
-              SizedBox(
-                  width:
-                      (widget.leftImgPath != null || widget.leftWidget != null)
-                          ? 10
-                          : 0),
-              Offstage(
-                offstage: widget.title.isEmpty ? true : false,
-                child: Container(
-                  width: widget.titleWidth,
-                  child: Text(widget.title, style: titleStyle),
-                ),
-              ),
-              Expanded(
-                  child: CommonTextField(
-                text: widget.text,
-                hintText: '',
-                enabled: false,
-                textStyle: textStyle,
-                textAlign: widget.textAlign,
-                border: InputBorder.none,
-              )),
-              widget.rightWidget ?? Container(),
-              Offstage(
-                offstage: _hiddenArrow,
-                child: const Icon(Icons.arrow_forward_ios,
-                    size: 18, color: Color(0xFFC8C8C8)),
-              ),
-            ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          verticalDirection: VerticalDirection.up,
+          children: [
+            Visibility(
+              visible: !widget.hiddenLine,
+              child: const Divider(),
+            ),
+            Container(
+              height: widget.cellHeight,
+              child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    widget.leftImgPath != null
+                        ? Image.asset(
+                            widget.leftImgPath!,
+                            width: widget.leftImgWH,
+                            height: widget.leftImgWH,
+                          )
+                        : (widget.leftWidget ?? Container()),
+                    SizedBox(
+                        width: (widget.leftImgPath != null ||
+                                widget.leftWidget != null)
+                            ? 10
+                            : 0),
+                    Offstage(
+                      offstage: widget.title.isEmpty ? true : false,
+                      child: Container(
+                        width: widget.titleWidth,
+                        child: Text(widget.title),
+                      ),
+                    ),
+                    Expanded(
+                        child: CommonTextField(
+                      text: widget.text,
+                      hintText: '',
+                      enabled: false,
+                      textStyle: textStyle,
+                      textAlign: widget.textAlign,
+                      border: InputBorder.none,
+                    )),
+                    widget.rightWidget ?? Container(),
+                    Offstage(
+                      offstage: _hiddenArrow,
+                      child: const Icon(Icons.arrow_forward_ios,
+                          size: 18, color: Color(0xFFC8C8C8)),
+                    ),
+                  ]),
+            ),
+          ],
+        ),
       ),
       onTap: () {
         if (widget.clickCallBack != null) {

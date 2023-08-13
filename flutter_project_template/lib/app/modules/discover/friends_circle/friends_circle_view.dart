@@ -35,7 +35,7 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
           const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       slivers: [
         SliverAppBar(
-          backgroundColor: AppColors.appBarColor,
+          // backgroundColor: AppColors.appBarColor,
           title: const Text('朋友圈'),
           expandedHeight: 250,
           pinned: true, // 是否固定
@@ -47,7 +47,7 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
             collapseMode: CollapseMode.pin,
             stretchModes: const <StretchMode>[StretchMode.zoomBackground],
             background: Container(
-              color: AppColors.backgroundColor,
+              color: Get.isDarkMode ? AppColors.backgroundDark : Colors.white,
               child: _header(context),
             ),
           ),
@@ -115,87 +115,83 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
 
   // cell
   Widget _cell(context, item) {
-    return InkWell(
-        onTap: () => _clickCell(context, item['name']),
-        child: Container(
-          decoration: const BoxDecoration(
-              // border: Border.all(color: KColors.kLineColor, width: 1),
-              border: Border(
-            bottom: BorderSide(
-              width: 0.5,
-              color: AppColors.separateLine,
-            ), // 下边框
-          )),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // 头像
-              InkWell(
-                onTap: () => _jumpInfo(),
-                child: Container(
-                  margin: EdgeInsets.all(15),
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(item['name'].substring(0, 1),
-                        style: TextStyle(color: Colors.white, fontSize: 20)),
+    return Container(
+      decoration: BoxDecoration(
+          border: Border(
+        bottom: BorderSide(
+          width: 0.5,
+          color: Get.isDarkMode ? AppColors.lineDark : AppColors.line,
+        ), // 下边框
+      )),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 头像
+          InkWell(
+            onTap: () => _jumpInfo(),
+            child: Container(
+              margin: EdgeInsets.all(15),
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Text(item['name'].substring(0, 1),
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
+              ),
+            ),
+          ),
+          Expanded(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                Container(
+                  margin: EdgeInsets.only(top: 13),
+                  child: Text(
+                    item['name'],
+                    style:
+                        TextStyle(color: AppColors.gradientBlue, fontSize: 15),
                   ),
                 ),
-              ),
-              Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                Container(
+                    margin: EdgeInsets.fromLTRB(0, 5, 15, 5),
+                    child: Text(
+                      item['content'],
+                      style: TextStyle(fontSize: 13),
+                    )),
+                _imgs(context, item),
+                Container(
+                    margin: EdgeInsets.fromLTRB(0, 5, 15, 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 13),
-                      child: Text(
-                        item['name'],
-                        style:
-                            TextStyle(color: AppColors.blueColor, fontSize: 15),
-                      ),
-                    ),
-                    Container(
-                        margin: EdgeInsets.fromLTRB(0, 5, 15, 5),
-                        child: Text(
-                          item['content'],
-                          style: TextStyle(fontSize: 13),
-                        )),
-                    _imgs(context, item),
-                    Container(
-                        margin: EdgeInsets.fromLTRB(0, 5, 15, 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              item['time'],
-                              style: const TextStyle(
-                                  color: AppColors.swordsColor, fontSize: 13),
+                        Text(
+                          item['time'],
+                          style: const TextStyle(fontSize: 13),
+                        ),
+                        InkWell(
+                          child: Container(
+                            width: 34,
+                            height: 22,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.white,
                             ),
-                            InkWell(
-                              child: Container(
-                                width: 34,
-                                height: 22,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: Colors.white,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/wechat/discover/ic_diandian.png',
-                                  color: AppColors.blueColor,
-                                ),
-                              ),
-                              onTap: () => _clickCell(context, '评论'),
-                            )
-                          ],
-                        )),
-                  ])),
-            ],
-          ),
-        ));
+                            child: Image.asset(
+                              'assets/images/wechat/discover/ic_diandian.png',
+                              color: AppColors.gradientBlue,
+                            ),
+                          ),
+                          onTap: () => _clickCell(context, '评论'),
+                        )
+                      ],
+                    )),
+              ])),
+        ],
+      ),
+    );
   }
 
   // 图片view

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_project_template/app/common/style/theme.dart';
 import 'package:get/get.dart';
 
 import '../style/app_colors.dart';
@@ -33,23 +34,25 @@ abstract class BaseView<Controller extends GetxController>
   }
 
   Widget annotatedRegion(BuildContext context) {
-    return AnnotatedRegion(
-      value: SystemUiOverlayStyle(
-        //Status bar color for android
-        statusBarColor: statusBarColor(),
-        statusBarIconBrightness: Brightness.light,
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: pageScaffold(context),
-      ),
-    );
+    // return AnnotatedRegion(
+    //   value: SystemUiOverlayStyle(
+    //     //Status bar color for android
+    //     statusBarColor: statusBarColor(),
+    //     statusBarIconBrightness: Brightness.light,
+    //   ),
+    //   child: Material(
+    //     color: Colors.transparent,
+    //     child: pageScaffold(context),
+    //   ),
+    // );
+
+    return pageScaffold(context);
   }
 
   Widget pageScaffold(BuildContext context) {
     return Scaffold(
       //sets ios status bar color
-      backgroundColor: pageBackgroundColor(),
+      // backgroundColor: pageBackgroundColor(),
       key: globalKey,
       appBar: appBar(context),
       floatingActionButton: floatingActionButton(),
@@ -75,12 +78,12 @@ abstract class BaseView<Controller extends GetxController>
   }
 
   Color pageBackgroundColor() {
-    return AppColors.backgroundColor;
+    return Get.theme.scaffoldBackgroundColor;
   }
 
-  Color statusBarColor() {
-    return AppColors.appBarColor;
-  }
+  // Color statusBarColor() {
+  //   return getTheme().barco;
+  // }
 
   Widget? floatingActionButton() {
     return null;

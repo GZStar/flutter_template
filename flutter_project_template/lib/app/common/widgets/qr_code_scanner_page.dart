@@ -11,8 +11,8 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 const double _borderRadius = 0;
 const double _borderLength = 15;
 const double _borderWidth = 5;
-const Color _borderColor = AppColors.primaryColor;
-const Color _scanLineColor = AppColors.primaryColor;
+const Color _borderColor = AppColors.appMain;
+const Color _scanLineColor = AppColors.appMain;
 
 class QrCodeScannerPage extends StatefulWidget {
   const QrCodeScannerPage({

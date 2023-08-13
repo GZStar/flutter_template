@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_project_template/app/common/style/theme.dart';
 
 import 'package:get/get.dart';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
+import 'package:get/get.dart';
 
 const int _maxLines = 5; // 最大行数
 const int _maxLength = 100; // 最大录入长度
@@ -153,7 +154,7 @@ class CommonTextFieldState extends State<CommonTextField> {
 
   @override
   Widget build(BuildContext context) {
-    var themeColor = AppColors.titleColor;
+    var themeColor = Get.isDarkMode ? AppColors.textDark : AppColors.text;
     var labelTextStyle =
         TextStyle(fontSize: _labelTextFontSize, color: themeColor);
     // 设置的颜色优先级高于暗黑模式

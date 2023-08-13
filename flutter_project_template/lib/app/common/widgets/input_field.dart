@@ -18,7 +18,7 @@ class InputField extends StatelessWidget {
     this.labelText = '',
     this.placeholder = '',
     this.color = Colors.black,
-    this.placeholderColor = AppColors.tipsColor,
+    this.placeholderColor = AppColors.textGray,
     this.fontSize = 22.0,
     this.password = false,
     this.validator,

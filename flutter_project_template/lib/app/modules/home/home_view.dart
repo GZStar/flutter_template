@@ -97,7 +97,7 @@ class HomeView extends BaseView<HomeController> {
           height: .5,
           indent: 70,
           endIndent: 0,
-          color: AppColors.separateLine,
+          // color: AppColors.separateLine,
         );
       },
       itemBuilder: (context, index) {
@@ -142,7 +142,7 @@ class HomeView extends BaseView<HomeController> {
     return InkWell(
         onTap: () => clickCell(item),
         child: Container(
-            color: AppColors.backgroundColor,
+            // color: AppColors.backgroundColor,
             height: 70,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

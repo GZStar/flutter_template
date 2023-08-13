@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
+import 'package:flutter_project_template/app/common/style/theme.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/base/base_view.dart';
@@ -23,10 +24,10 @@ class AboutView extends BaseView<AboutController> {
       children: [
         Expanded(child: getContentBody()),
         const SizedBox(height: 5),
-        const Text(
+        Text(
           '©2016–2022 MyDemo All rights reserved',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 14, color: AppColors.tipsColor),
+          style: Get.theme.textTheme.titleMedium,
         ),
         const SizedBox(height: 5),
       ],
@@ -70,7 +71,7 @@ class AboutView extends BaseView<AboutController> {
       ),
       const SizedBox(height: 20),
       Obx(() => Text(controller.currentAppName.value,
-          style: const TextStyle(fontSize: 20, color: AppColors.titleColor))),
+          style: const TextStyle(fontSize: 20))),
       const SizedBox(height: 8),
       Obx(() => Text('Version：${controller.currentVersion.value}')),
       const SizedBox(height: 20),

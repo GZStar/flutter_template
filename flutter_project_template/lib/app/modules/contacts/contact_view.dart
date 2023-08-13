@@ -5,7 +5,7 @@ import '../../common/base/base_view.dart';
 
 import '../../common/style/app_colors.dart';
 import '../../common/utils/screen_utils.dart';
-import '../../common/values/app_values.dart';
+import '../../common/values/dimens.dart';
 import '../../common/widgets/set_cell.dart';
 import 'contact_controller.dart';
 
@@ -29,7 +29,6 @@ class ContactView extends BaseView<ContactController> {
   Widget body(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: AppColors.backgroundColor,
         child: MediaQuery.removePadding(
           context: context,
           removeTop: true,
@@ -47,7 +46,7 @@ class ContactView extends BaseView<ContactController> {
           const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       children: <Widget>[
         getHeader(),
-        const SizedBox(height: AppValues.smallMargin),
+        const SizedBox(height: Dimens.smallMargin),
         CommonSetCell(
             cellHeight: cellH,
             lineLeftEdge: leftSpace,
@@ -186,7 +185,9 @@ class ContactView extends BaseView<ContactController> {
                         'assets/images/wechat/mine/ic_setting_myQR.png',
                         width: 18.0,
                         height: 18.0,
-                        color: AppColors.tipsColor,
+                        color: Get.isDarkMode
+                            ? AppColors.textGrayDark
+                            : AppColors.textGray,
                       ),
                     ),
                     const Icon(Icons.arrow_forward_ios,

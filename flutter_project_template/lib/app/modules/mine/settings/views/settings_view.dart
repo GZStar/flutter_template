@@ -48,7 +48,6 @@ class SettingsView extends BaseView<SettingsController> {
         const SizedBox(height: 8),
         Container(
           height: 50,
-          color: Colors.white,
           child: TextButton(
             onPressed: () {
               UserStore.to.onLogout();

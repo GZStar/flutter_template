@@ -26,32 +26,23 @@ class LoginController extends GetxController {
   @override
   void onClose() {}
 
-  void login() {
+  void login() async {
     if (loginFormKey.currentState!.validate()) {
-      var params = {
-        "phoneNum": loginAccountController.value.text,
-        "pwd": EncryptUtils.aesEncrypt(loginPasswordController.value.text),
-        "countryCode": "+86"
-      };
+      Loading.show();
+      try {
+        UserLoginResponseModel userProfile = await LoginAPI.loginWithPassword(
+            loginAccountController.value.text,
+            loginPasswordController.value.text);
+        UserStore.to.saveProfile(userProfile);
+        Loading.dismiss();
+        Get.offAndToNamed(AppRoutes.mainTabbar);
+      } on NetError catch (e) {
+        Loading.dismiss();
+        showWarnToast(e.msg);
 
-      fetchLogin(params);
-    }
-  }
-
-  void fetchLogin(params) async {
-    Loading.show();
-    try {
-      UserLoginResponseModel userProfile =
-          await LoginAPI.loginWithPassword(params);
-      UserStore.to.saveProfile(userProfile);
-      Loading.dismiss();
-      Get.offAndToNamed(AppRoutes.mainTabbar);
-    } on NetError catch (e) {
-      Loading.dismiss();
-      showWarnToast(e.msg);
-
-      UserStore.to.isLogin = true;
-      Get.offAndToNamed(AppRoutes.mainTabbar);
+        UserStore.to.isLogin = true;
+        Get.offAndToNamed(AppRoutes.mainTabbar);
+      }
     }
   }
 }

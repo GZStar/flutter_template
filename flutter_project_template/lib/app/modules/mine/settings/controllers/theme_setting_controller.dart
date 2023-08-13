@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../common/style/theme.dart';
 import '../../../../common/values/storage_key.dart';
 import '../../../../data/local/store/config_store.dart';
 import '../../../../data/local/store/storage_service.dart';
@@ -27,13 +28,15 @@ class ThemeSettingController extends GetxController {
   @override
   void onClose() {}
 
-  void selectTheme(int index) {
-    if (index == 1) {
-      Get.changeTheme(ThemeData.light());
-    } else if (index == 2) {
-      Get.changeTheme(ThemeData.dark());
-    } else {
-      Get.changeTheme(ThemeData.fallback());
+  void selectTheme(int index) async {
+    if (index == 1 && selectIndex.value != 1) {
+      Get.changeTheme(getAppTheme());
+    } else if (index == 2 && selectIndex.value != 2) {
+      Get.changeTheme(getAppTheme(isDarkMode: true));
+    } else if (selectIndex.value != 0) {
+      Get.isDarkMode
+          ? Get.changeTheme(getAppTheme(isDarkMode: true))
+          : Get.changeTheme(getAppTheme());
     }
 
     ConfigStore.to.onThemeUpdate(themes[index].key);

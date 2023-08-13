@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_template/app/common/style/theme.dart';
 
 import 'package:get/get.dart';
 
@@ -55,11 +56,13 @@ class ConfigStore extends GetxController {
   void onInitTheme() {
     int value = StorageService.to.getInt(StorageKeys.themeStyle);
     if (value == 1) {
-      Get.changeTheme(ThemeData.light());
+      Get.changeTheme(getAppTheme());
     } else if (value == 2) {
-      Get.changeTheme(ThemeData.dark());
+      Get.changeTheme(getAppTheme(isDarkMode: true));
     } else {
-      Get.changeTheme(ThemeData.fallback());
+      Get.isDarkMode
+          ? Get.changeTheme(getAppTheme(isDarkMode: true))
+          : Get.changeTheme(getAppTheme());
     }
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
-import 'package:flutter_project_template/app/common/values/app_values.dart';
+import 'package:flutter_project_template/app/common/values/dimens.dart';
 import 'package:flutter_project_template/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +31,7 @@ class MineView extends BaseView<MineController> {
   @override
   Widget body(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      // backgroundColor: AppColors.backgroundColor,
       // 创建一个公共的 Scrollable 和 Viewport
       body: CustomScrollView(
         primary: true,
@@ -75,7 +75,7 @@ class MineView extends BaseView<MineController> {
   Widget getSliverList() {
     return SliverList(
         delegate: SliverChildListDelegate([
-      const SizedBox(height: AppValues.smallMargin),
+      const SizedBox(height: Dimens.smallMargin),
       CommonSetCell(
           cellHeight: cellH,
           lineLeftEdge: leftSpace,

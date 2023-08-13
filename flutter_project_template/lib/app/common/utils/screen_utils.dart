@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui show window;
 
-import '../values/app_values.dart';
+import 'package:flutter_project_template/app/common/values/dimens.dart';
 
 class ScreenUtils {
   // 系统方法获取
@@ -27,7 +27,7 @@ class ScreenUtils {
 
   static double get navigationBarHeight {
     MediaQueryData mediaQuery = MediaQueryData.fromWindow(ui.window);
-    return mediaQuery.padding.top + AppValues.appBarbarHeight;
+    return mediaQuery.padding.top + Dimens.appBarbarHeight;
   }
 
   static double get topSafeHeight {

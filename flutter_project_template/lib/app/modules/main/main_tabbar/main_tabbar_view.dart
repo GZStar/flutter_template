@@ -36,7 +36,7 @@ class MainTabbarView extends GetView<MainTabbarController> {
           unselectedFontSize: 12,
           selectedFontSize: 12,
           // backgroundColor: Colors.green,
-          selectedItemColor: AppColors.primaryColor,
+          // selectedItemColor: AppColors.primaryColor,
           currentIndex: controller.currentIndex.value,
           onTap: (index) => controller.onJumpTo(index),
         ));

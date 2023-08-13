@@ -92,7 +92,6 @@ class TravelTabPageState extends State<TravelTabPage>
       TravelModel travelModel = await TravelAPI.fetchTravelList(
           widget.travelUrl, widget.params, widget.groupChannelCode, pageIndex);
 
-      //非.obs声明的属性需手动更新
       setState(() {
         if (loadMore) {
           var tempList = travelModel.resultList;
@@ -107,6 +106,8 @@ class TravelTabPageState extends State<TravelTabPage>
     } on NetError catch (e) {
       loading = false;
       showWarnToast(e.msg);
+    } catch (e) {
+      print('other');
     }
   }
 
