@@ -35,7 +35,6 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
           const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       slivers: [
         SliverAppBar(
-          // backgroundColor: AppColors.appBarColor,
           title: const Text('朋友圈'),
           expandedHeight: 250,
           pinned: true, // 是否固定
@@ -47,7 +46,9 @@ class FriendsCircleView extends BaseView<FriendsCircleController> {
             collapseMode: CollapseMode.pin,
             stretchModes: const <StretchMode>[StretchMode.zoomBackground],
             background: Container(
-              color: Get.isDarkMode ? AppColors.backgroundDark : Colors.white,
+              color: Get.isDarkMode
+                  ? AppColors.backgroundDark
+                  : AppColors.background,
               child: _header(context),
             ),
           ),

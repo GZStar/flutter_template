@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:flutter_project_template/app/common/values/dimens.dart';
 import 'package:flutter_project_template/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import '../../../common/base/base_view.dart';
-import '../../../common/utils/screen_utils.dart';
-import '../../../common/widgets/common_widget.dart';
 import '../../../common/widgets/set_cell.dart';
 import '../../../common/widgets/update_dialog.dart';
 import 'mine_controller.dart';
@@ -167,26 +163,6 @@ class MineView extends BaseView<MineController> {
   }
 
   Widget getUserPhoto() {
-    // return InkWell(
-    //   child: Container(
-    //     height: 75,
-    //     width: 75,
-    //     child: ClipRRect(
-    //       borderRadius: BorderRadius.circular(10),
-    //       child: (controller.userProfile.avatarUrl ?? "").isNotEmpty
-    //           ? Image.network(
-    //               controller.userProfile.avatarUrl ?? "",
-    //               errorBuilder: (context, error, stackTrace) {
-    //                 return Image.asset('assets/images/other/lufei.png');
-    //               },
-    //             )
-    //           : Image.asset('assets/images/other/lufei.png'),
-    //     ),
-    //   ),
-    //   onTap: () {
-    //     onPhotoClick();
-    //   },
-    // );
     return InkWell(
       child: Container(
         height: 80,

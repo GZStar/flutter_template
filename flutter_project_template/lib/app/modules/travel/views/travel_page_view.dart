@@ -92,16 +92,19 @@ class TravelTabPageState extends State<TravelTabPage>
       TravelModel travelModel = await TravelAPI.fetchTravelList(
           widget.travelUrl, widget.params, widget.groupChannelCode, pageIndex);
 
-      setState(() {
-        if (loadMore) {
-          var tempList = travelModel.resultList;
-          travelItems.addAll(tempList);
-        } else {
-          var tempList = travelModel.resultList;
-          travelItems.clear();
-          travelItems.addAll(tempList);
-        }
-      });
+      if (mounted) {
+        setState(() {
+          if (loadMore) {
+            var tempList = travelModel.resultList;
+            travelItems.addAll(tempList);
+          } else {
+            var tempList = travelModel.resultList;
+            travelItems.clear();
+            travelItems.addAll(tempList);
+          }
+        });
+      }
+
       loading = false;
     } on NetError catch (e) {
       loading = false;
