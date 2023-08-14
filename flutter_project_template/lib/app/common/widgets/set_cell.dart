@@ -102,7 +102,7 @@ class CommonSetCellState extends State<CommonSetCell> {
               visible: !widget.hiddenLine,
               child: const Divider(),
             ),
-            Container(
+            SizedBox(
               height: widget.cellHeight,
               child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
