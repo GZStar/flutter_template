@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
       fallbackLocale: ConfigStore.fallbackLocale,
       builder: EasyLoading.init(),
       unknownRoute: AppPages.unknown,
+      theme: getAppTheme(),
+      darkTheme: getAppTheme(isDarkMode: true),
     );
   }
 }

@@ -59,7 +59,6 @@ ThemeData getAppTheme({bool isDarkMode = false}) {
       indicatorSize: TabBarIndicatorSize.label,
       labelColor: isDarkMode ? AppColors.textDark : AppColors.text,
     ),
-    dividerColor: isDarkMode ? AppColors.lineDark : AppColors.line,
     dividerTheme: DividerThemeData(
         color: isDarkMode ? AppColors.lineDark : AppColors.line,
         space: 0.6,

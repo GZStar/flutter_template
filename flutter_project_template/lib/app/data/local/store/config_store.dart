@@ -56,13 +56,11 @@ class ConfigStore extends GetxController {
   void onInitTheme() {
     int value = StorageService.to.getInt(StorageKeys.themeStyle);
     if (value == 1) {
-      Get.changeTheme(getAppTheme());
+      Get.changeThemeMode(ThemeMode.light);
     } else if (value == 2) {
-      Get.changeTheme(getAppTheme(isDarkMode: true));
+      Get.changeThemeMode(ThemeMode.dark);
     } else {
-      Get.isDarkMode
-          ? Get.changeTheme(getAppTheme(isDarkMode: true))
-          : Get.changeTheme(getAppTheme());
+      Get.changeThemeMode(ThemeMode.system);
     }
   }
 
