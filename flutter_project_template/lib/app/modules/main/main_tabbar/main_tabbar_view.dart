@@ -57,13 +57,15 @@ class MainTabbarView extends GetView<MainTabbarController> {
       ),
       BottomNavigationBarItem(
         icon: badges.Badge(
-          showBadge: controller.showCalendarBadge.value,
+          badgeColor: Colors.red,
+          showBadge: true,
           padding: const EdgeInsets.all(4),
           position: const badges.BadgePosition(top: -1, end: -5),
           child: const Icon(MyIcons.calendar),
         ),
         activeIcon: badges.Badge(
-          showBadge: controller.showCalendarBadge.value,
+          badgeColor: Colors.red,
+          showBadge: true,
           padding: const EdgeInsets.all(4),
           position: const badges.BadgePosition(top: -1, end: -5),
           child: const Icon(MyIcons.calendar),

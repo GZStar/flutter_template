@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class MainTabbarController extends GetxController {
-  var showCalendarBadge = false.obs;
+  var showCalendarBadge = true.obs;
   var currentIndex = 0.obs;
   late List<Widget> pages;
 

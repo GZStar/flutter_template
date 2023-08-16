@@ -15,6 +15,7 @@ abstract class BaseView<Controller extends GetxController>
 
   @override
   Widget build(BuildContext context) {
+    print('on build tag ${controller}');
     return GestureDetector(
       child: Stack(
         children: [
