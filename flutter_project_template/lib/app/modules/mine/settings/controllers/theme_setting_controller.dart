@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/style/theme.dart';
+import '../../../../common/utils/loading.dart';
 import '../../../../common/values/storage_key.dart';
 import '../../../../data/local/store/config_store.dart';
 import '../../../../data/local/store/storage_service.dart';
@@ -40,6 +41,12 @@ class ThemeSettingController extends GetxController {
     if (index != selectIndex.value) {
       ConfigStore.to.onThemeUpdate(themes[index].key);
       selectIndex.value = themes[index].key;
+
+      Loading.show();
+      Future.delayed(const Duration(milliseconds: 300), () {
+        Get.forceAppUpdate();
+        Loading.dismiss();
+      });
     }
   }
 

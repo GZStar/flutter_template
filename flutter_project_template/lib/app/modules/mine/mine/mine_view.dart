@@ -63,6 +63,9 @@ class MineView extends BaseView<MineController> {
         Image.asset(
           'assets/images/service/bg_service_fuwufankui.png',
           fit: BoxFit.cover,
+          colorBlendMode: BlendMode.color,
+          color:
+              Get.isDarkMode ? AppColors.backgroundDark : AppColors.appBarColor,
         ),
         Positioned(left: 15, right: 15, bottom: 10, child: getHeader())
       ],
@@ -240,9 +243,7 @@ class MineView extends BaseView<MineController> {
           child: Container(
             margin: EdgeInsets.only(left: 10, top: 5),
             child: Text(controller.userProfile.phoneNum ?? '13100002222',
-                style: TextStyle(
-                    fontSize: 17,
-                    color: Get.isDarkMode ? Colors.black : Colors.orange)),
+                style: TextStyle(fontSize: 17, color: Colors.white)),
           ),
         )
       ],
