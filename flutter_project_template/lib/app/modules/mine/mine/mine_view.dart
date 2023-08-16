@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:flutter_project_template/app/common/values/dimens.dart';
 import 'package:flutter_project_template/app/routes/app_pages.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,7 @@ class MineView extends BaseView<MineController> {
             parent: AlwaysScrollableScrollPhysics()),
         slivers: [
           SliverAppBar(
-            backgroundColor: Colors.transparent,
+            // backgroundColor: Colors.transparent,
             collapsedHeight: 100,
             expandedHeight: 100,
             // pinned: true, // 是否固定
@@ -45,8 +46,8 @@ class MineView extends BaseView<MineController> {
             // 让 FlexibleSpaceBar 与外部组件同步滚动（在内部滚动结束后）
             stretch: true,
             flexibleSpace: FlexibleSpaceBar(
-                collapseMode: CollapseMode.pin,
-                stretchModes: const <StretchMode>[StretchMode.zoomBackground],
+                // collapseMode: CollapseMode.pin,
+                // stretchModes: const <StretchMode>[StretchMode.zoomBackground],
                 background: _header()),
           ),
           getSliverList(),
@@ -182,10 +183,11 @@ class MineView extends BaseView<MineController> {
   void onPhotoClick() {
     Get.bottomSheet(
         Container(
-          color: Colors.white,
+          color:
+              Get.isDarkMode ? AppColors.backgroundDark : AppColors.background,
           child: SafeArea(
               child: Container(
-            color: Colors.white,
+            // color: Colors.white,
             child: Wrap(
               children: [
                 ListTile(
@@ -206,6 +208,7 @@ class MineView extends BaseView<MineController> {
   }
 
   Widget getUserMoreInfo() {
+    print('get dark is ${Get.isDarkMode}');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -237,7 +240,9 @@ class MineView extends BaseView<MineController> {
           child: Container(
             margin: EdgeInsets.only(left: 10, top: 5),
             child: Text(controller.userProfile.phoneNum ?? '13100002222',
-                style: const TextStyle(fontSize: 17, color: Colors.white)),
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Get.isDarkMode ? Colors.black : Colors.orange)),
           ),
         )
       ],
