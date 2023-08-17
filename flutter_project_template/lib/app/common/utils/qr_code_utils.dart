@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_project_template/app/routes/app_pages.dart';
+import 'package:flutter_project_template/app/routes/main_routes.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:get/get.dart';
@@ -25,7 +25,7 @@ class QrCodeUtils {
         //   callBack?.call(value.toString());
         // });
 
-        var result = await Get.toNamed(AppRoutes.qrcode);
+        var result = await Get.toNamed(MainRoutes.qrcode);
         callBack?.call(result.toString());
       });
     } else {

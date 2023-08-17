@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/routes/app_pages.dart';
+import 'package:flutter_project_template/app/routes/login_routes.dart';
+import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/base/base_view.dart';
@@ -26,13 +27,13 @@ class SettingsView extends BaseView<SettingsController> {
         CommonSetCell(
             title: 'set_language'.tr,
             clickCallBack: () {
-              Get.toNamed(AppRoutes.languageSetting);
+              Get.toNamed(MineRoutes.languageSetting);
             }),
         CommonSetCell(
             title: 'appearance'.tr,
             hiddenLine: true,
             clickCallBack: () {
-              Get.toNamed(AppRoutes.themeSetting);
+              Get.toNamed(MineRoutes.themeSetting);
             }),
         const SizedBox(height: 8),
         CommonSetCell(title: 'clear_cache'.tr, clickCallBack: () {}),
@@ -42,7 +43,7 @@ class SettingsView extends BaseView<SettingsController> {
           text: 'v2.0.1',
           hiddenLine: true,
           clickCallBack: () {
-            Get.toNamed(AppRoutes.about);
+            Get.toNamed(MineRoutes.about);
           },
         ),
         const SizedBox(height: 8),
@@ -51,7 +52,7 @@ class SettingsView extends BaseView<SettingsController> {
           child: TextButton(
             onPressed: () {
               UserStore.to.onLogout();
-              Get.offAllNamed(AppRoutes.login);
+              Get.offAllNamed(AccountRoutes.login);
             },
             child: Text('logout'.tr,
                 style: const TextStyle(color: Colors.red, fontSize: 20)),

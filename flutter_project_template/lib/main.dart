@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import 'app/common/langs/translation_service.dart';
 import 'app/data/local/store/config_store.dart';
-import 'app/routes/app_pages.dart';
+import 'app/routes/app_routes.dart';
 import 'global.dart';
 
 void main() async {

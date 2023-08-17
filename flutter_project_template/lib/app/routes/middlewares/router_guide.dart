@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 
 import '../../data/local/store/config_store.dart';
 import '../../data/local/store/user_store.dart';
-import '../app_pages.dart';
+import '../login_routes.dart';
+import '../main_routes.dart';
 
 /// 第一次欢迎页面
 class RouteGuideMiddleware extends GetMiddleware {
@@ -18,9 +19,9 @@ class RouteGuideMiddleware extends GetMiddleware {
     if (ConfigStore.to.isFirstOpen == false) {
       return null;
     } else if (UserStore.to.isLogin == true) {
-      return const RouteSettings(name: AppRoutes.mainTabbar);
+      return const RouteSettings(name: MainRoutes.mainTabbar);
     } else {
-      return const RouteSettings(name: AppRoutes.login);
+      return const RouteSettings(name: AccountRoutes.login);
     }
   }
 }

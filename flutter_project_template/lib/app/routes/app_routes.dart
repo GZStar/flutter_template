@@ -1,27 +1,23 @@
-part of 'app_pages.dart';
+import 'package:flutter_project_template/app/routes/discover_routes.dart';
+import 'package:flutter_project_template/app/routes/login_routes.dart';
+import 'package:get/get.dart';
 
-abstract class AppRoutes {
-  static const splash = '/';
-  static const guide = '/guide';
-  static const mainTabbar = '/mainTabbar';
-  static const home = '/home';
-  static const login = '/login';
-  // notfound
-  static const notFound = '/notfound';
+import '../modules/main/notfound/notfound_binding.dart';
+import '../modules/main/notfound/notfound_view.dart';
+import 'main_routes.dart';
+import 'mine_routes.dart';
 
-  /// 设置
-  static const settings = '/settings';
-  static const languageSetting = '/languageSetting';
-  static const themeSetting = '/themeSetting';
-  static const envSetting = '/envSetting';
+class AppPages {
+  static const initial = MainRoutes.splash;
 
-  static const about = '/about';
+  static final GetPage unknown = GetPage(
+    name: MainRoutes.notFound,
+    page: () => const NotfoundPage(),
+    binding: NotfoundBinding(),
+  );
 
-  static const qrcode = '/qrcode';
-
-  // 朋友圈
-  static const friendsCircle = '/friendsCircle';
-
-  // 旅游
-  static const travel = '/travel';
+  static final routes = MainPages.routes +
+      AccountPages.routes +
+      MinePages.routes +
+      DiscoverPages.routes;
 }

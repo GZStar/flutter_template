@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:flutter_project_template/app/common/values/dimens.dart';
-import 'package:flutter_project_template/app/routes/app_pages.dart';
+import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
 import '../../../common/base/base_view.dart';
@@ -114,7 +114,7 @@ class MineView extends BaseView<MineController> {
         title: '设置',
         hiddenLine: true,
         clickCallBack: () {
-          Get.toNamed(AppRoutes.settings);
+          Get.toNamed(MineRoutes.settings);
         },
       ),
       SizedBox(height: rowSpace),

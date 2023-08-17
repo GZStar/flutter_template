@@ -1,6 +1,6 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/routes/app_pages.dart';
+import 'package:flutter_project_template/app/routes/discover_routes.dart';
 import 'package:get/get.dart';
 
 import '../../common/base/base_view.dart';
@@ -123,7 +123,7 @@ _clickCell(text) {
   // JhToast.showText(context, msg: '点击 $text');
 
   if (text == '朋友圈') {
-    Get.toNamed(AppRoutes.friendsCircle);
+    Get.toNamed(DiscoverRoutes.friendsCircle);
   } else if (text == '扫一扫') {
     scanClick();
   }

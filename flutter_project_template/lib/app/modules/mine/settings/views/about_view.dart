@@ -1,14 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/style/app_colors.dart';
-import 'package:flutter_project_template/app/common/style/theme.dart';
+import 'package:flutter_project_template/app/common/widgets/toast.dart';
+import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/base/base_view.dart';
 import '../../../../common/widgets/common_widget.dart';
 import '../../../../common/widgets/set_cell.dart';
-import '../../../../routes/app_pages.dart';
 import '../controllers/about_controller.dart';
 
 class AboutView extends BaseView<AboutController> {
@@ -42,12 +39,12 @@ class AboutView extends BaseView<AboutController> {
         CommonSetCell(
             title: '去评分'.tr,
             clickCallBack: () {
-              Get.toNamed(AppRoutes.languageSetting);
+              showToast('去评分');
             }),
         CommonSetCell(
             title: '功能介绍'.tr,
             clickCallBack: () {
-              Get.toNamed(AppRoutes.themeSetting);
+              showToast('功能介绍');
             }),
         CommonSetCell(title: '意见反馈'.tr, clickCallBack: () {}),
         CommonSetCell(title: '版本更新'.tr, clickCallBack: () {}),
@@ -66,7 +63,7 @@ class AboutView extends BaseView<AboutController> {
           height: 80,
         ),
         onDoubleTap: () {
-          Get.toNamed(AppRoutes.envSetting);
+          Get.toNamed(MineRoutes.envSetting);
         },
       ),
       const SizedBox(height: 20),
