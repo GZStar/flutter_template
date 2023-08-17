@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_project_template/app/routes/app_pages.dart';
-import 'package:get/instance_manager.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:get/get.dart';
@@ -41,14 +40,13 @@ class QrCodeUtils {
       EdgeInsets? padding,
       ImageProvider? image,
       Size? imageSize}) {
-    return QrImage(
+    return QrImageView(
       data: data,
+      version: QrVersions.auto,
       size: size,
-      backgroundColor:
-          backgroundColor == null ? Color(0x00FFFFFF) : backgroundColor,
-      foregroundColor:
-          foregroundColor == null ? Color(0xFF000000) : foregroundColor,
-      padding: padding == null ? EdgeInsets.all(10.0) : padding,
+      gapless: false,
+      backgroundColor: backgroundColor ?? const Color(0x00FFFFFF),
+      padding: padding ?? const EdgeInsets.all(10.0),
       embeddedImage: image,
       embeddedImageStyle: QrEmbeddedImageStyle(size: imageSize),
     );
@@ -114,5 +112,4 @@ class QrCodeUtils {
          });
     });
 */
-
 }
