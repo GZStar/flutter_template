@@ -7,6 +7,8 @@ import '../modules/main/main_tabbar/main_tabbar_binding.dart';
 import '../modules/main/main_tabbar/main_tabbar_view.dart';
 import '../modules/main/splash/splash_binding.dart';
 import '../modules/main/splash/splash_view.dart';
+import '../modules/main/webBrowser/bindings/web_browser_binding.dart';
+import '../modules/main/webBrowser/views/web_browser_view.dart';
 import 'middlewares/router_guide.dart';
 
 abstract class MainRoutes {
@@ -18,6 +20,8 @@ abstract class MainRoutes {
   static const notFound = '/notfound';
 
   static const qrcode = '/qrcode';
+
+  static const webBrowser = '/webBrowser';
 }
 
 class MainPages {
@@ -38,5 +42,10 @@ class MainPages {
         page: () => MainTabbarView(),
         binding: MainTabbarBinding()),
     GetPage(name: MainRoutes.qrcode, page: () => QrCodeScannerPage()),
+    GetPage(
+      name: MainRoutes.webBrowser,
+      page: () => WebBrowserView(),
+      binding: WebBrowserBinding(),
+    ),
   ];
 }

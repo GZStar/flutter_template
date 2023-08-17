@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../data/model/trave_model.dart';
+import '../../../routes/main_routes.dart';
 
 class TravelItemView extends StatelessWidget {
   final ResultList item;
@@ -11,8 +13,13 @@ class TravelItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (item.article.urls.length > 0) {
-          print('on travel item click');
+        if (item.article.urls.length > 1) {
+          var dic = item.article.urls[1];
+          print('on travel item h5Url click ${dic.h5Url}');
+          print('on travel item wxUrl click ${dic.wxUrl}');
+
+          print('on travel item appUrl click ${dic.appUrl}');
+          Get.toNamed(MainRoutes.webBrowser, arguments: {'url': dic.h5Url});
         }
       },
       child: Card(
@@ -82,7 +89,7 @@ class TravelItemView extends StatelessWidget {
   }
 
   String _poiName() {
-    return "深圳"; //item.article.pois == null ? '未知' : item.article.pois![0].poiName;
+    return item.article.pois == null ? '未知' : item.article.pois![0].poiName;
   }
 
   _infoText() {

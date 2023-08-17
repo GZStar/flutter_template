@@ -59,6 +59,7 @@ class Article {
   Author author;
   List<Images> images;
   List<Url> urls;
+  List<Pois>? pois;
   bool hasVideo;
   int? readCount;
   int? likeCount;
@@ -85,6 +86,7 @@ class Article {
     required this.author,
     required this.images,
     required this.urls,
+    required this.pois,
     required this.hasVideo,
     required this.readCount,
     required this.likeCount,
@@ -113,6 +115,7 @@ class Article {
         images:
             List<Images>.from(json["images"].map((x) => Images.fromJson(x))),
         urls: List<Url>.from(json["urls"].map((x) => Url.fromJson(x))),
+        pois: List<Pois>.from(json["pois"].map((x) => Pois.fromJson(x))),
         hasVideo: json["hasVideo"],
         readCount: json["readCount"],
         likeCount: json["likeCount"],
@@ -140,6 +143,7 @@ class Article {
         "author": author.toJson(),
         "images": List<dynamic>.from(images.map((x) => x.toJson())),
         "urls": List<dynamic>.from(urls.map((x) => x.toJson())),
+        // "pois": List<dynamic>.from(pois.map((x) => x.toJson())),
         "hasVideo": hasVideo,
         "readCount": readCount,
         "likeCount": likeCount,
