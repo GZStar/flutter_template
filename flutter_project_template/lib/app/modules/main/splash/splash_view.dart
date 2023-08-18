@@ -6,9 +6,8 @@ import 'splash_controller.dart';
 class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.blue,
-      child: Container(
+    return Scaffold(
+      body: Container(
         color: Get.isDarkMode ? AppColors.backgroundDark : AppColors.background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

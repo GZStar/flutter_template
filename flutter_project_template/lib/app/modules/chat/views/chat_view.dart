@@ -30,7 +30,7 @@ class ChatView extends GetView<ChatController> {
               return Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  // color: themeData.colorScheme.tertiaryContainer,
+                  color: themeData.splashColor,
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
                 ),
                 constraints: BoxConstraints(
@@ -45,9 +45,7 @@ class ChatView extends GetView<ChatController> {
           msgWidget = Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: message.own
-                  ? AppColors.appMain
-                  : themeData.colorScheme.tertiaryContainer,
+              color: message.own ? AppColors.appMain : themeData.splashColor,
               borderRadius: BorderRadius.only(
                 topLeft: const Radius.circular(24),
                 topRight: const Radius.circular(24),
@@ -201,66 +199,68 @@ class ChatView extends GetView<ChatController> {
                     )),
               ),
             ),
-            Container(
-              // color: themeData.bottomNavigationBarTheme.backgroundColor,
-              child: SafeArea(
-                  child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      color: themeData.colorScheme.primary,
-                      icon: const Icon(Icons.add_circle_outline),
-                      visualDensity: VisualDensity.compact,
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      color: themeData.colorScheme.primary,
-                      icon: const Icon(Icons.tag_faces),
-                      visualDensity: VisualDensity.compact,
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: TextField(
-                          controller: controller.inputController,
-                          minLines: 1,
-                          maxLines: 4,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.zero,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(24),
-                              borderSide: BorderSide.none,
+            Material(
+              child: Container(
+                // color: Get.theme.colorScheme.primaryContainer,
+                child: SafeArea(
+                    child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        color: themeData.colorScheme.primary,
+                        icon: const Icon(Icons.add_circle_outline),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        color: themeData.colorScheme.primary,
+                        icon: const Icon(Icons.tag_faces),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: TextField(
+                            controller: controller.inputController,
+                            minLines: 1,
+                            maxLines: 4,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.zero,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(24),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              // fillColor: themeData.colorScheme.surfaceVariant,
+                              prefixIcon: const Icon(Icons.abc),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  if (controller
+                                      .inputController.text.isNotEmpty) {
+                                    controller.onSend();
+                                    Future(() {
+                                      PrimaryScrollController.of(context)
+                                          .jumpTo(0);
+                                    });
+                                  }
+                                },
+                                icon: Icon(
+                                    controller.inputController.text.isNotEmpty
+                                        ? Icons.send
+                                        : Icons.keyboard_voice_outlined),
+                              ),
                             ),
-                            filled: true,
-                            // fillColor: themeData.colorScheme.surfaceVariant,
-                            prefixIcon: const Icon(Icons.abc),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                if (controller
-                                    .inputController.text.isNotEmpty) {
-                                  controller.onSend();
-                                  Future(() {
-                                    PrimaryScrollController.of(context)
-                                        .jumpTo(0);
-                                  });
-                                }
-                              },
-                              icon: Icon(
-                                  controller.inputController.text.isNotEmpty
-                                      ? Icons.send
-                                      : Icons.keyboard_voice_outlined),
-                            ),
+                            onSubmitted: (_) => controller.onSend(),
                           ),
-                          onSubmitted: (_) => controller.onSend(),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              )),
+                    ],
+                  ),
+                )),
+              ),
             ),
           ],
         ),

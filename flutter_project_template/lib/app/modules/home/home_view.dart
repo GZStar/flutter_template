@@ -140,7 +140,6 @@ class HomeView extends GetView<HomeController> {
     return InkWell(
         onTap: () => clickCell(item),
         child: Container(
-            color: Get.theme.colorScheme.primaryContainer,
             height: 70,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

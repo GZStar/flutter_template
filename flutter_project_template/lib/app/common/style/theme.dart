@@ -12,6 +12,7 @@ ThemeData getAppTheme({bool isDarkMode = false}) {
       primary: isDarkMode ? AppColors.appMainDark : AppColors.appMain,
       secondary: isDarkMode ? AppColors.appMainDark : AppColors.appMain,
       error: isDarkMode ? AppColors.redDark : AppColors.red,
+      primaryContainer: isDarkMode ? Colors.white : Colors.white,
     ),
     // Tab指示器颜色
     indicatorColor: isDarkMode ? AppColors.appMainDark : AppColors.appMain,
