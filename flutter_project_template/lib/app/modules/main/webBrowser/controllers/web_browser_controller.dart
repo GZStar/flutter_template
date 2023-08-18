@@ -13,9 +13,6 @@ class WebBrowserController extends GetxController {
 
   @override
   void onInit() {
-    var param2 = Get.arguments;
-    print('web parame 11111 ${param2}');
-
     super.onInit();
 
     url.value = Get.arguments["url"] ?? "https://www.baidu.com";

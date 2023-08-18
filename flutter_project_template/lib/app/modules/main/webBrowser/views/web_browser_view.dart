@@ -23,19 +23,19 @@ class WebBrowserView extends GetView<WebBrowserController> {
         appBar: AppBar(
           title: Obx(() => Text(controller.title.value)),
         ),
-        body: Stack(
-          children: [
-            WebViewWidget(controller: controller.webViewController),
-            if (controller.progressValue.value != 100)
-              LinearProgressIndicator(
-                value: controller.progressValue.value / 100,
-                backgroundColor: Colors.transparent,
-                minHeight: 2,
-              )
-            else
-              const SizedBox.shrink(),
-          ],
-        ),
+        body: Obx(() => Stack(
+              children: [
+                WebViewWidget(controller: controller.webViewController),
+                if (controller.progressValue.value != 100)
+                  LinearProgressIndicator(
+                    value: controller.progressValue.value / 100,
+                    // backgroundColor: Colors.red,
+                    minHeight: 2,
+                  )
+                else
+                  const SizedBox.shrink(),
+              ],
+            )),
       ),
     );
   }
