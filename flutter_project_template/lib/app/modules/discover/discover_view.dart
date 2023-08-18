@@ -3,24 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/routes/discover_routes.dart';
 import 'package:get/get.dart';
 
-import '../../common/base/base_view.dart';
-
 import '../../common/utils/qr_code_utils.dart';
 import '../../common/widgets/common_widget.dart';
 import '../../common/widgets/set_cell.dart';
 import 'discover_controller.dart';
 
-class DiscoverView extends BaseView<DiscoverController> {
+class DiscoverView extends GetView<DiscoverController> {
   const DiscoverView({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('discover'.tr, isBackButtonEnabled: false);
-  }
-
-  @override
-  Widget body(BuildContext context) {
-    return discoverCell();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('discover'.tr),
+        centerTitle: true,
+      ),
+      body: discoverCell(),
+    );
   }
 }
 

@@ -4,12 +4,11 @@ import 'package:flutter_project_template/app/common/values/dimens.dart';
 import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
-import '../../../common/base/base_view.dart';
 import '../../../common/widgets/set_cell.dart';
 import '../../../common/widgets/update_dialog.dart';
 import 'mine_controller.dart';
 
-class MineView extends BaseView<MineController> {
+class MineView extends GetView<MineController> {
   const MineView({Key? key}) : super(key: key);
 
   final double cellH = 55;
@@ -18,17 +17,13 @@ class MineView extends BaseView<MineController> {
   final double scrollMaxOffSet = 1000;
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return null;
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _body(context),
+    );
   }
 
-  @override
-  Widget pageContent(BuildContext context) {
-    return body(context);
-  }
-
-  @override
-  Widget body(BuildContext context) {
+  Widget _body(BuildContext context) {
     return Scaffold(
       // backgroundColor: AppColors.backgroundColor,
       // 创建一个公共的 Scrollable 和 Viewport
@@ -66,8 +61,7 @@ class MineView extends BaseView<MineController> {
           'assets/images/service/bg_service_fuwufankui.png',
           fit: BoxFit.cover,
           colorBlendMode: BlendMode.color,
-          color:
-              Get.isDarkMode ? AppColors.backgroundDark : AppColors.appBarColor,
+          color: Get.theme.appBarTheme.backgroundColor,
         ),
         Positioned(left: 15, right: 15, bottom: 10, child: getHeader())
       ],
@@ -238,7 +232,7 @@ class MineView extends BaseView<MineController> {
         ),
         Container(
           margin: const EdgeInsets.only(left: 10, top: 5),
-          child: Text(controller.userProfile.phoneNum ?? '13100002222',
+          child: Text(controller.userProfile.phoneNum ?? '188888888888',
               style: const TextStyle(fontSize: 17, color: Colors.white)),
         )
       ],

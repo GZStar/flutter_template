@@ -2,26 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:get/get.dart';
 
-import '../../../common/base/base_view.dart';
 import '../../../common/widgets/common_widget.dart';
 import '../../../common/widgets/nine_picture.dart';
 import 'friends_circle_controller.dart';
 
-class FriendsCircleView extends BaseView<FriendsCircleController> {
-  @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // return CommonWidget.appBar('朋友圈'.tr);
-    return null;
-  }
+class FriendsCircleView extends GetView<FriendsCircleController> {
+  const FriendsCircleView({Key? key}) : super(key: key);
 
   @override
-  Widget pageContent(BuildContext context) {
-    return body(context);
-  }
-
-  @override
-  Widget body(BuildContext context) {
-    return _body(context, controller.dataArr);
+  Widget build(BuildContext context) {
+    return Scaffold(body: _body(context, controller.dataArr));
   }
 
   Widget _body(context, dataArr) {

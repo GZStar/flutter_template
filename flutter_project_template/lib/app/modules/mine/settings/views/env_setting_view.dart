@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/base/base_view.dart';
 import 'package:get/get.dart';
 
-import '../../../../common/widgets/common_widget.dart';
 import '../../../../common/widgets/set_cell.dart';
 import '../controllers/env_setting_controller.dart';
 
-class EnvSettingView extends BaseView<EnvSettingController> {
-  final checkImage = Icon(Icons.check);
+class EnvSettingView extends GetView<EnvSettingController> {
+  const EnvSettingView({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('环境设置'.tr, isBackButtonEnabled: false);
-  }
-
-  @override
-  Widget body(BuildContext context) {
-    return WillPopScope(child: getContentBody(), onWillPop: () async => false);
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title: Text('环境设置'.tr),
+          centerTitle: true,
+          automaticallyImplyLeading: false),
+      body: WillPopScope(child: getContentBody(), onWillPop: () async => false),
+    );
   }
 
   Widget getContentBody() {
@@ -40,7 +39,7 @@ class EnvSettingView extends BaseView<EnvSettingController> {
           hiddenArrow: true,
           hiddenLine: (index == controller.envs.length - 1) ? true : false,
           rightWidget: (index == controller.selectIndex.value)
-              ? checkImage
+              ? const Icon(Icons.check)
               : const SizedBox(),
           clickCallBack: () {
             controller.selectTheme(index);

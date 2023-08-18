@@ -3,21 +3,22 @@ import 'package:flutter_project_template/app/routes/login_routes.dart';
 import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
-import '../../../../common/base/base_view.dart';
-import '../../../../common/widgets/common_widget.dart';
 import '../../../../common/widgets/set_cell.dart';
 import '../../../../data/local/store/user_store.dart';
 import '../controllers/settings_controller.dart';
 
-class SettingsView extends BaseView<SettingsController> {
-  @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('settings'.tr);
-  }
+class SettingsView extends GetView<SettingsController> {
+  const SettingsView({Key? key}) : super(key: key);
 
   @override
-  Widget body(BuildContext context) {
-    return getContentBody();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('settings'.tr),
+        centerTitle: true,
+      ),
+      body: getContentBody(),
+    );
   }
 
   // cell

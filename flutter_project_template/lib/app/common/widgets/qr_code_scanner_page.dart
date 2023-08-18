@@ -120,7 +120,10 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage>
   }
 
   _appBar2() {
-    return CommonWidget.appBar('QRCODE');
+    return AppBar(
+      title: const Text('QRCODE'),
+      centerTitle: true,
+    );
   }
 
   void _onQRViewCreated(QRViewController controller) {

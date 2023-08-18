@@ -7,9 +7,9 @@ import 'text_styles.dart';
 
 ThemeData getAppTheme({bool isDarkMode = false}) {
   return ThemeData(
-    primaryColor: isDarkMode ? AppColors.appMainDark : AppColors.appMain,
     colorScheme: ColorScheme.fromSwatch().copyWith(
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
+      primary: isDarkMode ? AppColors.appMainDark : AppColors.appMain,
       secondary: isDarkMode ? AppColors.appMainDark : AppColors.appMain,
       error: isDarkMode ? AppColors.redDark : AppColors.red,
     ),
@@ -47,7 +47,7 @@ ThemeData getAppTheme({bool isDarkMode = false}) {
           isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.light,
       centerTitle: true,
       backgroundColor:
-          isDarkMode ? AppColors.backgroundDark : AppColors.appBarColor,
+          isDarkMode ? AppColors.backgroundDark : AppColors.appMain,
       iconTheme: IconThemeData(
         color: isDarkMode ? AppColors.background : Colors.white,
       ),

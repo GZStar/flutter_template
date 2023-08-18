@@ -3,30 +3,27 @@ import 'package:get/get.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:badges/badges.dart' as badges;
 
-import '../../common/base/base_view.dart';
-
 import '../../common/utils/qr_code_utils.dart';
 import '../../common/widgets/common_widget.dart';
 import '../../common/widgets/home_pop_menus.dart';
 import 'home_controller.dart';
 
-class HomeView extends BaseView<HomeController> {
+class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('home'.tr,
-        isBackButtonEnabled: false, actions: [getRightButton()]);
-  }
-
-  @override
-  Widget body(BuildContext context) {
-    return Center(
-      child: cellBody(controller.dataArray),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('home'.tr),
+        centerTitle: true,
+        actions: [_getRightButton()],
+      ),
+      body: _cellBody(controller.dataArray),
     );
   }
 
-  Widget getRightButton() {
+  Widget _getRightButton() {
     return IconButton(
       icon: Image.asset(
         'assets/images/other/ic_nav_add.png',
@@ -40,7 +37,7 @@ class HomeView extends BaseView<HomeController> {
   }
 
   // body
-  Widget cellBody(dataArr) {
+  Widget _cellBody(dataArr) {
     Widget noRead = CustomSlidableAction(
       padding: const EdgeInsets.all(0),
 //      foregroundColor:Colors.white,

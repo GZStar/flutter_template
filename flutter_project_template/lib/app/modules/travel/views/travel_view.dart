@@ -4,27 +4,19 @@ import 'package:flutter_project_template/app/modules/travel/views/travel_page_vi
 
 import 'package:get/get.dart';
 
-import '../../../common/base/base_view.dart';
-import '../../../common/widgets/common_widget.dart';
 import '../controllers/travel_controller.dart';
 
-class TravelView extends BaseView<TravelController> {
+class TravelView extends GetView<TravelController> {
   const TravelView({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('travel'.tr, isBackButtonEnabled: false);
-  }
-
-  @override
-  Widget body(BuildContext context) {
-    return Container(
-      // color: AppColors.backgroundColor,
-      child: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        child: _travelBody(),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('travel'.tr),
+        centerTitle: true,
       ),
+      body: _travelBody(),
     );
   }
 
@@ -40,7 +32,7 @@ class TravelView extends BaseView<TravelController> {
   Widget _tabBar() {
     return Container(
       // color: Colors.white,
-      padding: EdgeInsets.only(left: 2),
+      padding: const EdgeInsets.only(left: 2),
       child: Obx(() => TabBar(
             controller: controller.tabcontroller,
             isScrollable: true,

@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // App 主题颜色
-  static const Color appMain = Color(0xFF4688FA);
-  static const Color appMainDark = Color(0xFF3F7AE0);
-
+  // static const Color appMain = Color(0xFF4688FA);
+  // static const Color appMainDark = Color(0xFF3F7AE0);
+  static const Color appMain = Color(0xFF38686A);
+  static const Color appMainDark = Color(0xFF12686A);
   // 背景色
   static const Color background = Color(0xfff1f1f1);
   static const Color backgroundDark = Color(0xFF18191A);
@@ -56,8 +57,6 @@ class AppColors {
   static const Color gradientBlue = Color(0xFF5793FA);
   static const Color shadowblue = Color(0x805793FA);
   static const Color orange = Color(0xFFFF8547);
-
-  static const Color appBarColor = Color(0xFF38686A);
 
   // // App 主题色
   // static const Color primaryColor = Color(0xFFE6262C);

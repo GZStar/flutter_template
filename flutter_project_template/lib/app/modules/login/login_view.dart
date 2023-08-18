@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../common/widgets/common_widget.dart';
 import '../../common/widgets/input_field.dart';
 import 'login_controller.dart';
-import '../../common/base/base_view.dart';
 
-class LoginView extends BaseView<LoginController> {
-  @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('login'.tr, isBackButtonEnabled: false);
-  }
+class LoginView extends GetView<LoginController> {
+  const LoginView({Key? key}) : super(key: key);
 
   @override
-  Widget body(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 35.0),
-      child: _buildForms(context),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('login'.tr),
+        centerTitle: true,
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 35.0),
+        child: _buildForms(context),
+      ),
     );
   }
 

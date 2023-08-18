@@ -3,20 +3,25 @@ import 'package:flutter_project_template/app/common/widgets/toast.dart';
 import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
-import '../../../../common/base/base_view.dart';
-import '../../../../common/widgets/common_widget.dart';
 import '../../../../common/widgets/set_cell.dart';
 import '../../../../data/local/store/config_store.dart';
 import '../controllers/about_controller.dart';
 
-class AboutView extends BaseView<AboutController> {
-  @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('about'.tr);
-  }
+class AboutView extends GetView<AboutController> {
+  const AboutView({Key? key}) : super(key: key);
 
   @override
-  Widget body(BuildContext context) {
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('about'.tr),
+        centerTitle: true,
+      ),
+      body: _body(context),
+    );
+  }
+
+  Widget _body(BuildContext context) {
     // return getContentBody();
     return Column(
       children: [
