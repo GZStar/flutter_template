@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../../../common/base/base_view.dart';
 import '../../../../common/widgets/common_widget.dart';
 import '../../../../common/widgets/set_cell.dart';
+import '../../../../data/local/store/config_store.dart';
 import '../controllers/about_controller.dart';
 
 class AboutView extends BaseView<AboutController> {
@@ -47,7 +48,12 @@ class AboutView extends BaseView<AboutController> {
               showToast('功能介绍');
             }),
         CommonSetCell(title: '意见反馈'.tr, clickCallBack: () {}),
-        CommonSetCell(title: '版本更新'.tr, clickCallBack: () {}),
+        CommonSetCell(
+            title: '重置引导页'.tr,
+            clickCallBack: () {
+              ConfigStore.to.isFirstOpen = false;
+              showToast('引导页已重置，重新打开应用即可展示引导页');
+            }),
         const SizedBox(height: 8),
       ],
     );

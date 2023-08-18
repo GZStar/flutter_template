@@ -29,7 +29,6 @@ class WebBrowserView extends GetView<WebBrowserController> {
                 if (controller.progressValue.value != 100)
                   LinearProgressIndicator(
                     value: controller.progressValue.value / 100,
-                    // backgroundColor: Colors.red,
                     minHeight: 2,
                   )
                 else
