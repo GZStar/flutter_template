@@ -137,61 +137,63 @@ class HomeView extends GetView<HomeController> {
 
   // cell
   Widget cell(item) {
-    return InkWell(
-        onTap: () => clickCell(item),
-        child: Container(
-            height: 70,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                badges.Badge(
-                  showBadge: item['isNew'],
-                  padding: EdgeInsets.all(5),
-                  position: badges.BadgePosition.topEnd(top: 5, end: 5),
-                  child: Container(
-                      width: 70,
-                      height: 70,
-                      padding: EdgeInsets.all(10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: Image.asset(
-                          item['img'],
-                          width: 60,
-                        ),
-                      )),
-                ),
-                Expanded(
-                    child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+    return Material(
+      child: InkWell(
+          onTap: () => clickCell(item),
+          child: Container(
+              height: 70,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  badges.Badge(
+                    showBadge: item['isNew'],
+                    padding: EdgeInsets.all(5),
+                    position: badges.BadgePosition.topEnd(top: 5, end: 5),
+                    child: Container(
+                        width: 70,
+                        height: 70,
+                        padding: EdgeInsets.all(10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            item['img'],
+                            width: 60,
+                          ),
+                        )),
+                  ),
+                  Expanded(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
 //                Container(color: KColors.kLineColor, height: 0.8),
-                    const SizedBox(height: 6),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                            flex: 70,
-                            child: Text(item['title'],
-                                style: const TextStyle(fontSize: 18))),
-                        Expanded(
-                            flex: 30,
-                            child: Text(
-                              item['time'],
-                              style: const TextStyle(
-                                  fontSize: 13, color: Colors.grey),
-                              textAlign: TextAlign.right,
-                            )),
-                        const SizedBox(width: 10),
-                      ],
-                    ),
-                    const SizedBox(height: 4),
-                    Text(item['subtitle'],
-                        style:
-                            const TextStyle(fontSize: 15, color: Colors.grey)),
-                  ],
-                )),
-              ],
-            )));
+                      const SizedBox(height: 6),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                              flex: 70,
+                              child: Text(item['title'],
+                                  style: const TextStyle(fontSize: 18))),
+                          Expanded(
+                              flex: 30,
+                              child: Text(
+                                item['time'],
+                                style: const TextStyle(
+                                    fontSize: 13, color: Colors.grey),
+                                textAlign: TextAlign.right,
+                              )),
+                          const SizedBox(width: 10),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(item['subtitle'],
+                          style: const TextStyle(
+                              fontSize: 15, color: Colors.grey)),
+                    ],
+                  )),
+                ],
+              ))),
+    );
   }
 
   // 点击cell

@@ -17,7 +17,7 @@ class SplashView extends GetView<SplashController> {
               color: Get.theme.primaryColor,
               size: 30.0,
             ),
-            Text(
+            const Text(
               'loading...',
               style: TextStyle(fontSize: 30.0),
             ),

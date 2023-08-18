@@ -8,6 +8,7 @@ class ChatController extends GetxController {
   late final TextEditingController inputController;
 
   var shrinkWrap = false.obs;
+  var textNotEmpty = false.obs;
   double? viewportDimension;
 
   final List<MessageEntity> messages = [
@@ -27,7 +28,9 @@ class ChatController extends GetxController {
     super.onInit();
 
     inputController = TextEditingController();
-    inputController.addListener(() {});
+    inputController.addListener(() {
+      textNotEmpty.value = inputController.text.isNotEmpty;
+    });
     listenable.addListener(onHeaderChange);
   }
 

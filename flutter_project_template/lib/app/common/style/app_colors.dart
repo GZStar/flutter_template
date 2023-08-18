@@ -16,6 +16,9 @@ class AppColors {
   static const Color materialBackground = Color(0xFFFFFFFF);
   static const Color materialBackgroundDark = Color(0xFF303233);
 
+  static const Color container = Colors.white;
+  static const Color containerDark = Color(0xff303233);
+
   // Text常规颜色
   static const Color text = Color(0xFF333333);
   static const Color textDark = Color(0xFFB8B8B8);
