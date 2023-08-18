@@ -3,8 +3,6 @@ import 'package:flutter_project_template/app/data/apis/travel.dart';
 import 'package:get/get.dart';
 
 import '../../../common/utils/loading.dart';
-import '../../../common/widgets/toast.dart';
-import '../../../data/model/trave_model.dart';
 import '../../../data/model/trave_param_model.dart';
 import '../../../data/model/travel_tab_model.dart';
 import '../../../data/network/error_handle.dart';

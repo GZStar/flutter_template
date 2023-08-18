@@ -5,7 +5,6 @@ import 'package:flutter_project_template/app/modules/travel/views/travel_page_vi
 import 'package:get/get.dart';
 
 import '../../../common/base/base_view.dart';
-import '../../../common/style/app_colors.dart';
 import '../../../common/widgets/common_widget.dart';
 import '../controllers/travel_controller.dart';
 

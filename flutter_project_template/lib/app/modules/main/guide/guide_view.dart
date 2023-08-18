@@ -1,7 +1,5 @@
 import 'dart:ui' as ui show window;
 
-import 'package:card_swiper/card_swiper.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

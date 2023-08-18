@@ -1,12 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:get/get.dart';
 
 import '../../../common/base/base_view.dart';
-import '../../../common/utils/screen_utils.dart';
 import '../../../common/widgets/common_widget.dart';
 import '../../../common/widgets/nine_picture.dart';
 import 'friends_circle_controller.dart';

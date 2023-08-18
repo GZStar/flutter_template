@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../style/app_colors.dart';
-import '../style/text_styles.dart';
-
 class CommonWidget {
   static AppBar appBar(String appBarTitleText,
       {bool isBackButtonEnabled = true,

@@ -3,7 +3,6 @@
 ///  Created by iotjin on 2020/07/28.
 ///  description:  APP更新弹框
 
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';

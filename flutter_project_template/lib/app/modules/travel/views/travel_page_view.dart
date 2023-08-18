@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/modules/travel/views/travel_item_view.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:get/get.dart';
 
 import '../../../common/widgets/loading_container.dart';
 import '../../../common/widgets/toast.dart';

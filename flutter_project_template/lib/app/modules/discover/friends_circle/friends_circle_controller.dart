@@ -1,10 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
-import '../../../common/utils/screen_utils.dart';
 
 class FriendsCircleController extends GetxController {
   var dataArr = [].obs;

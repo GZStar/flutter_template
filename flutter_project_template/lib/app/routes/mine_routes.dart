@@ -1,3 +1,5 @@
+import 'package:flutter_project_template/app/modules/mine/userProfile/bindings/user_profile_binding.dart';
+import 'package:flutter_project_template/app/modules/mine/userProfile/views/user_profile_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/mine/settings/bindings/about_binding.dart';
@@ -18,6 +20,9 @@ abstract class MineRoutes {
   static const themeSetting = '/themeSetting';
   static const envSetting = '/envSetting';
   static const about = '/about';
+
+  // 个人信息
+  static const userProfile = '/userProfile';
 }
 
 class MinePages {
@@ -45,6 +50,11 @@ class MinePages {
       name: MineRoutes.envSetting,
       page: () => EnvSettingView(),
       binding: EnvSettingBinding(),
+    ),
+    GetPage(
+      name: MineRoutes.userProfile,
+      page: () => UserProfileView(),
+      binding: UserProfileBinding(),
     ),
   ];
 }

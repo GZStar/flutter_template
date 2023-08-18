@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_project_template/app/common/style/theme.dart';
 import 'package:get/get.dart';
-
-import '../style/app_colors.dart';
 
 abstract class BaseView<Controller extends GetxController>
     extends GetView<Controller> {

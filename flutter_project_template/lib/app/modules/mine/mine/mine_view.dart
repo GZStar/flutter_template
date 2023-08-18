@@ -144,27 +144,32 @@ class MineView extends BaseView<MineController> {
 
   // 头部
   Widget getHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Row(
-          children: [getUserPhoto(), getUserMoreInfo()],
-        ),
-        Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: Image.asset(
-                'assets/images/wechat/mine/ic_setting_myQR.png',
-                width: 18.0,
-                height: 18.0,
-                color: Colors.white,
+    return InkWell(
+      onTap: () {
+        Get.toNamed(MineRoutes.userProfile);
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: [getUserPhoto(), getUserMoreInfo()],
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Image.asset(
+                  'assets/images/wechat/mine/ic_setting_myQR.png',
+                  width: 18.0,
+                  height: 18.0,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.white)
-          ],
-        )
-      ],
+              const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.white)
+            ],
+          )
+        ],
+      ),
     );
   }
 
@@ -213,40 +218,28 @@ class MineView extends BaseView<MineController> {
   }
 
   Widget getUserMoreInfo() {
-    print('get dark is ${Get.isDarkMode}');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        InkWell(
-          onTap: () {
-            print('点击昵称==  ${controller.userProfile.name}');
-            // JhNavUtils.pushNamed(context, 'WxPersonInfoPage');
-          },
-          child: Container(
-            margin: EdgeInsets.only(left: 10),
-            // width: 120,
-            child: Text(
-              controller.userProfile.name ?? '路飞',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 28.0,
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.left,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+        Container(
+          margin: const EdgeInsets.only(left: 10),
+          // width: 120,
+          child: Text(
+            controller.userProfile.name ?? '路飞',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 28.0,
+              fontWeight: FontWeight.w700,
             ),
+            textAlign: TextAlign.left,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
-        InkWell(
-          onTap: () {
-            print('跳转个人信息');
-          },
-          child: Container(
-            margin: EdgeInsets.only(left: 10, top: 5),
-            child: Text(controller.userProfile.phoneNum ?? '13100002222',
-                style: TextStyle(fontSize: 17, color: Colors.white)),
-          ),
+        Container(
+          margin: const EdgeInsets.only(left: 10, top: 5),
+          child: Text(controller.userProfile.phoneNum ?? '13100002222',
+              style: const TextStyle(fontSize: 17, color: Colors.white)),
         )
       ],
     );

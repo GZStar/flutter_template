@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../../../common/widgets/common_widget.dart';
 import '../controllers/web_browser_controller.dart';
 
 class WebBrowserView extends GetView<WebBrowserController> {

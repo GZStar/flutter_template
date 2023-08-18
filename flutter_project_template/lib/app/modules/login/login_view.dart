@@ -4,7 +4,6 @@ import '../../common/widgets/common_widget.dart';
 import '../../common/widgets/input_field.dart';
 import 'login_controller.dart';
 import '../../common/base/base_view.dart';
-import 'dart:ui' as ui show window;
 
 class LoginView extends BaseView<LoginController> {
   @override
@@ -38,7 +37,7 @@ class LoginView extends BaseView<LoginController> {
                   return 'Phone is required.';
                 }
 
-                if (!GetUtils.isPhoneNumber(value!)) {
+                if (!GetUtils.isPhoneNumber(value)) {
                   return 'Phone format error.';
                 }
                 return null;

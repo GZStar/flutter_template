@@ -49,8 +49,6 @@ dependencies:
   cookie_jar: ^3.0.1
   # 监测网络状态 https://pub.flutter-io.cn/packages/connectivity_plus
   connectivity_plus: ^3.0.2
-  # 下拉刷新 https://pub.flutter-io.cn/packages/pull_to_refresh
-  pull_to_refresh: ^2.0.0 
   # 加载指示器 https://pub.flutter-io.cn/packages/flutter_easyloading
   flutter_easyloading: ^3.0.5
   # 屏幕参数适配 https://pub.flutter-io.cn/packages/flutter_screenutil
