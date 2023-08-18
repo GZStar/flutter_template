@@ -10,6 +10,8 @@ import '../../../common/widgets/common_widget.dart';
 import '../controllers/travel_controller.dart';
 
 class TravelView extends BaseView<TravelController> {
+  const TravelView({Key? key}) : super(key: key);
+
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
     return CommonWidget.appBar('travel'.tr, isBackButtonEnabled: false);

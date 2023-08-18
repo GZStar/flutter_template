@@ -10,10 +10,12 @@ import '../../../common/widgets/update_dialog.dart';
 import 'mine_controller.dart';
 
 class MineView extends BaseView<MineController> {
-  double cellH = 55;
-  double leftSpace = 50.0;
-  double rowSpace = 8;
-  double scrollMaxOffSet = 1000;
+  const MineView({Key? key}) : super(key: key);
+
+  final double cellH = 55;
+  final double leftSpace = 50.0;
+  final double rowSpace = 8;
+  final double scrollMaxOffSet = 1000;
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) {

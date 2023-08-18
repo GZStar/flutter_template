@@ -12,6 +12,8 @@ import '../../common/widgets/home_pop_menus.dart';
 import 'home_controller.dart';
 
 class HomeView extends BaseView<HomeController> {
+  const HomeView({Key? key}) : super(key: key);
+
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
     return CommonWidget.appBar('home'.tr,

@@ -11,6 +11,8 @@ import '../../common/widgets/set_cell.dart';
 import 'discover_controller.dart';
 
 class DiscoverView extends BaseView<DiscoverController> {
+  const DiscoverView({Key? key}) : super(key: key);
+
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
     return CommonWidget.appBar('discover'.tr, isBackButtonEnabled: false);

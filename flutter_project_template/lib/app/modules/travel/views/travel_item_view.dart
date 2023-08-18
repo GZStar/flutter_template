@@ -20,8 +20,8 @@ class TravelItemView extends StatelessWidget {
           print('on travel item wxUrl click ${dic.wxUrl}');
 
           print('on travel item appUrl click ${dic.appUrl}');
-          // Get.toNamed(MainRoutes.webBrowser, arguments: {'url': dic.h5Url});
-          launchUrl(Uri.parse(dic.h5Url.toString()));
+          Get.toNamed(MainRoutes.webBrowser, arguments: {'url': dic.h5Url});
+          // launchUrl(Uri.parse(dic.h5Url.toString()));
         }
       },
       child: Card(

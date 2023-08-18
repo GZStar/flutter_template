@@ -7,7 +7,7 @@ import '../style/app_colors.dart';
 
 abstract class BaseView<Controller extends GetxController>
     extends GetView<Controller> {
-  final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
+  const BaseView({Key? key}) : super(key: key);
 
   PreferredSizeWidget? appBar(BuildContext context);
 
@@ -52,9 +52,6 @@ abstract class BaseView<Controller extends GetxController>
 
   Widget pageScaffold(BuildContext context) {
     return Scaffold(
-      //sets ios status bar color
-      // backgroundColor: pageBackgroundColor(),
-      key: globalKey,
       appBar: appBar(context),
       floatingActionButton: floatingActionButton(),
       body: pageContent(context),

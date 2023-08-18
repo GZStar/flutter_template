@@ -12,17 +12,22 @@ import '../../home/home_index.dart';
 import '../../mine/mine/mine_index.dart';
 
 class MainTabbarView extends GetView<MainTabbarController> {
+  const MainTabbarView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    controller.pages = [HomeView(), TravelView(), DiscoverView(), MineView()];
-
     return Scaffold(
       backgroundColor: Colors.orange,
       body: PageView(
         controller: controller.pageController,
         onPageChanged: (index) => controller.onJumpTo(index),
         physics: const NeverScrollableScrollPhysics(),
-        children: controller.pages,
+        children: const <Widget>[
+          HomeView(),
+          TravelView(),
+          DiscoverView(),
+          MineView()
+        ],
       ),
       bottomNavigationBar: buildBottomNavigationBar(),
     );
