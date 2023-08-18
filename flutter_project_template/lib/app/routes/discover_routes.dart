@@ -12,7 +12,7 @@ class DiscoverPages {
   static final routes = <GetPage>[
     GetPage(
         name: DiscoverRoutes.friendsCircle,
-        page: () => FriendsCircleView(),
+        page: () => const FriendsCircleView(),
         binding: FriendsCirlcelBinding()),
   ];
 }

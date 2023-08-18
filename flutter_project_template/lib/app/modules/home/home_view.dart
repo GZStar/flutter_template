@@ -6,6 +6,7 @@ import 'package:badges/badges.dart' as badges;
 import '../../common/utils/qr_code_utils.dart';
 import '../../common/widgets/common_widget.dart';
 import '../../common/widgets/home_pop_menus.dart';
+import '../../routes/home_routes.dart';
 import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -40,7 +41,6 @@ class HomeView extends GetView<HomeController> {
   Widget _cellBody(dataArr) {
     Widget noRead = CustomSlidableAction(
       padding: const EdgeInsets.all(0),
-//      foregroundColor:Colors.white,
       backgroundColor: Colors.black87,
       child: const Text(
         '标为未读',
@@ -140,7 +140,7 @@ class HomeView extends GetView<HomeController> {
     return InkWell(
         onTap: () => clickCell(item),
         child: Container(
-            // color: AppColors.backgroundColor,
+            color: Get.theme.colorScheme.primaryContainer,
             height: 70,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,6 +211,8 @@ class HomeView extends GetView<HomeController> {
     // } else {
     //   JhNavUtils.pushNamed(context, 'DemoListPage');
     // }
+
+    Get.toNamed(HomeRoutes.chat);
   }
 
   // 右上角pop

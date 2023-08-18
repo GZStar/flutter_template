@@ -1,4 +1,5 @@
 import 'package:flutter_project_template/app/routes/discover_routes.dart';
+import 'package:flutter_project_template/app/routes/home_routes.dart';
 import 'package:flutter_project_template/app/routes/login_routes.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,8 @@ class AppPages {
     binding: NotfoundBinding(),
   );
 
-  static final routes = MainPages.routes +
+  static final routes = HomePages.routes +
+      MainPages.routes +
       AccountPages.routes +
       MinePages.routes +
       DiscoverPages.routes;

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../common/widgets/set_cell.dart';
 import '../../../common/widgets/update_dialog.dart';
+import '../../../routes/home_routes.dart';
 import 'mine_controller.dart';
 
 class MineView extends GetView<MineController> {
@@ -78,7 +79,9 @@ class MineView extends GetView<MineController> {
           leftImgPath: 'assets/images/wechat/mine/ic_wallet.png',
           title: '服务',
           hiddenLine: true,
-          clickCallBack: () {}),
+          clickCallBack: () {
+            Get.toNamed(HomeRoutes.chat);
+          }),
       SizedBox(height: rowSpace),
       CommonSetCell(
           cellHeight: cellH,
