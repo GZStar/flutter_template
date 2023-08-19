@@ -199,7 +199,7 @@ class HomeView extends GetView<HomeController> {
   // 点击cell
   void clickCell(item) {
     // JhToast.showText(context, msg: '点击 $item['title']');
-    CommonWidget.toast(item['title']);
+    // CommonWidget.toast(item['title']);
 
     // if (item['title'] == 'Demo 列表') {
     //   CommonWidget.toast(item['title']);

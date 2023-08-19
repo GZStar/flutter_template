@@ -8,17 +8,21 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('login'.tr),
-        centerTitle: true,
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(horizontal: 35.0),
-        child: _buildForms(context),
-      ),
-    );
+    return GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('login'.tr),
+            centerTitle: true,
+          ),
+          body: Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(horizontal: 35.0),
+            child: _buildForms(context),
+          ),
+        ));
   }
 
   Widget _buildForms(BuildContext context) {

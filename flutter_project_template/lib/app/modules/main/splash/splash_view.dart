@@ -7,21 +7,25 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Get.isDarkMode ? AppColors.backgroundDark : AppColors.background,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.hourglass_bottom,
-              color: Get.theme.primaryColor,
-              size: 30.0,
-            ),
-            const Text(
-              'loading...',
-              style: TextStyle(fontSize: 30.0),
-            ),
-          ],
+      body: Center(
+        child: Container(
+          color:
+              Get.isDarkMode ? AppColors.backgroundDark : AppColors.background,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.hourglass_bottom,
+                color: Get.theme.primaryColor,
+                size: 30.0,
+              ),
+              const Text(
+                'loading...',
+                style: TextStyle(fontSize: 30.0),
+              ),
+            ],
+          ),
         ),
       ),
     );
