@@ -3,8 +3,10 @@ import 'package:flutter_project_template/app/common/widgets/toast.dart';
 import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
+import '../../../../common/values/storage_key.dart';
 import '../../../../common/widgets/set_cell.dart';
 import '../../../../data/local/store/config_store.dart';
+import '../../../../data/local/store/storage_service.dart';
 import '../controllers/about_controller.dart';
 
 class AboutView extends GetView<AboutController> {
@@ -56,7 +58,7 @@ class AboutView extends GetView<AboutController> {
         CommonSetCell(
             title: '重置引导页'.tr,
             clickCallBack: () {
-              ConfigStore.to.isFirstOpen = false;
+              StorageService.to.setBool(StorageKeys.deviceFirstOpen, false);
               showToast('引导页已重置，重新打开应用即可展示引导页');
             }),
         const SizedBox(height: 8),
