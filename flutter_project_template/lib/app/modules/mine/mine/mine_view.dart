@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import '../../../common/widgets/set_cell.dart';
 import '../../../common/widgets/update_dialog.dart';
 import '../../../routes/home_routes.dart';
-import '../../chat/views/chat_page.dart';
 import 'mine_controller.dart';
 
 class MineView extends GetView<MineController> {

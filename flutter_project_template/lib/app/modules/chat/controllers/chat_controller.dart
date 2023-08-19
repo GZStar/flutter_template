@@ -54,18 +54,15 @@ class ChatController extends GetxController {
 
   void onHeaderChange() {
     final state = listenable.value;
-    print('change listen');
 
     if (state != null) {
-      print('change listen 22222');
-
-      // final position = state.notifier.position;
-      // viewportDimension ??= position.viewportDimension;
-      // final shrinkWrap1 = state.notifier.position.maxScrollExtent == 0;
-      // if (shrinkWrap.value != shrinkWrap1 &&
-      //     viewportDimension == position.viewportDimension) {
-      //   shrinkWrap.value = shrinkWrap1;
-      // }
+      final position = state.notifier.position;
+      viewportDimension ??= position.viewportDimension;
+      final shrinkWrap1 = state.notifier.position.maxScrollExtent == 0;
+      if (shrinkWrap.value != shrinkWrap1 &&
+          viewportDimension == position.viewportDimension) {
+        shrinkWrap.value = shrinkWrap1;
+      }
     }
   }
 
