@@ -11,6 +11,8 @@ class TravelView extends GetView<TravelController> {
 
   @override
   Widget build(BuildContext context) {
+    print('TravelView  build');
+
     return Scaffold(
       appBar: AppBar(
         title: Text('travel'.tr),

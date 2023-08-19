@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 import '../../../../common/values/storage_key.dart';
 import '../../../../common/widgets/set_cell.dart';
-import '../../../../data/local/store/config_store.dart';
 import '../../../../data/local/store/storage_service.dart';
 import '../controllers/about_controller.dart';
 
@@ -32,7 +31,7 @@ class AboutView extends GetView<AboutController> {
         Text(
           '©2016–2022 MyDemo All rights reserved',
           textAlign: TextAlign.center,
-          style: Get.theme.textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 5),
       ],
@@ -51,6 +50,7 @@ class AboutView extends GetView<AboutController> {
             }),
         CommonSetCell(
             title: '功能介绍'.tr,
+            bgColor: Colors.red,
             clickCallBack: () {
               showToast('功能介绍');
             }),

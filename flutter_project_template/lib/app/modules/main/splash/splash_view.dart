@@ -9,15 +9,13 @@ class SplashView extends GetView<SplashController> {
     return Scaffold(
       body: Center(
         child: Container(
-          color:
-              Get.isDarkMode ? AppColors.backgroundDark : AppColors.background,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Icon(
                 Icons.hourglass_bottom,
-                color: Get.theme.primaryColor,
+                color: Theme.of(context).primaryColor,
                 size: 30.0,
               ),
               const Text(

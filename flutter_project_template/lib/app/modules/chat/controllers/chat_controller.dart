@@ -6,6 +6,7 @@ class ChatController extends GetxController {
   //TODO: Implement ChatController
   final listenable = IndicatorStateListenable();
   late final TextEditingController inputController;
+  late final EasyRefreshController refreshcontroller;
 
   var shrinkWrap = false.obs;
   var textNotEmpty = false.obs;
@@ -32,6 +33,11 @@ class ChatController extends GetxController {
       textNotEmpty.value = inputController.text.isNotEmpty;
     });
     listenable.addListener(onHeaderChange);
+
+    refreshcontroller = EasyRefreshController(
+      controlFinishRefresh: true,
+      controlFinishLoad: true,
+    );
   }
 
   @override
@@ -48,18 +54,22 @@ class ChatController extends GetxController {
 
   void onHeaderChange() {
     final state = listenable.value;
+    print('change listen');
+
     if (state != null) {
-      final position = state.notifier.position;
-      viewportDimension ??= position.viewportDimension;
-      final shrinkWrap1 = state.notifier.position.maxScrollExtent == 0;
-      if (shrinkWrap.value != shrinkWrap1 &&
-          viewportDimension == position.viewportDimension) {
-        shrinkWrap.value = shrinkWrap1;
-      }
+      print('change listen 22222');
+
+      // final position = state.notifier.position;
+      // viewportDimension ??= position.viewportDimension;
+      // final shrinkWrap1 = state.notifier.position.maxScrollExtent == 0;
+      // if (shrinkWrap.value != shrinkWrap1 &&
+      //     viewportDimension == position.viewportDimension) {
+      //   shrinkWrap.value = shrinkWrap1;
+      // }
     }
   }
 
-  void loadHistory() {
+  void loadHistory() async {
     Future.delayed(const Duration(seconds: 2), () {
       messages.addAll([
         MessageEntity(
@@ -72,6 +82,8 @@ class ChatController extends GetxController {
           msg: "History message",
         ),
       ]);
+
+      refreshcontroller.finishLoad();
     });
   }
 

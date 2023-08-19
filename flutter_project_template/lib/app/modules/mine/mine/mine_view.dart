@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../../../common/widgets/set_cell.dart';
 import '../../../common/widgets/update_dialog.dart';
 import '../../../routes/home_routes.dart';
+import '../../chat/views/chat_page.dart';
 import 'mine_controller.dart';
 
 class MineView extends GetView<MineController> {
@@ -19,6 +20,8 @@ class MineView extends GetView<MineController> {
 
   @override
   Widget build(BuildContext context) {
+    print('MineView page build');
+
     return Scaffold(
       body: _body(context),
     );
@@ -26,7 +29,6 @@ class MineView extends GetView<MineController> {
 
   Widget _body(BuildContext context) {
     return Scaffold(
-      // backgroundColor: AppColors.backgroundColor,
       // 创建一个公共的 Scrollable 和 Viewport
       body: CustomScrollView(
         primary: true,
@@ -35,7 +37,6 @@ class MineView extends GetView<MineController> {
             parent: AlwaysScrollableScrollPhysics()),
         slivers: [
           SliverAppBar(
-            // backgroundColor: Colors.transparent,
             collapsedHeight: 100,
             expandedHeight: 100,
             // pinned: true, // 是否固定
@@ -43,10 +44,7 @@ class MineView extends GetView<MineController> {
             // snap: false, // 当漂浮时，此参数才有效
             // 让 FlexibleSpaceBar 与外部组件同步滚动（在内部滚动结束后）
             stretch: true,
-            flexibleSpace: FlexibleSpaceBar(
-                // collapseMode: CollapseMode.pin,
-                // stretchModes: const <StretchMode>[StretchMode.zoomBackground],
-                background: _header()),
+            flexibleSpace: FlexibleSpaceBar(background: _header(context)),
           ),
           getSliverList(),
         ],
@@ -54,7 +52,7 @@ class MineView extends GetView<MineController> {
     );
   }
 
-  Widget _header() {
+  Widget _header(context) {
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -62,7 +60,7 @@ class MineView extends GetView<MineController> {
           'assets/images/service/bg_service_fuwufankui.png',
           fit: BoxFit.cover,
           colorBlendMode: BlendMode.color,
-          color: Get.theme.appBarTheme.backgroundColor,
+          color: Theme.of(context).appBarTheme.backgroundColor,
         ),
         Positioned(left: 15, right: 15, bottom: 10, child: getHeader())
       ],

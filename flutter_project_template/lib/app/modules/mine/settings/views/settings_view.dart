@@ -12,6 +12,7 @@ class SettingsView extends GetView<SettingsController> {
 
   @override
   Widget build(BuildContext context) {
+    print('setting view build');
     return Scaffold(
       appBar: AppBar(
         title: Text('settings'.tr),

@@ -144,6 +144,7 @@ class ChatView extends GetView<ChatController> {
           children: [
             Expanded(
               child: EasyRefresh(
+                controller: controller.refreshcontroller,
                 clipBehavior: Clip.none,
                 onRefresh: () {},
                 onLoad: () {
@@ -184,21 +185,23 @@ class ChatView extends GetView<ChatController> {
                         ],
                       );
                     }),
-                child: Obx(() => CustomScrollView(
-                      reverse: true,
-                      shrinkWrap: controller.shrinkWrap.value,
-                      clipBehavior: Clip.none,
-                      slivers: [
-                        SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            (context, index) {
-                              return _buildMessageItem(index);
-                            },
-                            childCount: controller.messages.length,
-                          ),
+                child: Obx(
+                  () => CustomScrollView(
+                    reverse: true,
+                    shrinkWrap: controller.shrinkWrap.value,
+                    clipBehavior: Clip.none,
+                    slivers: [
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                            return _buildMessageItem(index);
+                          },
+                          childCount: controller.messages.length,
                         ),
-                      ],
-                    )),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
             Container(

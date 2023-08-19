@@ -13,6 +13,8 @@ class DiscoverView extends GetView<DiscoverController> {
 
   @override
   Widget build(BuildContext context) {
+    print('DiscoverView page build');
+
     return Scaffold(
       appBar: AppBar(
         title: Text('discover'.tr),

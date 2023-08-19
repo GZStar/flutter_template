@@ -14,6 +14,8 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    print('HomeView page build');
+
     return Scaffold(
       appBar: AppBar(
         title: Text('home'.tr),
