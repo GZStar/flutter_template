@@ -7,12 +7,17 @@ class ChatController extends GetxController {
   final listenable = IndicatorStateListenable();
   late final TextEditingController inputController;
   late final EasyRefreshController refreshcontroller;
+  ScrollController scrollController = ScrollController();
+
+  bool firstAutoscrollExecuted = false;
+  bool shouldAutoscroll = false;
 
   var shrinkWrap = false.obs;
   var textNotEmpty = false.obs;
+  var count = 1;
   double? viewportDimension;
 
-  final List<MessageEntity> messages = [
+  final List<MessageEntity> receiverMessages = [
     MessageEntity(
       own: true,
       msg: "It's good!",
@@ -22,22 +27,25 @@ class ChatController extends GetxController {
       img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
       msg: "My test",
     ),
-  ].obs;
+  ];
+
+  final List<MessageEntity> historyMessages = [];
 
   @override
   void onInit() {
     super.onInit();
 
-    inputController = TextEditingController();
-    inputController.addListener(() {
-      textNotEmpty.value = inputController.text.isNotEmpty;
-    });
-    listenable.addListener(onHeaderChange);
-
     refreshcontroller = EasyRefreshController(
       controlFinishRefresh: true,
       controlFinishLoad: true,
     );
+
+    inputController = TextEditingController();
+    inputController.addListener(() {
+      textNotEmpty.value = inputController.text.isNotEmpty;
+
+      scrollToBottom();
+    });
   }
 
   @override
@@ -47,28 +55,14 @@ class ChatController extends GetxController {
 
   @override
   void onClose() {
-    listenable.removeListener(onHeaderChange);
     inputController.dispose();
+    refreshcontroller.dispose();
     super.onClose();
-  }
-
-  void onHeaderChange() {
-    final state = listenable.value;
-
-    if (state != null) {
-      final position = state.notifier.position;
-      viewportDimension ??= position.viewportDimension;
-      final shrinkWrap1 = state.notifier.position.maxScrollExtent == 0;
-      if (shrinkWrap.value != shrinkWrap1 &&
-          viewportDimension == position.viewportDimension) {
-        shrinkWrap.value = shrinkWrap1;
-      }
-    }
   }
 
   void loadHistory() async {
     Future.delayed(const Duration(seconds: 2), () {
-      messages.addAll([
+      historyMessages.addAll([
         MessageEntity(
           own: true,
           msg: "It's good!",
@@ -76,29 +70,57 @@ class ChatController extends GetxController {
         MessageEntity(
           own: false,
           img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
-          msg: "History message",
+          msg: "History message ${count}",
         ),
       ]);
 
-      refreshcontroller.finishLoad();
+      refreshcontroller.finishRefresh();
+
+      update();
     });
+
+    Future.delayed(const Duration(seconds: 3), () {
+      receiverMessages.addAll([
+        MessageEntity(
+          own: true,
+          msg: "It's good!",
+        ),
+        MessageEntity(
+          own: false,
+          img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
+          msg: "new message ${count}",
+        ),
+      ]);
+      update();
+    });
+
+    count++;
   }
 
   void onSend() {
     if (inputController.text.isEmpty) {
       return;
     }
-    messages.insert(
-        0,
-        MessageEntity(
-          own: true,
-          msg: inputController.text,
-        ));
 
+    receiverMessages.add(MessageEntity(
+      own: true,
+      msg: inputController.text,
+    ));
     inputController.clear();
-    // Future(() {
-    //   PrimaryScrollController.of(context).jumpTo(0);
-    // });
+
+    update();
+    scrollToBottom();
+  }
+
+  void scrollToBottom() {
+    // 页面滑动到最底部
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    });
   }
 }
 

@@ -14,16 +14,16 @@ import '../controllers/chat_controller.dart';
 class ChatView extends GetView<ChatController> {
   const ChatView({Key? key}) : super(key: key);
 
-  Widget _buildMessageItem(int index) {
+  Widget _buildMessageItem(int index, List<MessageEntity> messages) {
     return LayoutBuilder(
       builder: (context, constraints) {
         final themeData = Theme.of(context);
-        final message = controller.messages[index];
+        final message = messages[index];
         final maxWidth = math.min(constraints.maxWidth - 124, 400.0);
         Widget? imgWidget;
         Widget? msgWidget;
         bool continuously =
-            index != 0 && controller.messages[index - 1].own == message.own;
+            index != 0 && messages[index - 1].own == message.own;
         if (message.img != null) {
           imgWidget = LayoutBuilder(
             builder: (context, c) {
@@ -122,6 +122,8 @@ class ChatView extends GetView<ChatController> {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    const Key centerKey = ValueKey('second-sliver-list');
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -135,6 +137,7 @@ class ChatView extends GetView<ChatController> {
               onPressed: () {
                 FocusScope.of(context).unfocus();
                 Get.toNamed(MineRoutes.userProfile);
+                // controller.loadHistory();
               },
             ),
           ],
@@ -146,16 +149,54 @@ class ChatView extends GetView<ChatController> {
               child: EasyRefresh(
                 controller: controller.refreshcontroller,
                 clipBehavior: Clip.none,
-                onRefresh: () {},
-                onLoad: () {
+                onRefresh: () {
                   controller.loadHistory();
                 },
-                header: ListenerHeader(
+                onLoad: () {
+                  controller.refreshcontroller.finishLoad();
+                },
+                // header: ListenerHeader(
+                //   listenable: controller.listenable,
+                //   triggerOffset: 100000,
+                //   clamping: false,
+                // ),
+                // footer: BuilderFooter(
+                //     triggerOffset: 40,
+                //     clamping: false,
+                //     position: IndicatorPosition.above,
+                //     infiniteOffset: null,
+                //     processedDuration: Duration.zero,
+                //     builder: (context, state) {
+                //       return Stack(
+                //         children: [
+                //           SizedBox(
+                //             height: state.offset,
+                //             width: double.infinity,
+                //           ),
+                //           Positioned(
+                //             bottom: 0,
+                //             left: 0,
+                //             right: 0,
+                //             child: Container(
+                //               alignment: Alignment.center,
+                //               width: double.infinity,
+                //               height: 40,
+                //               child: SpinKitCircle(
+                //                 size: 24,
+                //                 color: themeData.colorScheme.primary,
+                //               ),
+                //             ),
+                //           )
+                //         ],
+                //       );
+                //     }),
+                footer: ListenerFooter(
                   listenable: controller.listenable,
-                  triggerOffset: 100000,
+                  triggerOffset: 0,
                   clamping: false,
                 ),
-                footer: BuilderFooter(
+                header: BuilderHeader(
+                    listenable: controller.listenable,
                     triggerOffset: 40,
                     clamping: false,
                     position: IndicatorPosition.above,
@@ -185,22 +226,37 @@ class ChatView extends GetView<ChatController> {
                         ],
                       );
                     }),
-                child: Obx(
-                  () => CustomScrollView(
-                    reverse: true,
-                    shrinkWrap: controller.shrinkWrap.value,
-                    clipBehavior: Clip.none,
-                    slivers: [
-                      SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          (context, index) {
-                            return _buildMessageItem(index);
-                          },
-                          childCount: controller.messages.length,
+                child: GetBuilder<ChatController>(
+                  builder: (controller) {
+                    return CustomScrollView(
+                      controller: controller.scrollController,
+                      center: centerKey,
+                      // reverse: true,
+                      // shrinkWrap: controller.shrinkWrap.value,
+                      clipBehavior: Clip.none,
+                      slivers: [
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) {
+                              return _buildMessageItem(
+                                  index, controller.historyMessages);
+                            },
+                            childCount: controller.historyMessages.length,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                        SliverList(
+                          key: centerKey,
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) {
+                              return _buildMessageItem(
+                                  index, controller.receiverMessages);
+                            },
+                            childCount: controller.receiverMessages.length,
+                          ),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
             ),
@@ -245,10 +301,6 @@ class ChatView extends GetView<ChatController> {
                                 if (controller
                                     .inputController.text.isNotEmpty) {
                                   controller.onSend();
-                                  Future(() {
-                                    PrimaryScrollController.of(context)
-                                        .jumpTo(0);
-                                  });
                                 }
                               },
                               icon: Obx(() => Icon(controller.textNotEmpty.value
