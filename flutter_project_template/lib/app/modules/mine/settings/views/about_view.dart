@@ -23,15 +23,16 @@ class AboutView extends GetView<AboutController> {
   }
 
   Widget _body(BuildContext context) {
-    // return getContentBody();
     return Column(
       children: [
         Expanded(child: getContentBody()),
         const SizedBox(height: 5),
-        Text(
-          '©2016–2022 MyDemo All rights reserved',
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleMedium,
+        SafeArea(
+          child: Text(
+            '©2016–2022 MyDemo All rights reserved',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
         const SizedBox(height: 5),
       ],

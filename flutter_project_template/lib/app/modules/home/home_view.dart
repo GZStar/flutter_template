@@ -168,7 +168,6 @@ class HomeView extends GetView<HomeController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-//                Container(color: KColors.kLineColor, height: 0.8),
                       const SizedBox(height: 6),
                       Row(
                         children: <Widget>[
@@ -200,21 +199,6 @@ class HomeView extends GetView<HomeController> {
 
   // 点击cell
   void clickCell(item) {
-    // JhToast.showText(context, msg: '点击 $item['title']');
-    // CommonWidget.toast(item['title']);
-
-    // if (item['title'] == 'Demo 列表') {
-    //   CommonWidget.toast(item['title']);
-    // } else if (item['title'] == 'QQ邮箱提醒') {
-    //   JhNavUtils.pushNamed(context, 'WxQQMessagePage');
-    // } else if (item['title'] == '订阅号消息') {
-    //   JhNavUtils.pushNamed(context, 'WxSubscriptionNumberPage');
-    // } else if (item['title'] == '微信运动') {
-    //   JhNavUtils.pushNamed(context, 'WxMotionPage');
-    // } else {
-    //   JhNavUtils.pushNamed(context, 'DemoListPage');
-    // }
-
     Get.toNamed(HomeRoutes.chat);
   }
 
@@ -228,23 +212,6 @@ class HomeView extends GetView<HomeController> {
         scanClick();
       }
     });
-    // // 带分割线带背景
-    // HomePopMenus.showLinePop(context, isShowBg: true,
-    //     clickCallback: (index, selText) {
-    //   print('选中index: ${index}');
-    //   print('选中text: ${selText}');
-    // });
-
-    // // 带分割线不带背景
-    // HomePopMenus.showLinePop(context, clickCallback: (index, selText) {
-    //   print('选中index: $index');
-    //   print('选中text: $selText');
-
-    //   if (selText == '添加朋友') {}
-    // if (selText == '扫一扫') {
-    //   _scan(context);
-    // }
-    // });
   }
 
   void scanClick() {
