@@ -14,7 +14,8 @@ import '../controllers/chat_controller.dart';
 class ChatView extends GetView<ChatController> {
   const ChatView({Key? key}) : super(key: key);
 
-  Widget _buildMessageItem(int index, List<MessageEntity> messages) {
+  Widget _buildMessageItem(
+      int index, List<MessageEntity> messages, bool isTopList) {
     return LayoutBuilder(
       builder: (context, constraints) {
         final themeData = Theme.of(context);
@@ -22,8 +23,14 @@ class ChatView extends GetView<ChatController> {
         final maxWidth = math.min(constraints.maxWidth - 124, 400.0);
         Widget? imgWidget;
         Widget? msgWidget;
-        bool continuously =
-            index != 0 && messages[index - 1].own == message.own;
+
+        bool continuously = false;
+        if (isTopList) {
+          continuously = index != 0 && messages[index - 1].own == message.own;
+        } else {
+          continuously = index != (messages.length - 1) &&
+              messages[index + 1].own == message.own;
+        }
         if (message.img != null) {
           imgWidget = LayoutBuilder(
             builder: (context, c) {
@@ -155,41 +162,6 @@ class ChatView extends GetView<ChatController> {
                 onLoad: () {
                   controller.refreshcontroller.finishLoad();
                 },
-                // header: ListenerHeader(
-                //   listenable: controller.listenable,
-                //   triggerOffset: 100000,
-                //   clamping: false,
-                // ),
-                // footer: BuilderFooter(
-                //     triggerOffset: 40,
-                //     clamping: false,
-                //     position: IndicatorPosition.above,
-                //     infiniteOffset: null,
-                //     processedDuration: Duration.zero,
-                //     builder: (context, state) {
-                //       return Stack(
-                //         children: [
-                //           SizedBox(
-                //             height: state.offset,
-                //             width: double.infinity,
-                //           ),
-                //           Positioned(
-                //             bottom: 0,
-                //             left: 0,
-                //             right: 0,
-                //             child: Container(
-                //               alignment: Alignment.center,
-                //               width: double.infinity,
-                //               height: 40,
-                //               child: SpinKitCircle(
-                //                 size: 24,
-                //                 color: themeData.colorScheme.primary,
-                //               ),
-                //             ),
-                //           )
-                //         ],
-                //       );
-                //     }),
                 footer: ListenerFooter(
                   listenable: controller.listenable,
                   triggerOffset: 0,
@@ -239,7 +211,7 @@ class ChatView extends GetView<ChatController> {
                           delegate: SliverChildBuilderDelegate(
                             (context, index) {
                               return _buildMessageItem(
-                                  index, controller.historyMessages);
+                                  index, controller.historyMessages, true);
                             },
                             childCount: controller.historyMessages.length,
                           ),
@@ -249,7 +221,7 @@ class ChatView extends GetView<ChatController> {
                           delegate: SliverChildBuilderDelegate(
                             (context, index) {
                               return _buildMessageItem(
-                                  index, controller.receiverMessages);
+                                  index, controller.receiverMessages, false);
                             },
                             childCount: controller.receiverMessages.length,
                           ),

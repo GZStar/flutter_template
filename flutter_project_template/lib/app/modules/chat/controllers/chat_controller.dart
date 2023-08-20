@@ -87,7 +87,7 @@ class ChatController extends GetxController {
         ),
         MessageEntity(
           own: false,
-          img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
+          img: 'assets/images/wechat/discover/friends/wx_img9.JPG',
           msg: "new message ${count}",
         ),
       ]);
