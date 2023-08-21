@@ -122,24 +122,6 @@ class CommonTextFieldState extends State<CommonTextField> {
           TextPosition(offset: _textController!.text.length));
     }
     _textController!.selection = cursorPos;
-
-    // 有bug，删除中间的文字会跳到最后
-    // // 更新text值到_textController
-    // _textController!.text = widget.text ?? '';
-    // // 光标保持在文本最后
-    // _textController!.selection = TextSelection.fromPosition(
-    //   TextPosition(offset: _textController!.text.length),
-    // );
-
-    // 同上
-    // _textController!.value = _textController!.value.copyWith(
-    //   text: widget.text,
-    //   selection: TextSelection(
-    //     baseOffset: _textController!.text.length,
-    //     extentOffset: _textController!.text.length,
-    //   ),
-    //   composing: TextRange.empty,
-    // );
   }
 
   @override

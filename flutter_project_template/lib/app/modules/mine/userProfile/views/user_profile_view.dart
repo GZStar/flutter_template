@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/common/widgets/toast.dart';
+import 'package:flutter_project_template/app/routes/mine_routes.dart';
 
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -109,11 +110,15 @@ class UserProfileView extends GetView<UserProfileController> {
                       leading: const Align(
                           widthFactor: 1.0,
                           alignment: Alignment.center,
-                          child: Icon(Icons.supervised_user_circle)),
-                      title: Text('QQ group'.tr),
-                      subtitle: const Text('123456'),
+                          child: Icon(Icons.qr_code)),
+                      title: Text('我的二维码'.tr),
+                      // subtitle: const Text('123456'),
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18,
+                      ),
                       onTap: () {
-                        showToast('12345');
+                        Get.toNamed(MineRoutes.userQrCode);
                       },
                     ),
                     ListTile(
@@ -126,7 +131,10 @@ class UserProfileView extends GetView<UserProfileController> {
                       onTap: () {
                         launchUrl(Uri.parse('https://github.com/flutter'));
                       },
-                      trailing: const Icon(Icons.arrow_forward_ios),
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18,
+                      ),
                     ),
                   ],
                 ),
@@ -198,6 +206,11 @@ class UserProfileView extends GetView<UserProfileController> {
                 ),
               ),
             ),
+            SliverList.list(children: const [
+              SizedBox(
+                height: 90,
+              )
+            ]),
           ],
         ),
       ),

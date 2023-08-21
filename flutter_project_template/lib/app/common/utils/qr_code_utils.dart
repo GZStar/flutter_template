@@ -79,37 +79,4 @@ class QrCodeUtils {
       }
     });
   }
-
-  ///  barcode_scan 扫码
-// static Future<String> scan() async {
-//   try {
-//     const ScanOptions options = ScanOptions(
-//       strings: {
-//         'cancel': '取消',
-//         'flash_on': '开启闪光灯',
-//         'flash_off': '关闭闪光灯',
-//       },
-//     );
-//     final ScanResult result = await BarcodeScanner.scan(options: options);
-//     print('========== 23432423423434234234 ==========');
-//     print('object: ${result.toString()}');
-//     print('object: ${result.rawContent}');
-//
-//     return result.rawContent;
-//   } catch (e) {
-//     if (e is PlatformException) {
-//       if (e.code == BarcodeScanner.cameraAccessDenied) {
-//         JhProgressHUD.showText('没有相机权限！');
-//       }
-//     }
-//   }
-//   return '';
-// }
-/*
-   Future.delayed(Duration(milliseconds: 400), () {
-        JhQrCodeUtils.scan().then((data) {
-          print('扫码结果：$data');
-         });
-    });
-*/
 }

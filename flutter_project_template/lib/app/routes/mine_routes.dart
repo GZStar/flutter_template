@@ -1,5 +1,6 @@
 import 'package:flutter_project_template/app/modules/mine/userProfile/bindings/user_profile_binding.dart';
 import 'package:flutter_project_template/app/modules/mine/userProfile/views/user_profile_view.dart';
+import 'package:flutter_project_template/app/modules/mine/userQrCode/views/user_qr_code_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/mine/settings/bindings/about_binding.dart';
@@ -16,44 +17,50 @@ import '../modules/mine/settings/views/theme_setting_view.dart';
 abstract class MineRoutes {
   /// 设置
   static const settings = '/settings';
-  static const languageSetting = '/languageSetting';
-  static const themeSetting = '/themeSetting';
-  static const envSetting = '/envSetting';
-  static const about = '/about';
+  static const languageSetting = '/settings/languageSetting';
+  static const themeSetting = '/settings/themeSetting';
+  static const envSetting = '/settings/envSetting';
+  static const about = '/settings/about';
 
   // 个人信息
   static const userProfile = '/userProfile';
+  static const userQrCode = '/userProfile/qrCode';
 }
 
 class MinePages {
   static final routes = <GetPage>[
     GetPage(
         name: MineRoutes.settings,
-        page: () => SettingsView(),
+        page: () => const SettingsView(),
         binding: SettingsBinding()),
     GetPage(
       name: MineRoutes.languageSetting,
-      page: () => LanguageSettingView(),
+      page: () => const LanguageSettingView(),
       binding: LanguageSettingBinding(),
     ),
     GetPage(
       name: MineRoutes.themeSetting,
-      page: () => ThemeSettingView(),
+      page: () => const ThemeSettingView(),
       binding: ThemeSettingBinding(),
     ),
     GetPage(
       name: MineRoutes.about,
-      page: () => AboutView(),
+      page: () => const AboutView(),
       binding: AboutBinding(),
     ),
     GetPage(
       name: MineRoutes.envSetting,
-      page: () => EnvSettingView(),
+      page: () => const EnvSettingView(),
       binding: EnvSettingBinding(),
     ),
     GetPage(
       name: MineRoutes.userProfile,
-      page: () => UserProfileView(),
+      page: () => const UserProfileView(),
+      binding: UserProfileBinding(),
+    ),
+    GetPage(
+      name: MineRoutes.userQrCode,
+      page: () => const UserQrCodeView(),
       binding: UserProfileBinding(),
     ),
   ];

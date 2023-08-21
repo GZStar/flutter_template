@@ -52,7 +52,7 @@ dependencies:
   # 加载指示器 https://pub.flutter-io.cn/packages/flutter_easyloading
   flutter_easyloading: ^3.0.5
   # 屏幕参数适配 https://pub.flutter-io.cn/packages/flutter_screenutil
-  flutter_screenutil: ^5.6.0
+  flutter_screenutil: ^5.8.4
   # 加密 https://pub.flutter-io.cn/packages/encrypt
   encrypt: ^5.0.1
   # 侧滑删除 https://pub.flutter-io.cn/packages/flutter_slidable
@@ -106,6 +106,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/images/
+    - assets/emoji/
     - assets/images/common/
     - assets/images/demos/
     - assets/images/guide/
