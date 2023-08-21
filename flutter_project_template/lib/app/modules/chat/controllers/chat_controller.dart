@@ -27,7 +27,7 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   final List<MessageEntity> receiverMessages = [
     MessageEntity(
       own: true,
-      msg: "It's good!",
+      msg: "It's first!",
     ),
     MessageEntity(
       own: false,
@@ -53,12 +53,6 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
         // 保持光标在最后
         selection: TextSelection.fromPosition(TextPosition(
             affinity: TextAffinity.downstream, offset: msg.value.length))));
-    // inputController.addListener(() {
-    //   textNotEmpty.value = inputController.text.isNotEmpty;
-    //   inputController.text = msg.value;
-
-    //   scrollToBottom();
-    // });
   }
 
   @override
@@ -83,6 +77,11 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
           msg: "It's good!",
         ),
         MessageEntity(
+          own: true,
+          msg: "It's own message!",
+          img: 'assets/images/wechat/discover/friends/wx_img13.JPG',
+        ),
+        MessageEntity(
           own: false,
           img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
           msg: "History message ${count}",
@@ -99,6 +98,7 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
         MessageEntity(
           own: true,
           msg: "It's good!",
+          img: 'assets/images/wechat/discover/friends/wx_img14.JPG',
         ),
         MessageEntity(
           own: false,
@@ -146,15 +146,6 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   }
 
   void scrollToBottom({int duration = 650}) {
-    // 页面滑动到最底部
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   scrollController.animateTo(
-    //     scrollController.position.maxScrollExtent,
-    //     duration: const Duration(milliseconds: 300),
-    //     curve: Curves.easeOut,
-    //   );
-    // });
-
     Future.delayed(Duration(milliseconds: duration), () {
       // 页面滑动到最底部
       WidgetsBinding.instance.addPostFrameCallback((_) {

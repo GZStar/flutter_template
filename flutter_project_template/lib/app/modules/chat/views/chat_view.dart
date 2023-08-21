@@ -24,6 +24,10 @@ class ChatView extends GetView<ChatController> {
         final themeData = Theme.of(context);
         final message = messages[index];
         final maxWidth = math.min(constraints.maxWidth - 124, 400.0);
+        double imgMaxWidth =
+            200.0; //math.min(constraints.maxWidth - 124, 200.0);
+        double imgMaxHeight = 200;
+
         Widget? imgWidget;
         Widget? msgWidget;
 
@@ -44,7 +48,8 @@ class ChatView extends GetView<ChatController> {
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
                 ),
                 constraints: BoxConstraints(
-                  maxWidth: maxWidth,
+                  maxWidth: imgMaxWidth,
+                  maxHeight: imgMaxHeight,
                 ),
                 child: Image.asset(message.img!),
               );
@@ -83,7 +88,8 @@ class ChatView extends GetView<ChatController> {
         }
         Widget contentWidget = Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment:
+              message.own ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             if (imgWidget != null) imgWidget,
             if (imgWidget != null && msgWidget != null)
