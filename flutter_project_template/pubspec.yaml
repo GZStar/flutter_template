@@ -77,6 +77,7 @@ dependencies:
   url_launcher: ^6.1.12
   easy_refresh: ^3.3.2+1
   flutter_spinkit: ^5.2.0
+  emoji_picker_flutter: ^1.6.1
 
 dev_dependencies:
   flutter_test:
@@ -106,7 +107,6 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/images/
-    - assets/emoji/
     - assets/images/common/
     - assets/images/demos/
     - assets/images/guide/

@@ -1,28 +1,26 @@
 import 'package:easy_refresh/easy_refresh.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/widgets/toast.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ChatController extends GetxController with GetTickerProviderStateMixin {
   //TODO: Implement ChatController
+
+  final inputHeight = 216.h;
+  final emojiContainerHeight = 850.h;
+
   final listenable = IndicatorStateListenable();
   late final TextEditingController inputController;
   late final EasyRefreshController refreshcontroller;
-  ScrollController scrollController = ScrollController();
+  late final ScrollController scrollController;
 
-  bool firstAutoscrollExecuted = false;
-  bool shouldAutoscroll = false;
+  FocusNode focusNode = FocusNode();
+  final editKey = GlobalKey();
 
-  var shrinkWrap = false.obs;
   var count = 1;
-  double? viewportDimension;
-
-  var msg = "".obs;
-  var showEmoji = false.obs;
-  var oldShowEmoji = false.obs;
-
-  List categoryList = [Icons.emoji_emotions, Icons.star];
-  late TabController tabController;
+  var isShowEmojiContainer = false;
+  var isShowSendButton = false;
 
   final List<MessageEntity> receiverMessages = [
     MessageEntity(
@@ -41,18 +39,16 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   @override
   void onInit() {
     super.onInit();
-    tabController = TabController(length: categoryList.length, vsync: this);
+
+    scrollController = ScrollController();
+    scrollController.addListener(() {});
 
     refreshcontroller = EasyRefreshController(
       controlFinishRefresh: true,
       controlFinishLoad: true,
     );
 
-    inputController = TextEditingController.fromValue(TextEditingValue(
-        text: msg.value, //判断keyword是否为空
-        // 保持光标在最后
-        selection: TextSelection.fromPosition(TextPosition(
-            affinity: TextAffinity.downstream, offset: msg.value.length))));
+    inputController = TextEditingController();
   }
 
   @override
@@ -64,7 +60,6 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   void onClose() {
     inputController.dispose();
     refreshcontroller.dispose();
-    tabController.dispose();
 
     super.onClose();
   }
@@ -119,27 +114,9 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
 
     receiverMessages.add(MessageEntity(
       own: true,
-      msg: inputController.text,
+      msg: inputController.text.trim(),
     ));
-    inputController.clear();
-
-    update();
-    scrollToBottom();
-  }
-
-  void sendMsg(String message, {String pic = "", int media = 1}) {
-    if ((message == "") && pic == "") {
-      showToast("请输入内容！");
-      return;
-    }
-
-    receiverMessages.add(MessageEntity(
-      own: true,
-      msg: message,
-    ));
-
-    msg.value = "";
-    inputController.clear();
+    inputController.text = '';
 
     update();
     scrollToBottom(duration: 0);
@@ -156,6 +133,88 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
         );
       });
     });
+  }
+
+  void showKeyboard() => focusNode.requestFocus();
+  void hideKeyboard() => focusNode.unfocus();
+
+  void toggleEmojiKeyboardContainer() {
+    if (isShowEmojiContainer) {
+      // showKeyboard();
+      hideEmojiContainer();
+    } else {
+      hideKeyboard();
+      showEmojiContainer();
+    }
+  }
+
+  void hideEmojiContainer() {
+    isShowEmojiContainer = false;
+    update();
+  }
+
+  void showEmojiContainer() {
+    isShowEmojiContainer = true;
+    update();
+  }
+
+  void checkTextFieldEmpty(value) {
+    if (value.isNotEmpty) {
+      isShowSendButton = true;
+    } else {
+      isShowSendButton = false;
+    }
+    update();
+  }
+
+  void _updateTextEditingValue(TextEditingValue value) {
+    (editKey.currentState as TextSelectionGestureDetectorBuilderDelegate)
+        .editableTextKey
+        .currentState
+        ?.userUpdateTextEditingValue(value, SelectionChangedCause.keyboard);
+
+    if (!isShowSendButton) {
+      isShowSendButton = false;
+      update();
+    }
+  }
+
+  void onEmojiSelected(Emoji emoji) {
+    print('_onEmojiSelected: ${emoji.emoji}');
+
+    if (inputController.selection.base.offset < 0) {
+      _updateTextEditingValue(TextEditingValue(
+        text: inputController.text + emoji.emoji,
+      ));
+      return;
+    }
+
+    final selection = inputController.selection;
+    final newText = inputController.text
+        .replaceRange(selection.start, selection.end, emoji.emoji);
+    final emojiLength = emoji.emoji.length;
+    _updateTextEditingValue(TextEditingValue(
+        text: newText,
+        selection: selection.copyWith(
+          baseOffset: selection.start + emojiLength,
+          extentOffset: selection.start + emojiLength,
+        )));
+  }
+
+  void onEmojiBackspacePressed() {
+    print('_onBackspacePressed');
+    if (inputController.selection.base.offset < 0) {
+      return;
+    }
+
+    final selection = inputController.value.selection;
+    final text = inputController.value.text;
+    final newTextBeforeCursor =
+        selection.textBefore(text).characters.skipLast(1).toString();
+    _updateTextEditingValue(TextEditingValue(
+        text: newTextBeforeCursor + selection.textAfter(text),
+        selection: TextSelection.fromPosition(
+            TextPosition(offset: newTextBeforeCursor.length))));
   }
 }
 

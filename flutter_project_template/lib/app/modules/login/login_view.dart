@@ -10,7 +10,7 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          FocusScope.of(context).unfocus();
+          FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
           appBar: AppBar(

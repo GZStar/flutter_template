@@ -16,7 +16,6 @@ class MainTabbarView extends GetView<MainTabbarController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange,
       body: PageView(
         controller: controller.pageController,
         onPageChanged: (index) => controller.onJumpTo(index),

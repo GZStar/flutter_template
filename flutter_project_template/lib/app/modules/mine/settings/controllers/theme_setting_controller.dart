@@ -41,11 +41,11 @@ class ThemeSettingController extends GetxController {
       ConfigStore.to.onThemeUpdate(themes[index].key);
       selectIndex.value = themes[index].key;
 
-      Loading.show();
-      Future.delayed(const Duration(milliseconds: 300), () {
-        Get.forceAppUpdate();
-        Loading.dismiss();
-      });
+      // Loading.show();
+      // Future.delayed(const Duration(milliseconds: 300), () {
+      //   Get.forceAppUpdate();
+      //   Loading.dismiss();
+      // });
     }
   }
 
