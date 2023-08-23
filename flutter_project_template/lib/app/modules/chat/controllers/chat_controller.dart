@@ -1,14 +1,20 @@
+import 'dart:io';
+
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project_template/app/routes/main_routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
+
+import '../../../common/widgets/photo_browser.dart';
 
 class ChatController extends GetxController with GetTickerProviderStateMixin {
   //TODO: Implement ChatController
 
   final inputHeight = 216.h;
-  final emojiContainerHeight = 850.h;
+  final emojiContainerHeight = 307.0;
 
   final listenable = IndicatorStateListenable();
   late final TextEditingController inputController;
@@ -22,16 +28,16 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   var isShowEmojiContainer = false;
   var isShowSendButton = false;
 
-  final List<MessageEntity> receiverMessages = [
+  final List<MessageEntity> newMessages = [
     MessageEntity(
       own: true,
       msg: "It's first!",
     ),
     MessageEntity(
-      own: false,
-      img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
-      msg: "My test",
-    ),
+        own: false,
+        img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
+        msg: "",
+        mediaType: 2),
   ];
 
   final List<MessageEntity> historyMessages = [];
@@ -72,15 +78,16 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
           msg: "It's good!",
         ),
         MessageEntity(
-          own: true,
-          msg: "It's own message!",
-          img: 'assets/images/wechat/discover/friends/wx_img13.JPG',
-        ),
+            own: true,
+            msg: "",
+            img: 'assets/images/wechat/discover/friends/wx_img13.JPG',
+            mediaType: 2),
+        MessageEntity(own: false, msg: "History message ${count}"),
         MessageEntity(
-          own: false,
-          img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
-          msg: "History message ${count}",
-        ),
+            own: false,
+            img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
+            msg: "History message ${count}",
+            mediaType: 2),
       ]);
 
       refreshcontroller.finishRefresh();
@@ -89,17 +96,21 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
     });
 
     Future.delayed(const Duration(seconds: 3), () {
-      receiverMessages.addAll([
+      newMessages.addAll([
         MessageEntity(
-          own: true,
-          msg: "It's good!",
-          img: 'assets/images/wechat/discover/friends/wx_img14.JPG',
-        ),
+            own: true,
+            msg: "",
+            img: 'assets/images/wechat/discover/friends/wx_img14.JPG',
+            mediaType: 2),
         MessageEntity(
           own: false,
-          img: 'assets/images/wechat/discover/friends/wx_img9.JPG',
           msg: "new message ${count}",
         ),
+        MessageEntity(
+            own: false,
+            img: 'assets/images/wechat/discover/friends/wx_img9.JPG',
+            msg: "new message ${count}",
+            mediaType: 2),
       ]);
       update();
     });
@@ -112,7 +123,7 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
       return;
     }
 
-    receiverMessages.add(MessageEntity(
+    newMessages.add(MessageEntity(
       own: true,
       msg: inputController.text.trim(),
     ));
@@ -216,16 +227,75 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
         selection: TextSelection.fromPosition(
             TextPosition(offset: newTextBeforeCursor.length))));
   }
+
+  void openImagePickerView(context) async {
+    if (isShowEmojiContainer) {
+      isShowEmojiContainer = false;
+      update();
+    }
+
+    final List<AssetEntity>? fileList = await AssetPicker.pickAssets(context,
+        pickerConfig: const AssetPickerConfig(
+          maxAssets: 9,
+        ));
+
+    if (fileList != null) {
+      for (var entity in fileList) {
+        AssetType type = entity.type;
+        int mediaType = 1;
+        if (type == AssetType.image) {
+          mediaType = 2;
+          File? file = await entity.originFile;
+          if (file != null) {
+            String? path = file.path;
+            print('image path = ${path}');
+
+            newMessages.add(MessageEntity(own: true, msg: '', img: path));
+
+            // mediaType = 2;
+            // newMessages.add(MessageEntity(
+            //     own: true, msg: '', mediaType: mediaType, asset: entity));
+          }
+        } else if (type == AssetType.video) {
+          mediaType = 3;
+          newMessages.add(MessageEntity(
+              own: true, msg: '', mediaType: mediaType, asset: entity));
+        }
+
+        update();
+        scrollToBottom(duration: 300);
+      }
+    }
+  }
+
+  void onMessageTap(MessageEntity message) {
+    if (message.mediaType == 3) {
+      Get.toNamed(MainRoutes.video, arguments: {'asset': message.asset});
+    } else if (message.mediaType == 2) {
+      Get.to(
+          () => PhotoBrowser(
+                imgDataArr: [message.img],
+                index: 0,
+                onLongPress: () {},
+              ),
+          transition: Transition.zoom,
+          fullscreenDialog: true);
+    }
+  }
 }
 
 class MessageEntity {
   bool own;
   String? msg;
   String? img;
+  int? mediaType;
+  AssetEntity? asset;
 
   MessageEntity({
     required this.own,
     required this.msg,
     this.img,
+    this.mediaType,
+    this.asset,
   });
 }

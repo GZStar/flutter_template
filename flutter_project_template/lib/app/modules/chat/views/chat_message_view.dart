@@ -1,9 +1,11 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:math' as math;
 
 import 'package:get/get.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../../../common/style/app_colors.dart';
 import '../../../common/values/dimens.dart';
@@ -74,24 +76,20 @@ class ChatMessageView extends GetView<ChatController> {
               center: centerKey,
               clipBehavior: Clip.none,
               slivers: [
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      return _buildMessageItem(
-                          index, controller.historyMessages, true);
-                    },
-                    childCount: controller.historyMessages.length,
-                  ),
+                SliverList.builder(
+                  itemCount: controller.historyMessages.length,
+                  itemBuilder: (context, index) {
+                    return _buildMessageItem(
+                        index, controller.historyMessages, true);
+                  },
                 ),
-                SliverList(
+                SliverList.builder(
                   key: centerKey,
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      return _buildMessageItem(
-                          index, controller.receiverMessages, false);
-                    },
-                    childCount: controller.receiverMessages.length,
-                  ),
+                  itemCount: controller.newMessages.length,
+                  itemBuilder: (context, index) {
+                    return _buildMessageItem(
+                        index, controller.newMessages, false);
+                  },
                 ),
               ],
             );
@@ -114,6 +112,7 @@ class ChatMessageView extends GetView<ChatController> {
 
         Widget? imgWidget;
         Widget? msgWidget;
+        Widget? mediaWidget;
 
         bool continuously = false;
         if (isTopList) {
@@ -122,7 +121,24 @@ class ChatMessageView extends GetView<ChatController> {
           continuously = index != (messages.length - 1) &&
               messages[index + 1].own == message.own;
         }
-        if (message.img != null) {
+        if (message.img != null || message.asset != null) {
+          if (message.mediaType == 3) {
+            mediaWidget = Stack(alignment: Alignment.center, children: [
+              Image(image: AssetEntityImageProvider(message.asset!)),
+              Positioned(
+                  child: Icon(
+                Icons.play_circle_fill,
+                size: 150.sp,
+              )),
+            ]);
+          } else if (message.mediaType == 2) {
+            // mediaWidget =
+            //     Image(image: AssetEntityImageProvider(message.asset!));
+            mediaWidget = Image.asset(message.img!);
+          } else {
+            mediaWidget = Image.asset(message.img!);
+          }
+
           imgWidget = LayoutBuilder(
             builder: (context, c) {
               return Container(
@@ -135,13 +151,17 @@ class ChatMessageView extends GetView<ChatController> {
                   maxWidth: imgMaxWidth,
                   maxHeight: imgMaxHeight,
                 ),
-                child: Image.asset(message.img!),
+                child: InkWell(
+                    onTap: () {
+                      controller.onMessageTap(message);
+                    },
+                    child: mediaWidget),
               );
             },
           );
         }
 
-        if (message.msg != null) {
+        if (message.msg != null && message.msg != '') {
           msgWidget = Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(

@@ -17,7 +17,10 @@ class BottomChatFieldView extends GetView<ChatController> {
         child: Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                controller.focusNode.unfocus();
+                controller.openImagePickerView(context);
+              },
               color: themeData.colorScheme.primary,
               icon: const Icon(Icons.add_circle_outline),
               visualDensity: VisualDensity.compact,
@@ -84,13 +87,45 @@ class BottomChatFieldView extends GetView<ChatController> {
   }
 
   Widget _emojiContext(context) {
-    return SizedBox(
-      height: controller.emojiContainerHeight,
-      child: EmojiPicker(
-        onEmojiSelected: ((category, emoji) {
-          controller.onEmojiSelected(emoji);
-        }),
-        onBackspacePressed: controller.onEmojiBackspacePressed,
+    return Visibility(
+      visible: controller.isShowEmojiContainer,
+      child: Container(
+        height: controller.emojiContainerHeight,
+        child: EmojiPicker(
+            onEmojiSelected: ((category, emoji) {
+              controller.onEmojiSelected(emoji);
+            }),
+            onBackspacePressed: controller.onEmojiBackspacePressed,
+            config: Config(
+              columns: 7,
+              // Issue: https://github.com/flutter/flutter/issues/28894
+              emojiSizeMax: 32 * (GetPlatform.isIOS ? 1.30 : 1.0),
+              verticalSpacing: 0,
+              horizontalSpacing: 0,
+              gridPadding: EdgeInsets.zero,
+              initCategory: Category.RECENT,
+              bgColor: const Color(0xFFF2F2F2),
+              indicatorColor: Colors.blue,
+              iconColor: Colors.grey,
+              iconColorSelected: Colors.blue,
+              backspaceColor: Colors.blue,
+              skinToneDialogBgColor: Colors.white,
+              skinToneIndicatorColor: Colors.grey,
+              enableSkinTones: true,
+              recentTabBehavior: RecentTabBehavior.RECENT,
+              recentsLimit: 28,
+              replaceEmojiOnLimitExceed: false,
+              noRecents: const Text(
+                'No Recents',
+                style: TextStyle(fontSize: 20, color: Colors.black26),
+                textAlign: TextAlign.center,
+              ),
+              loadingIndicator: const SizedBox.shrink(),
+              tabIndicatorAnimDuration: kTabScrollDuration,
+              categoryIcons: const CategoryIcons(),
+              buttonMode: ButtonMode.MATERIAL,
+              checkPlatformCompatibility: true,
+            )),
       ),
     );
   }

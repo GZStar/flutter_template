@@ -78,6 +78,10 @@ dependencies:
   easy_refresh: ^3.3.2+1
   flutter_spinkit: ^5.2.0
   emoji_picker_flutter: ^1.6.1
+    # 媒体选择
+  wechat_assets_picker: ^8.6.3
+  wechat_camera_picker: ^4.0.0
+  video_player: ^2.7.0
 
 dev_dependencies:
   flutter_test:

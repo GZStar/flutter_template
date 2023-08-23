@@ -1,3 +1,5 @@
+import 'package:flutter_project_template/app/modules/main/video/bindings/video_binding.dart';
+import 'package:flutter_project_template/app/modules/main/video/views/video_view.dart';
 import 'package:get/get.dart';
 
 import '../common/widgets/qr_code_scanner_page.dart';
@@ -22,6 +24,7 @@ abstract class MainRoutes {
   static const qrcode = '/qrcode';
 
   static const webBrowser = '/webBrowser';
+  static const video = '/video';
 }
 
 class MainPages {
@@ -47,5 +50,11 @@ class MainPages {
       page: () => WebBrowserView(),
       binding: WebBrowserBinding(),
     ),
+    GetPage(
+        name: MainRoutes.video,
+        page: () => const VideoView(),
+        binding: VideoBinding(),
+        fullscreenDialog: true,
+        transition: Transition.zoom),
   ];
 }

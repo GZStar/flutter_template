@@ -12,6 +12,7 @@ class ChatView extends GetView<ChatController> {
 
   @override
   Widget build(BuildContext context) {
+    print("ChatView build");
     return GestureDetector(
       onTap: () {
         controller.focusNode.unfocus();

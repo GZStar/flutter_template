@@ -86,10 +86,14 @@ class MineView extends GetView<MineController> {
           leftImgPath: 'assets/images/wechat/mine/ic_collections.png',
           title: '收藏'),
       CommonSetCell(
-          cellHeight: cellH,
-          lineLeftEdge: leftSpace,
-          leftImgPath: 'assets/images/wechat/mine/ic_album.png',
-          title: '相册'),
+        cellHeight: cellH,
+        lineLeftEdge: leftSpace,
+        leftImgPath: 'assets/images/wechat/mine/ic_album.png',
+        title: '相册',
+        clickCallBack: () {
+          Get.toNamed(MineRoutes.testImage);
+        },
+      ),
       CommonSetCell(
           cellHeight: cellH,
           lineLeftEdge: leftSpace,

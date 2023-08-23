@@ -1,3 +1,5 @@
+import 'package:flutter_project_template/app/modules/mine/testImage/bindings/test_image_binding.dart';
+import 'package:flutter_project_template/app/modules/mine/testImage/views/test_image_view.dart';
 import 'package:flutter_project_template/app/modules/mine/userProfile/bindings/user_profile_binding.dart';
 import 'package:flutter_project_template/app/modules/mine/userProfile/views/user_profile_view.dart';
 import 'package:flutter_project_template/app/modules/mine/userQrCode/views/user_qr_code_view.dart';
@@ -25,6 +27,8 @@ abstract class MineRoutes {
   // 个人信息
   static const userProfile = '/userProfile';
   static const userQrCode = '/userProfile/qrCode';
+
+  static const testImage = '/testImage';
 }
 
 class MinePages {
@@ -62,6 +66,11 @@ class MinePages {
       name: MineRoutes.userQrCode,
       page: () => const UserQrCodeView(),
       binding: UserProfileBinding(),
+    ),
+    GetPage(
+      name: MineRoutes.testImage,
+      page: () => const TestImageView(),
+      binding: TestImageBinding(),
     ),
   ];
 }
