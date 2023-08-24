@@ -22,6 +22,8 @@ class TravelAPI {
         pathType: URLPathType.allUrl);
 
     var result = await HttpUtils.request(target);
+    print('travel list data');
+    print(result);
     return TravelModel.fromJson(result);
   }
 

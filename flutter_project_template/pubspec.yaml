@@ -136,6 +136,7 @@ flutter:
     - assets/data/wx_contacts.json
     - assets/data/wx_motion_top.json
     - assets/data/wx_friends_circle.json
+    - assets/data/travel_params.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

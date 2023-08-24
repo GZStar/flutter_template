@@ -109,7 +109,7 @@ class TravelTabPageState extends State<TravelTabPage>
       loading = false;
       showWarnToast(e.msg);
     } catch (e) {
-      print('other');
+      print('error = ${e}');
     }
   }
 

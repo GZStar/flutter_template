@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_project_template/app/data/apis/travel.dart';
 import 'package:get/get.dart';
 
@@ -39,16 +42,23 @@ class TravelController extends GetxController with GetTickerProviderStateMixin {
       TravelParamsModel paramsModel = await TravelAPI.loadTravelParams();
       travelParamsModel = paramsModel;
 
-      TravelTabModel travelTabModel = await TravelAPI.loadTravelTabData();
-      tabs.value = travelTabModel.district.groups;
-      tabcontroller = TabController(length: tabs.length, vsync: this);
-
-      //非.obs声明的属性需手动更新
-      update();
       Loading.dismiss();
     } on NetError catch (e) {
+      final jsonStr =
+          await rootBundle.loadString('assets/data/travel_params.json');
+      Map<String, dynamic> dic = json.decode(jsonStr);
+
+      TravelParamsModel paramsModel = TravelParamsModel.fromJson(dic);
+      travelParamsModel = paramsModel;
       print(e);
       Loading.dismiss();
     }
+
+    TravelTabModel travelTabModel = await TravelAPI.loadTravelTabData();
+    tabs.value = travelTabModel.district.groups;
+    tabcontroller = TabController(length: tabs.length, vsync: this);
+
+    //非.obs声明的属性需手动更新
+    update();
   }
 }
