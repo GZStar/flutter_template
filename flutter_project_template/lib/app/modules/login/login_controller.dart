@@ -37,7 +37,7 @@ class LoginController extends GetxController {
         Get.offAndToNamed(MainRoutes.mainTabbar);
       } on NetError catch (e) {
         Loading.dismiss();
-        showWarnToast(e.msg);
+        // showWarnToast(e.msg);
 
         UserStore.to.isLogin = true;
         Get.offAndToNamed(MainRoutes.mainTabbar);

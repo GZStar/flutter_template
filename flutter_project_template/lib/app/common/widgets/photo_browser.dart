@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../utils/screen_utils.dart';
 
@@ -17,6 +18,7 @@ class PhotoBrowser extends StatefulWidget {
     this.heroTag,
     this.isHiddenClose = false,
     this.isHiddenTitle = false,
+    this.isAssetImage = false,
   }) : super(key: key);
 
   final List imgDataArr;
@@ -26,6 +28,7 @@ class PhotoBrowser extends StatefulWidget {
   final GestureTapCallback? onLongPress;
   final bool isHiddenClose;
   final bool isHiddenTitle;
+  final bool isAssetImage;
 
   @override
   PhotoBrowserState createState() => PhotoBrowserState();
@@ -79,13 +82,19 @@ class PhotoBrowserState extends State<PhotoBrowser> {
                 child: PhotoViewGallery.builder(
                   scrollPhysics: const BouncingScrollPhysics(),
                   builder: (BuildContext context, int index) {
-                    var _imgURL = widget.imgDataArr[index];
                     ImageProvider _picture;
-                    if (_imgURL.startsWith('http')) {
-                      _picture = NetworkImage(_imgURL);
+                    if (widget.isAssetImage) {
+                      var asset = widget.imgDataArr[index];
+                      _picture = AssetEntityImageProvider(asset);
                     } else {
-                      _picture = AssetImage(_imgURL);
+                      var _imgURL = widget.imgDataArr[index];
+                      if (_imgURL.startsWith('http')) {
+                        _picture = NetworkImage(_imgURL);
+                      } else {
+                        _picture = AssetImage(_imgURL);
+                      }
                     }
+
                     return PhotoViewGalleryPageOptions(
                       imageProvider: _picture,
                       heroAttributes: widget.heroTag != null

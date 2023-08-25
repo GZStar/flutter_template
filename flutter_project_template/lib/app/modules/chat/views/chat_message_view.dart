@@ -131,9 +131,10 @@ class ChatMessageView extends GetView<ChatController> {
                 size: 150.sp,
               )),
             ]);
+          } else if (message.mediaType == 4) {
+            mediaWidget =
+                Image(image: AssetEntityImageProvider(message.asset!));
           } else if (message.mediaType == 2) {
-            // mediaWidget =
-            //     Image(image: AssetEntityImageProvider(message.asset!));
             mediaWidget = Image.asset(message.img!);
           } else {
             mediaWidget = Image.asset(message.img!);

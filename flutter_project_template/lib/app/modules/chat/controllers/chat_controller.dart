@@ -244,18 +244,9 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
         AssetType type = entity.type;
         int mediaType = 1;
         if (type == AssetType.image) {
-          mediaType = 2;
-          File? file = await entity.originFile;
-          if (file != null) {
-            String? path = file.path;
-            print('image path = ${path}');
-
-            newMessages.add(MessageEntity(own: true, msg: '', img: path));
-
-            // mediaType = 2;
-            // newMessages.add(MessageEntity(
-            //     own: true, msg: '', mediaType: mediaType, asset: entity));
-          }
+          mediaType = 4;
+          newMessages.add(MessageEntity(
+              own: true, msg: '', mediaType: mediaType, asset: entity));
         } else if (type == AssetType.video) {
           mediaType = 3;
           newMessages.add(MessageEntity(
@@ -276,6 +267,16 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
           () => PhotoBrowser(
                 imgDataArr: [message.img],
                 index: 0,
+                onLongPress: () {},
+              ),
+          transition: Transition.zoom,
+          fullscreenDialog: true);
+    } else if (message.mediaType == 4) {
+      Get.to(
+          () => PhotoBrowser(
+                imgDataArr: [message.asset],
+                index: 0,
+                isAssetImage: true,
                 onLongPress: () {},
               ),
           transition: Transition.zoom,

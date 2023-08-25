@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../controllers/test_image_controller.dart';
 
@@ -23,9 +24,12 @@ class TestImageView extends GetView<TestImageController> {
       ),
       body: GetBuilder<TestImageController>(builder: (controller) {
         return ListView.builder(
-          itemCount: controller.images.length,
+          itemCount: controller.mEntityList.length,
           itemBuilder: (context, index) {
-            return Image.asset(controller.images[index]);
+            // return Image.asset(controller.images[index]);
+            return Image(
+                image:
+                    AssetEntityImageProvider(controller.mEntityList[index]!));
           },
         );
       }),

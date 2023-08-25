@@ -7,6 +7,7 @@ class TestImageController extends GetxController {
   //TODO: Implement TestImageController
 
   List<String> images = [];
+  List<AssetEntity?> mEntityList = [];
 
   @override
   void onInit() {
@@ -30,17 +31,19 @@ class TestImageController extends GetxController {
         ));
 
     if (fileList != null) {
-      for (var entity in fileList) {
-        File? file = await entity.originFile;
-        if (file != null) {
-          String? path = file.path;
-          print('image path = ${path}');
+      mEntityList.addAll(fileList);
+      update();
+      // for (var entity in fileList) {
+      //   File? file = await entity.originFile;
+      //   if (file != null) {
+      //     String? path = file.path;
+      //     print('image path = ${path}');
 
-          images.add(path);
+      //     images.add(path);
 
-          update();
-        }
-      }
+      //     update();
+      //   }
+      // }
     }
   }
 }
