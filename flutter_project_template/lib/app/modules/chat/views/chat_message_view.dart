@@ -30,14 +30,14 @@ class ChatMessageView extends GetView<ChatController> {
         onRefresh: () {
           controller.loadHistory();
         },
-        onLoad: () {
-          controller.refreshcontroller.finishLoad();
-        },
-        footer: ListenerFooter(
-          listenable: controller.listenable,
-          triggerOffset: 0,
-          clamping: false,
-        ),
+        // onLoad: () {
+        //   controller.refreshcontroller.finishLoad();
+        // },
+        // footer: ListenerFooter(
+        //   listenable: controller.listenable,
+        //   triggerOffset: 0,
+        //   clamping: false,
+        // ),
         header: BuilderHeader(
             listenable: controller.listenable,
             triggerOffset: 40,
@@ -73,6 +73,7 @@ class ChatMessageView extends GetView<ChatController> {
           builder: (controller) {
             return CustomScrollView(
               controller: controller.scrollController,
+              anchor: controller.anchorData,
               center: centerKey,
               clipBehavior: Clip.none,
               slivers: [

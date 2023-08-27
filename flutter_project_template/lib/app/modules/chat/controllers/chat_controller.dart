@@ -16,7 +16,6 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   final inputHeight = 216.h;
   final emojiContainerHeight = 307.0;
 
-  final listenable = IndicatorStateListenable();
   late final TextEditingController inputController;
   late final EasyRefreshController refreshcontroller;
   late final ScrollController scrollController;
@@ -28,23 +27,99 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   var isShowEmojiContainer = false;
   var isShowSendButton = false;
 
-  final List<MessageEntity> newMessages = [
+  final List<MessageEntity> historyMessages = [
     MessageEntity(
       own: true,
-      msg: "It's first!",
+      msg: "It's good! 1",
     ),
     MessageEntity(
         own: false,
         img: 'assets/images/wechat/discover/friends/wx_img12.JPG',
         msg: "",
         mediaType: 2),
+    MessageEntity(
+      own: false,
+      msg: "send 1",
+    ),
+    MessageEntity(
+      own: true,
+      msg: "It's good! 2",
+    ),
+    MessageEntity(
+      own: false,
+      msg: "send 2",
+    ),
+    MessageEntity(
+        own: false,
+        img: 'assets/images/wechat/discover/friends/wx_img16.JPG',
+        msg: "",
+        mediaType: 2),
+    MessageEntity(
+      own: true,
+      msg: "It's good! 3",
+    ),
+    MessageEntity(
+        own: false,
+        img: 'assets/images/wechat/discover/friends/wx_img15.JPG',
+        msg: "",
+        mediaType: 2),
+    MessageEntity(
+      own: true,
+      msg: "It's good! 4",
+    ),
+    MessageEntity(
+        own: false,
+        img: 'assets/images/wechat/discover/friends/wx_img14.JPG',
+        msg: "",
+        mediaType: 2),
+    MessageEntity(
+      own: true,
+      msg: "It's good! 5",
+    ),
+    MessageEntity(
+        own: false,
+        img: 'assets/images/wechat/discover/friends/wx_img13.JPG',
+        msg: "",
+        mediaType: 2),
   ];
+  final List<MessageEntity> newMessages = [];
 
-  final List<MessageEntity> historyMessages = [];
+  double anchorData = 0; //历史内容高度比例
+  bool isFistLoad = true;
+  final listenable = IndicatorStateListenable();
+
+  void _onHeaderChange() {
+    final state = listenable.value;
+    if (state != null) {
+      final position = state.notifier.position;
+      final viewportDimension = position.viewportDimension;
+      final minScrollExtent = position.minScrollExtent;
+      print('minScrollExtent = ${minScrollExtent}');
+
+      if (minScrollExtent < 0 && isFistLoad) {
+        final tempHeight = minScrollExtent.abs();
+        print('tempHeight = ${tempHeight}');
+        final tempData = tempHeight / viewportDimension;
+        print('anchorData = ${tempData}');
+        if (tempData > 1) {
+          anchorData = 1;
+        } else if (tempData < 0) {
+          anchorData = 0;
+        } else {
+          anchorData = tempData;
+        }
+        isFistLoad = false;
+        update();
+      }
+      print("============================");
+    }
+  }
 
   @override
   void onInit() {
     super.onInit();
+
+    listenable.addListener(_onHeaderChange);
 
     scrollController = ScrollController();
     scrollController.addListener(() {});
