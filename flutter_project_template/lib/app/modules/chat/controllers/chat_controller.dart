@@ -95,6 +95,7 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
       final viewportDimension = position.viewportDimension;
       final minScrollExtent = position.minScrollExtent;
       print('minScrollExtent = ${minScrollExtent}');
+      print('viewportDimension = ${viewportDimension}');
 
       if (minScrollExtent < 0 && isFistLoad) {
         final tempHeight = minScrollExtent.abs();

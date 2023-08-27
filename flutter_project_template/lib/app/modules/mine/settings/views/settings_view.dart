@@ -38,7 +38,12 @@ class SettingsView extends GetView<SettingsController> {
               Get.toNamed(MineRoutes.themeSetting);
             }),
         const SizedBox(height: 8),
-        CommonSetCell(title: 'clear_cache'.tr, clickCallBack: () {}),
+        Obx(() => CommonSetCell(
+            title: 'clear_cache'.tr,
+            text: controller.cacheSizeString.value,
+            clickCallBack: () {
+              controller.cleanCache();
+            })),
         CommonSetCell(title: '网络检测'.tr, clickCallBack: () {}),
         CommonSetCell(
           title: 'about'.tr,
