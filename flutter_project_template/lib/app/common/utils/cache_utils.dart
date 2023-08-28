@@ -1,20 +1,46 @@
 import 'dart:io';
 
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class CacheUtils {
-  static Future<Null> requestPermission(FileSystemEntity file) async {
-    // PermissionStatus status = await Permission.storage.status;
-    await delDir(file);
+  static Future<double> loadApplicationCache() async {
+    //获取文件夹
+    Directory docDirectory = await getApplicationDocumentsDirectory();
+    Directory tempDirectory = await getTemporaryDirectory();
+
+    double size = 0;
+
+    if (docDirectory.existsSync()) {
+      size += await getTotalSizeOfFilesInDir(docDirectory);
+    }
+    if (tempDirectory.existsSync()) {
+      size += await getTotalSizeOfFilesInDir(tempDirectory);
+    }
+    return size;
   }
 
-  static Future<Null> delDir(FileSystemEntity file) async {
+  /// 删除缓存
+  static void clearApplicationCache() async {
+    Directory docDirectory = await getApplicationDocumentsDirectory();
+    Directory tempDirectory = await getTemporaryDirectory();
+
+    if (docDirectory.existsSync()) {
+      await deleteDirectory(docDirectory);
+    }
+
+    if (tempDirectory.existsSync()) {
+      await deleteDirectory(tempDirectory);
+    }
+  }
+
+  static Future<Null> deleteDirectory(FileSystemEntity file) async {
     if (file is Directory && file.existsSync()) {
       print(file.path);
       final List<FileSystemEntity> children =
           file.listSync(recursive: true, followLinks: true);
       for (final FileSystemEntity child in children) {
-        await delDir(child);
+        await deleteDirectory(child);
       }
     }
     try {

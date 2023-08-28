@@ -25,7 +25,8 @@ class TravelItemView extends StatelessWidget {
           if (GetPlatform.isMacOS) {
             launchUrl(Uri.parse(dic.h5Url!));
           } else {
-            Get.toNamed(MainRoutes.webBrowser, arguments: {'url': dic.h5Url});
+            Get.toNamed(MainRoutes.webBrowser,
+                arguments: {'url': dic.h5Url, 'title': '详情'});
           }
         }
       },

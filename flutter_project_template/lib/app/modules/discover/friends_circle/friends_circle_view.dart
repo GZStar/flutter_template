@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
+import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
 import '../../../common/widgets/common_widget.dart';
@@ -39,7 +41,9 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
             ),
           ),
           actions: [
-            IconButton(onPressed: () => {}, icon: const Icon(Icons.camera_alt))
+            IconButton(
+                onPressed: () => {_clickNav(context)},
+                icon: const Icon(Icons.camera_alt))
           ],
         ),
         Obx(() => SliverList.builder(
@@ -69,7 +73,7 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
             child: Row(
               children: [
                 Container(
-                  margin: EdgeInsets.only(bottom: 10),
+                  margin: const EdgeInsets.only(bottom: 10),
                   child: const Text(
                     '路飞',
                     style: TextStyle(
@@ -79,7 +83,7 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
                     ),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 InkWell(
                   child: Container(
                     height: 75,
@@ -117,7 +121,7 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
           InkWell(
             onTap: () => _jumpInfo(),
             child: Container(
-              margin: EdgeInsets.all(15),
+              margin: const EdgeInsets.all(15),
               height: 50,
               width: 50,
               decoration: BoxDecoration(
@@ -126,7 +130,7 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
               ),
               child: Center(
                 child: Text(item['name'].substring(0, 1),
-                    style: TextStyle(color: Colors.white, fontSize: 20)),
+                    style: const TextStyle(color: Colors.white, fontSize: 20)),
               ),
             ),
           ),
@@ -134,23 +138,26 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                Container(
-                  margin: EdgeInsets.only(top: 13),
-                  child: Text(
-                    item['name'],
-                    style:
-                        TextStyle(color: AppColors.gradientBlue, fontSize: 15),
+                InkWell(
+                  onTap: () => _jumpInfo(),
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 13),
+                    child: Text(
+                      item['name'],
+                      style: const TextStyle(
+                          color: AppColors.gradientBlue, fontSize: 15),
+                    ),
                   ),
                 ),
                 Container(
-                    margin: EdgeInsets.fromLTRB(0, 5, 15, 5),
+                    margin: const EdgeInsets.fromLTRB(0, 5, 15, 5),
                     child: Text(
                       item['content'],
-                      style: TextStyle(fontSize: 13),
+                      style: const TextStyle(fontSize: 13),
                     )),
                 _imgs(context, item),
                 Container(
-                    margin: EdgeInsets.fromLTRB(0, 5, 15, 10),
+                    margin: const EdgeInsets.fromLTRB(0, 5, 15, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -187,6 +194,7 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
         child: NinePicture(
       imgData: item['imgs'],
       lRSpace: (80.0 + 20.0),
+      isAssetImage: item['isAsset'] ?? false,
       onLongPress: () {
         print('onLongPress:');
 
@@ -200,14 +208,40 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
     CommonWidget.toast('点击 $text');
   }
 
-  _clickNav() {
-    // JhBottomSheet.showText(context,
-    //     title: '请选择操作',
-    //     dataArr: ['拍摄', '从手机相册选择'],
-    //     clickCallback: (index, text) {});
+  _clickNav(context) async {
+    var result = await showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return CupertinoActionSheet(
+            actions: <Widget>[
+              CupertinoActionSheetAction(
+                child: Text('拍摄'),
+                onPressed: () {
+                  Navigator.of(context).pop('camera');
+                  controller.pickFromCamera(context);
+                },
+              ),
+              CupertinoActionSheetAction(
+                child: Text('从手机相册选择'),
+                onPressed: () {
+                  Navigator.of(context).pop('photo');
+                  controller.pickFromPhoto(context);
+                },
+              ),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              child: Text('取消'),
+              onPressed: () {
+                Navigator.of(context).pop('cancel');
+                // Get.back();
+              },
+            ),
+          );
+        });
   }
 
   _jumpInfo() {
     // 跳转个人信息页 跳转传递model
+    Get.toNamed(MineRoutes.userProfile);
   }
 }

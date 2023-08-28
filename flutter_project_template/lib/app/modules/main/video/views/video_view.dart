@@ -21,7 +21,7 @@ class VideoView extends GetView<VideoController> {
           hasOnlyOneVideoAndMoment: true,
         ),
         Positioned(
-            right: 20,
+            left: 15,
             top: 50,
             child: IconButton(
                 onPressed: () {

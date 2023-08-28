@@ -55,7 +55,7 @@ class AboutView extends GetView<AboutController> {
             clickCallBack: () {
               showToast('功能介绍');
             }),
-        CommonSetCell(title: '意见反馈'.tr, clickCallBack: () {}),
+        CommonSetCell(title: '投诉维权'.tr, clickCallBack: () {}),
         CommonSetCell(
             title: '重置引导页'.tr,
             clickCallBack: () {

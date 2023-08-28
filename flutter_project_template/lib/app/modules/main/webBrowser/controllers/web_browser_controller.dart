@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 class WebBrowserController extends GetxController {
   //TODO: Implement WebBrowserController
   var url = "".obs;
-  var title = "详情".obs;
+  var title = "".obs;
   var progressValue = 0.obs;
 
   late WebViewController webViewController;
@@ -15,6 +15,7 @@ class WebBrowserController extends GetxController {
     super.onInit();
 
     url.value = Get.arguments["url"] ?? "https://www.baidu.com";
+    title.value = Get.arguments["title"] ?? "";
 
     webViewController = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -27,7 +28,7 @@ class WebBrowserController extends GetxController {
           onPageFinished: (url) async {
             var tempTitle = await webViewController
                 .runJavaScriptReturningResult("document.title");
-            title.value = tempTitle == '' ? '详情' : tempTitle.toString();
+            title.value = tempTitle == '' ? '' : tempTitle.toString();
           },
         ),
       )

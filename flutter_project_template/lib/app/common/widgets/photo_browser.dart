@@ -133,7 +133,7 @@ class PhotoBrowserState extends State<PhotoBrowser> {
         ),
         Positioned(
           top: ScreenUtils.topSafeHeight + 20,
-          right: 10,
+          left: 15,
           height: 30,
           child: Offstage(
             offstage: widget.isHiddenClose,
