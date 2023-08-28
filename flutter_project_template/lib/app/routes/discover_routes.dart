@@ -21,6 +21,7 @@ class DiscoverPages {
         name: DiscoverRoutes.friendsPublic,
         page: () => const FriendsPublicView(),
         binding: FriendsPublicBinding(),
+        fullscreenDialog: true,
         transition: Transition.downToUp),
   ];
 }

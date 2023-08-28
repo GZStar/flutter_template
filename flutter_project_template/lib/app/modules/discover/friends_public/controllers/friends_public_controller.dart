@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
@@ -104,9 +103,8 @@ class FriendsPublicController extends GetxController {
   void _pickFromPhoto(context) async {
     int max = 9 - entitys.length;
     final List<AssetEntity>? fileList = await AssetPicker.pickAssets(context,
-        pickerConfig: AssetPickerConfig(
-          maxAssets: max,
-        ));
+        pickerConfig:
+            AssetPickerConfig(maxAssets: max, requestType: RequestType.image));
 
     if (fileList != null) {
       entitys.addAll(fileList);

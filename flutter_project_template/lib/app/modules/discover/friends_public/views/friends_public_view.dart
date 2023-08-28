@@ -13,31 +13,38 @@ class FriendsPublicView extends GetView<FriendsPublicController> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+    final themeData = Theme.of(context);
 
-    return SafeArea(
+    return AnnotatedRegion(
+      value: themeData.brightness == Brightness.dark
+          ? SystemUiOverlayStyle.light
+          : SystemUiOverlayStyle.dark,
+      child: Scaffold(
+          body: SafeArea(
         child: WillPopScope(
-      onWillPop: () async {
-        // 使用false禁止返回键返回
-        return true;
-      },
-      child: GestureDetector(
-        onTap: () {
-          controller.focusNode.unfocus();
-        },
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.white,
-          body: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              _topTitleBar(),
-              _bodyContext(context),
-              // buildBottom(),
-            ],
+          onWillPop: () async {
+            // 使用false禁止返回键返回
+            return true;
+          },
+          child: GestureDetector(
+            onTap: () {
+              controller.focusNode.unfocus();
+            },
+            child: Scaffold(
+              resizeToAvoidBottomInset: false,
+              body: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  _topTitleBar(),
+                  _bodyContext(context),
+                  // buildBottom(),
+                ],
+              ),
+            ),
           ),
         ),
-      ),
-    ));
+      )),
+    );
   }
 
   Widget _topTitleBar() {

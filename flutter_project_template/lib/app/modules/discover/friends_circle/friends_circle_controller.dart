@@ -47,8 +47,7 @@ class FriendsCircleController extends GetxController {
   void pickFromPhoto(context) async {
     final List<AssetEntity>? fileList = await AssetPicker.pickAssets(context,
         pickerConfig: const AssetPickerConfig(
-          maxAssets: 9,
-        ));
+            maxAssets: 9, requestType: RequestType.image));
 
     if (fileList != null) {
       _getToFriendsPublicView(fileList);
