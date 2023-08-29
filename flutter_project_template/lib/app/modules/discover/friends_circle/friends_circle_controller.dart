@@ -6,6 +6,9 @@ import 'package:get/get.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
+import '../../../common/utils/image_picker_utils.dart';
+import '../../../common/utils/permission_utils.dart';
+
 class FriendsCircleController extends GetxController {
   var dataArr = [].obs;
 
@@ -38,6 +41,9 @@ class FriendsCircleController extends GetxController {
   }
 
   void pickFromCamera(context) async {
+    if (await PermissionsUtils.getCameraPermission() == false) {
+      return;
+    }
     final AssetEntity? entity = await CameraPicker.pickFromCamera(context);
     if (entity != null) {
       _getToFriendsPublicView([entity]);
@@ -45,9 +51,12 @@ class FriendsCircleController extends GetxController {
   }
 
   void pickFromPhoto(context) async {
-    final List<AssetEntity>? fileList = await AssetPicker.pickAssets(context,
-        pickerConfig: const AssetPickerConfig(
-            maxAssets: 9, requestType: RequestType.image));
+    if (await PermissionsUtils.getPhotosPermission() == false) {
+      return;
+    }
+    final List<AssetEntity>? fileList = await ImagePickerUtils.pickImage(
+        context,
+        requestType: RequestType.image);
 
     if (fileList != null) {
       _getToFriendsPublicView(fileList);

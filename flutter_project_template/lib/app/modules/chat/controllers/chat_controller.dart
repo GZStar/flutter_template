@@ -8,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
+import '../../../common/utils/image_picker_utils.dart';
+import '../../../common/utils/permission_utils.dart';
 import '../../../common/widgets/photo_browser.dart';
 
 class ChatController extends GetxController with GetTickerProviderStateMixin {
@@ -310,10 +312,12 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
       update();
     }
 
-    final List<AssetEntity>? fileList = await AssetPicker.pickAssets(context,
-        pickerConfig: const AssetPickerConfig(
-          maxAssets: 9,
-        ));
+    if (await PermissionsUtils.getPhotosPermission() == false) {
+      return;
+    }
+
+    final List<AssetEntity>? fileList =
+        await ImagePickerUtils.pickImage(context);
 
     if (fileList != null) {
       for (var entity in fileList) {

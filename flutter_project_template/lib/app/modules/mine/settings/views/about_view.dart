@@ -72,7 +72,7 @@ class AboutView extends GetView<AboutController> {
       const SizedBox(height: 50),
       InkWell(
         child: Image.asset(
-          'assets/images/other/ic_demo1.png',
+          'assets/images/common/icon.png',
           width: 80,
           height: 80,
         ),

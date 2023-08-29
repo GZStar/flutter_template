@@ -33,15 +33,6 @@ class LoginView extends GetView<LoginController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: Image.asset(
-                  'assets/images/other/ic_demo1.png',
-                  width: 80,
-                  height: 80,
-                ),
-              ),
-              const SizedBox(height: 30),
               InputField(
                 controller: controller.loginAccountController,
                 keyboardType: TextInputType.phone,

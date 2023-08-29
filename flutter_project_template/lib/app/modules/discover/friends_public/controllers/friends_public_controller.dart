@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
+import '../../../../common/utils/image_picker_utils.dart';
+import '../../../../common/utils/permission_utils.dart';
 import '../../../../common/widgets/toast.dart';
 
 class FriendsPublicController extends GetxController {
@@ -93,6 +95,9 @@ class FriendsPublicController extends GetxController {
   }
 
   void _pickFromCamera(context) async {
+    if (await PermissionsUtils.getCameraPermission() == false) {
+      return;
+    }
     final AssetEntity? entity = await CameraPicker.pickFromCamera(context);
     if (entity != null) {
       entitys.add(entity);
@@ -101,11 +106,14 @@ class FriendsPublicController extends GetxController {
   }
 
   void _pickFromPhoto(context) async {
+    if (await PermissionsUtils.getPhotosPermission() == false) {
+      return;
+    }
     int max = 9 - entitys.length;
-    final List<AssetEntity>? fileList = await AssetPicker.pickAssets(context,
-        pickerConfig:
-            AssetPickerConfig(maxAssets: max, requestType: RequestType.image));
-
+    final List<AssetEntity>? fileList = await ImagePickerUtils.pickImage(
+        context,
+        maxAssets: max,
+        requestType: RequestType.image);
     if (fileList != null) {
       entitys.addAll(fileList);
       _getGridCount();

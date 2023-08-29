@@ -11,7 +11,7 @@ class TestImageView extends GetView<TestImageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TestImageView'),
+        title: const Text('测试图片'),
         centerTitle: true,
         actions: [
           IconButton(

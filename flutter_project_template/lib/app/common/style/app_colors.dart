@@ -6,7 +6,7 @@ class AppColors {
   // App 主题颜色
   // static const Color appMain = Color(0xFF4688FA);
   // static const Color appMainDark = Color(0xFF3F7AE0);
-  static const Color appMain = Color(0xFF1ABC9C);
+  static const Color appMain = Color(0xFF38686A);
   static const Color appMainDark = Color(0xFF12686A);
   // 背景色
   static const Color background = Color(0xfff1f1f1);

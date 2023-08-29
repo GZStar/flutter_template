@@ -27,21 +27,29 @@ class LoginController extends GetxController {
 
   void login() async {
     if (loginFormKey.currentState!.validate()) {
-      Loading.show();
-      try {
-        UserLoginResponseModel userProfile = await LoginAPI.loginWithPassword(
-            loginAccountController.value.text,
-            loginPasswordController.value.text);
-        UserStore.to.saveProfile(userProfile);
-        Loading.dismiss();
-        Get.offAndToNamed(MainRoutes.mainTabbar);
-      } on NetError catch (e) {
-        Loading.dismiss();
-        // showWarnToast(e.msg);
+      // Loading.show();
+      // try {
+      //   UserLoginResponseModel userProfile = await LoginAPI.loginWithPassword(
+      //       loginAccountController.value.text,
+      //       loginPasswordController.value.text);
+      //   UserStore.to.saveProfile(userProfile);
+      //   Loading.dismiss();
+      //   Get.offAndToNamed(MainRoutes.mainTabbar);
+      // } on NetError catch (e) {
+      //   Loading.dismiss();
+      //   // showWarnToast(e.msg);
 
+      //   UserStore.to.isLogin = true;
+      //   Get.offAndToNamed(MainRoutes.mainTabbar);
+      // }
+
+      Loading.show();
+      Future.delayed(const Duration(seconds: 3), () {
+        Loading.dismiss();
+        UserStore.to.setToken("profile.token");
         UserStore.to.isLogin = true;
         Get.offAndToNamed(MainRoutes.mainTabbar);
-      }
+      });
     }
   }
 }

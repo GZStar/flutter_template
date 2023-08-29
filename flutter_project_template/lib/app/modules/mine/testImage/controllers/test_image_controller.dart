@@ -1,7 +1,11 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
+
+import '../../../../common/utils/image_picker_utils.dart';
+import '../../../../common/utils/permission_utils.dart';
 
 class TestImageController extends GetxController {
   //TODO: Implement TestImageController
@@ -25,25 +29,14 @@ class TestImageController extends GetxController {
   }
 
   void openImagePickerView(context) async {
-    final List<AssetEntity>? fileList = await AssetPicker.pickAssets(context,
-        pickerConfig: const AssetPickerConfig(
-          maxAssets: 9,
-        ));
+    if (await PermissionsUtils.getPhotosPermission()) {
+      final List<AssetEntity>? fileList =
+          await ImagePickerUtils.pickImage(context);
 
-    if (fileList != null) {
-      mEntityList.addAll(fileList);
-      update();
-      // for (var entity in fileList) {
-      //   File? file = await entity.originFile;
-      //   if (file != null) {
-      //     String? path = file.path;
-      //     print('image path = ${path}');
-
-      //     images.add(path);
-
-      //     update();
-      //   }
-      // }
+      if (fileList != null) {
+        mEntityList.addAll(fileList);
+        update();
+      }
     }
   }
 }
