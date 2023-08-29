@@ -26,55 +26,66 @@ class LoginView extends GetView<LoginController> {
   }
 
   Widget _buildForms(BuildContext context) {
-    return Form(
-      key: controller.loginFormKey,
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            InputField(
-              controller: controller.loginAccountController,
-              keyboardType: TextInputType.phone,
-              labelText: 'Phone',
-              placeholder: 'Enter Phone number',
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Phone is required.';
-                }
+    return SafeArea(
+      child: Form(
+        key: controller.loginFormKey,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Align(
+                alignment: Alignment.topCenter,
+                child: Image.asset(
+                  'assets/images/other/ic_demo1.png',
+                  width: 80,
+                  height: 80,
+                ),
+              ),
+              const SizedBox(height: 30),
+              InputField(
+                controller: controller.loginAccountController,
+                keyboardType: TextInputType.phone,
+                labelText: 'Phone',
+                placeholder: 'Enter Phone number',
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Phone is required.';
+                  }
 
-                if (!GetUtils.isPhoneNumber(value)) {
-                  return 'Phone format error.';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 20),
-            InputField(
-              controller: controller.loginPasswordController,
-              keyboardType: TextInputType.emailAddress,
-              labelText: 'Password',
-              placeholder: 'Enter Password',
-              password: true,
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Password is required.';
-                }
-
-                if (value.length < 6 || value.length > 15) {
-                  return 'Password should be 6~15 characters';
-                }
-
-                return null;
-              },
-            ),
-            const SizedBox(height: 80),
-            ElevatedButton(
-                onPressed: () {
-                  FocusScope.of(context).unfocus();
-                  controller.login();
+                  if (!GetUtils.isPhoneNumber(value)) {
+                    return 'Phone format error.';
+                  }
+                  return null;
                 },
-                child: Text('Sign In')),
-          ],
+              ),
+              const SizedBox(height: 20),
+              InputField(
+                controller: controller.loginPasswordController,
+                keyboardType: TextInputType.emailAddress,
+                labelText: 'Password',
+                placeholder: 'Enter Password',
+                password: true,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Password is required.';
+                  }
+
+                  if (value.length < 6 || value.length > 15) {
+                    return 'Password should be 6~15 characters';
+                  }
+
+                  return null;
+                },
+              ),
+              const SizedBox(height: 80),
+              ElevatedButton(
+                  onPressed: () {
+                    FocusScope.of(context).unfocus();
+                    controller.login();
+                  },
+                  child: Text('Sign In')),
+            ],
+          ),
         ),
       ),
     );
