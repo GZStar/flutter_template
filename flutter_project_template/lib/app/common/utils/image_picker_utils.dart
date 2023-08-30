@@ -3,7 +3,7 @@ import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../langs/translation_service.dart';
 
-class ImagePickerUtils {  
+class ImagePickerUtils {
   static Future<List<AssetEntity>?> pickImage(context,
       {int maxAssets = 9, RequestType requestType = RequestType.common}) async {
     // 本地多语言设置

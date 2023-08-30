@@ -119,7 +119,7 @@ class PhotoBrowserState extends State<PhotoBrowser> {
               )),
         ),
         Positioned(
-          top: ScreenUtils.topSafeHeight + 20,
+          top: MediaQuery.of(context).padding.top + 20,
           left: 0,
           right: 0,
           height: 30,
@@ -132,7 +132,7 @@ class PhotoBrowserState extends State<PhotoBrowser> {
           ),
         ),
         Positioned(
-          top: ScreenUtils.topSafeHeight + 20,
+          top: MediaQuery.of(context).padding.top + 20,
           left: 15,
           height: 30,
           child: Offstage(

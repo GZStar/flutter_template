@@ -27,7 +27,7 @@ class VideoView extends GetView<VideoController> {
                 onPressed: () {
                   Get.back();
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.close,
                   size: 30,
                   color: Colors.white,
