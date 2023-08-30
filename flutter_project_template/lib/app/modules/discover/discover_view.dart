@@ -138,6 +138,8 @@ void scanClick() {
       isShowScanLine: false,
       callBack: (data) {
         print('扫码结果：$data');
-        CommonWidget.toast('扫码结果：$data');
+        if (data != "") {
+          CommonWidget.toast('扫码结果：$data');
+        }
       });
 }
