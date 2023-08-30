@@ -3,8 +3,6 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
-import '../utils/screen_utils.dart';
-
 const Color _selColor = Colors.white;
 const Color _otherColor = Colors.grey;
 

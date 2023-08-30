@@ -236,8 +236,11 @@ class MineView extends GetView<MineController> {
         ),
         Container(
           margin: const EdgeInsets.only(left: 10, top: 5),
-          child: Text(controller.userProfile.phoneNum ?? '188888888888',
-              style: const TextStyle(fontSize: 17, color: Colors.white)),
+          child: Obx(
+            () => Text(
+                controller.userProfile.phoneNum ?? controller.testString.value,
+                style: const TextStyle(fontSize: 17, color: Colors.white)),
+          ),
         )
       ],
     );

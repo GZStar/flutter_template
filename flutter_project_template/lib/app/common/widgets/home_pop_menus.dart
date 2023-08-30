@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/utils/screen_utils.dart';
-import 'package:get/get.dart';
-
 import '../values/dimens.dart';
 
 List _listData = [
