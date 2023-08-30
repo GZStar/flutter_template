@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class CacheUtils {
   static Future<double> loadApplicationCache() async {

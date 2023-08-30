@@ -7,8 +7,6 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:get/get.dart';
 
-import 'device_utils.dart';
-
 class QrCodeUtils {
   /// 跳转二维码扫码页扫码
   static Future jumpScan({
@@ -16,15 +14,11 @@ class QrCodeUtils {
     isShowGridLine = false, // 是否显示网格线动画，优先级高于扫描线
     Function(String data)? callBack,
   }) async {
-    if (DeviceUtils.isMobile) {
+    if (GetPlatform.isMobile) {
       FocusManager.instance.primaryFocus?.unfocus();
 
       // 延时保证键盘收起，否则进入扫码页会黑屏
       Future<dynamic>.delayed(const Duration(milliseconds: 500), () async {
-        // Get.toNamed(AppRoutes.qrcode)?.then((value) {
-        //   callBack?.call(value.toString());
-        // });
-
         var result = await Get.toNamed(MainRoutes.qrcode);
         callBack?.call(result.toString());
       });

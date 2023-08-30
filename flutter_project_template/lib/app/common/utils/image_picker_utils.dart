@@ -3,16 +3,16 @@ import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../langs/translation_service.dart';
 
-class ImagePickerUtils {
+class ImagePickerUtils {  
   static Future<List<AssetEntity>?> pickImage(context,
       {int maxAssets = 9, RequestType requestType = RequestType.common}) async {
     // 本地多语言设置
     AssetPickerTextDelegate textDelegate;
     var locale = Get.locale;
-    var index = TranslationService.languages.indexWhere((element) {
+    LanguageModel language = TranslationService.languages.firstWhere((element) {
       return element.locale == locale;
     });
-    if (index == 0) {
+    if (language.type == LanguageType.chiness) {
       textDelegate = const AssetPickerTextDelegate();
     } else {
       textDelegate = const EnglishAssetPickerTextDelegate();
