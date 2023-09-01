@@ -13,22 +13,22 @@ class DioUtils {
   late Dio dio;
 
   DioUtils.internal() {
-    // BaseOptions、Options、RequestOptions 都可以配置参数，优先级别依次递增，且可以根据优先级别覆盖参数
+    /// BaseOptions、Options、RequestOptions 都可以配置参数，优先级别依次递增，且可以根据优先级别覆盖参数
     BaseOptions options = BaseOptions(
-      //连接服务器超时时间，单位是毫秒.
+      ///连接服务器超时时间，单位是毫秒.
       connectTimeout: 30 * 1000,
 
-      // 响应流上前后两次接受到数据的间隔，单位为毫秒。
+      /// 响应流上前后两次接受到数据的间隔，单位为毫秒。
       receiveTimeout: 60 * 1000,
     );
 
     dio = Dio(options);
 
-    // Cookie管理
+    /// Cookie管理
     CookieJar cookieJar = CookieJar();
     dio.interceptors.add(CookieManager(cookieJar));
 
-    // 开启请求日志
+    /// 开启请求日志
     dio.interceptors.add(LogInterceptor(responseBody: true));
   }
 
@@ -41,7 +41,7 @@ class DioUtils {
     Options? options,
   }) async {
     try {
-      // 没有网络
+      /// 没有网络
       var connectivityResult = await (Connectivity().checkConnectivity());
       if (connectivityResult == ConnectivityResult.none) {
         throw _onError(ExceptionHandle.net_error, '网络异常，请检查你的网络！');
@@ -54,7 +54,7 @@ class DioUtils {
           cancelToken: cancelToken,
           onSendProgress: sendProgress);
     } on DioError catch (e) {
-      ///抛出NetError
+      /// 抛出NetError
       final NetError netError = ExceptionHandle.handleException(e);
       throw _onError(netError.code, netError.msg);
     }

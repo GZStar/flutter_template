@@ -8,7 +8,7 @@ import 'dio_utils.dart';
 import 'env_config.dart';
 
 class HttpUtils {
-  // ignore: constant_identifier_names
+  /// ignore: constant_identifier_names
   static const CONTENT_TYPE_JSON = "application/json;charset=utf-8";
 
   /// _request 请求
@@ -16,8 +16,8 @@ class HttpUtils {
     RequestTargetModel target, {
     ProgressCallback? sendProgress,
   }) async {
-    var data;
-    var queryParameters;
+    dynamic data;
+    dynamic queryParameters;
     Map<String, String> tempHeader = {};
 
     if (target.method == Method.get) {
@@ -33,18 +33,18 @@ class HttpUtils {
       data = target.params;
     }
 
-    // 组装URL
+    /// 组装URL
     var urlobj = EnvConfig.getPathTypeUrlDic(target.domainNameType);
     var headerURL = urlobj[target.pathType]!;
     var url = headerURL + target.path;
 
-    // 组装header
+    /// 组装header
     var header = requestHeader;
     header.forEach((key, value) {
       tempHeader.addAll({key: value});
     });
 
-    // 设置options
+    /// 设置options
     var options = Options();
     options.headers = tempHeader;
     options.method = MethodValues[target.method];
@@ -63,14 +63,14 @@ class HttpUtils {
         return result;
       } else {
         if (result['code'] == 4038) {
-          // 菜单权限被收回
+          /// 菜单权限被收回
           UserStore.to.onLogout();
         } else if (result['code'] == 135010037) {
           EasyLoading.showError('login_has_expired');
           UserStore.to.onLogout();
         } else {
-          // 其他状态，弹出错误提示信息
-          // EasyLoading.showError(result['msg']);
+          /// 其他状态，弹出错误提示信息
+          /// EasyLoading.showError(result['msg']);
         }
         throw NetError(result['code'], result['msg']);
       }
