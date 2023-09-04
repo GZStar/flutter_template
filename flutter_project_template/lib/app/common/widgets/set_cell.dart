@@ -66,9 +66,9 @@ class CommonSetCell extends StatelessWidget {
     var textStyle = TextStyle(fontSize: _textFontSize, color: textColor);
 
     // 设置的颜色优先级高于暗黑模式
-    bgColor = bgColor ?? bgColor;
-    titleStyle = titleStyle ?? titleStyle;
-    textStyle = textStyle ?? textStyle;
+    bgColor = bgColor;
+    titleStyle = titleStyle;
+    textStyle = textStyle;
 
     return Material(
         // color: bgColor,

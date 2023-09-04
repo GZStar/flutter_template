@@ -343,7 +343,7 @@ class _LocallyAvailableBuilderState extends State<LocallyAvailableBuilder> {
       initialData: const PMProgressState(0, PMRequestState.prepare),
       builder: (BuildContext c, AsyncSnapshot<PMProgressState> s) {
         if (s.hasData) {
-          final double progress = s.data!.progress;
+          // final double progress = s.data!.progress;
           final PMRequestState state = s.data!.state;
           return Row(
             mainAxisSize: MainAxisSize.min,

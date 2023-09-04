@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/widgets/toast.dart';
 import 'package:flutter_project_template/app/routes/mine_routes.dart';
 
 import 'package:get/get.dart';

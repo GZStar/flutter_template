@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../common/utils/loading.dart';
 import '../../../../common/values/storage_key.dart';
 import '../../../../data/local/store/config_store.dart';
 import '../../../../data/local/store/storage_service.dart';

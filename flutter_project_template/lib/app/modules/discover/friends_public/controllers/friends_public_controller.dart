@@ -63,7 +63,7 @@ class FriendsPublicController extends GetxController {
   }
 
   void _dddPhoto(context) async {
-    var result = await showCupertinoModalPopup(
+    await showCupertinoModalPopup(
         context: context,
         builder: (context) {
           return CupertinoActionSheet(

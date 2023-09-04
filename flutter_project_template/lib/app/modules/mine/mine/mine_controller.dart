@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/data/local/store/user_store.dart';
 import 'package:get/get.dart';
 
