@@ -14,7 +14,6 @@ import '../modules/main/webBrowser/views/web_browser_view.dart';
 import 'middlewares/router_guide.dart';
 
 abstract class MainRoutes {
-  /// 设置
   static const splash = '/';
   static const guide = '/guide';
   static const mainTabbar = '/mainTabbar';
