@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
+import '../../discover/index/discover_controller.dart';
 import '../../mine/mine/mine_index.dart';
-import '../../discover/discover_index.dart';
 import '../../home/home_index.dart';
 import '../../travel/controllers/travel_controller.dart';
 import 'main_tabbar_index.dart';

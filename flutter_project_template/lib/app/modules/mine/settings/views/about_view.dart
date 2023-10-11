@@ -77,7 +77,7 @@ class AboutView extends GetView<AboutController> {
           height: 80,
         ),
         onDoubleTap: () {
-          Get.toNamed(MineRoutes.envSetting);
+          Get.toNamed(MineRoutes.envType);
         },
       ),
       const SizedBox(height: 20),

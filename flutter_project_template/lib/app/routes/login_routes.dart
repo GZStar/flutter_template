@@ -14,7 +14,7 @@ class AccountPages {
   static final List<GetPage> routes = <GetPage>[
     GetPage(
       name: AccountRoutes.login,
-      page: () => LoginView(),
+      page: () => const LoginView(),
       binding: LoginBinding(),
     ),
   ];

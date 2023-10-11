@@ -41,9 +41,9 @@ class MainPages {
     ),
     GetPage(
         name: MainRoutes.mainTabbar,
-        page: () => MainTabbarView(),
+        page: () => const MainTabbarView(),
         binding: MainTabbarBinding()),
-    GetPage(name: MainRoutes.qrcode, page: () => QrCodeScannerPage()),
+    GetPage(name: MainRoutes.qrcode, page: () => const QrCodeScannerPage()),
     GetPage(
       name: MainRoutes.webBrowser,
       page: () => WebBrowserView(),

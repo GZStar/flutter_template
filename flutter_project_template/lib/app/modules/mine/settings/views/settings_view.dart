@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_template/app/common/widgets/toast.dart';
 import 'package:flutter_project_template/app/routes/login_routes.dart';
 import 'package:flutter_project_template/app/routes/main_routes.dart';
 import 'package:flutter_project_template/app/routes/mine_routes.dart';
@@ -62,7 +63,11 @@ class SettingsView extends GetView<SettingsController> {
                   'url': 'https://democustapp.jtjms-mx.com/en-us/privacyPolicy'
                 });
               }),
-          CommonSetCell(title: '帮助与反馈'.tr, clickCallBack: () {}),
+          CommonSetCell(
+              title: '帮助与反馈'.tr,
+              clickCallBack: () {
+                showToast('功能开发中...');
+              }),
           CommonSetCell(
             title: 'about'.tr,
             text: 'v1.0.0',

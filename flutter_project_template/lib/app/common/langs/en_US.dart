@@ -1,6 +1,9 @@
 // ignore_for_file: file_names
 // ignore: constant_identifier_names
 const Map<String, String> en_US = {
+  'cancel': 'Cancel',
+  'save': 'Save',
+
   'title': 'This is title!',
   'login': 'Login',
   'logout': 'Logout',

@@ -1,6 +1,9 @@
 // ignore_for_file: file_names
 // ignore: constant_identifier_names
 const Map<String, String> zh_CN = {
+  'cancel': '取消',
+  'save': '保存',
+
   'title': '这是标题',
   'login': '登录',
   'logout': '退出登录',

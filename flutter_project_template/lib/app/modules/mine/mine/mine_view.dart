@@ -5,6 +5,7 @@ import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
 import '../../../common/widgets/set_cell.dart';
+import '../../../common/widgets/toast.dart';
 import '../../../common/widgets/update_dialog.dart';
 import '../../../routes/home_routes.dart';
 import 'mine_controller.dart';
@@ -81,10 +82,14 @@ class MineView extends GetView<MineController> {
           }),
       SizedBox(height: rowSpace),
       CommonSetCell(
-          cellHeight: cellH,
-          lineLeftEdge: leftSpace,
-          leftImgPath: 'assets/images/wechat/mine/ic_collections.png',
-          title: '收藏'),
+        cellHeight: cellH,
+        lineLeftEdge: leftSpace,
+        leftImgPath: 'assets/images/wechat/mine/ic_collections.png',
+        title: '收藏',
+        clickCallBack: () {
+          showToast('功能开发中...');
+        },
+      ),
       CommonSetCell(
         cellHeight: cellH,
         lineLeftEdge: leftSpace,
@@ -95,16 +100,23 @@ class MineView extends GetView<MineController> {
         },
       ),
       CommonSetCell(
-          cellHeight: cellH,
-          lineLeftEdge: leftSpace,
-          leftImgPath: 'assets/images/wechat/mine/ic_cards_wallet.png',
-          title: '卡包'),
+        cellHeight: cellH,
+        lineLeftEdge: leftSpace,
+        leftImgPath: 'assets/images/wechat/mine/ic_cards_wallet.png',
+        title: '卡包',
+        clickCallBack: () {
+          showToast('功能开发中...');
+        },
+      ),
       CommonSetCell(
         cellHeight: cellH,
         lineLeftEdge: leftSpace,
         leftImgPath: 'assets/images/wechat/mine/ic_emotions.png',
         title: '表情',
         hiddenLine: true,
+        clickCallBack: () {
+          showToast('功能开发中...');
+        },
       ),
       SizedBox(height: rowSpace),
       CommonSetCell(

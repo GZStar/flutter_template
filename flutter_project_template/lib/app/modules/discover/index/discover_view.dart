@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project_template/app/routes/discover_routes.dart';
 import 'package:get/get.dart';
 
-import '../../common/utils/qr_code_utils.dart';
-import '../../common/widgets/common_widget.dart';
-import '../../common/widgets/set_cell.dart';
+import '../../../common/utils/qr_code_utils.dart';
+import '../../../common/widgets/common_widget.dart';
+import '../../../common/widgets/set_cell.dart';
 import 'discover_controller.dart';
 
 class DiscoverView extends GetView<DiscoverController> {

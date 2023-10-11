@@ -5,8 +5,8 @@ import 'package:flutter_project_template/app/modules/travel/views/travel_view.da
 import 'package:get/get.dart';
 
 import '../../../common/style/my_icons.dart';
+import '../../discover/index/discover_view.dart';
 import 'main_tabbar_controller.dart';
-import '../../discover/discover_index.dart';
 import '../../home/home_index.dart';
 import '../../mine/mine/mine_index.dart';
 

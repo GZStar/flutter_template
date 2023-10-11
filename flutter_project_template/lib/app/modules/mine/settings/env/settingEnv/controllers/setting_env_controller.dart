@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 
-import '../../../../common/values/storage_key.dart';
-import '../../../../data/local/store/storage_service.dart';
+import '../../../../../../common/values/storage_key.dart';
+import '../../../../../../data/local/store/storage_service.dart';
 
-class EnvSettingController extends GetxController {
+class SettingEnvController extends GetxController {
   List<String> envs = ['dev', 'test', 'uat', 'prod'];
 
   var selectIndex = 3.obs;
@@ -74,9 +74,7 @@ class EnvSettingController extends GetxController {
             .setString(StorageKeys.localEnvironment, envs[selectIndex.value]);
         exit(0);
       },
-      onCancel: () {
-        Get.back();
-      },
+      onCancel: () {},
     );
   }
 }

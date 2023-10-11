@@ -1,8 +1,14 @@
+import 'dart:io';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
+import 'package:flutter_project_template/global.dart';
 
+import '../../common/values/storage_key.dart';
+import '../local/store/storage_service.dart';
 import 'error_handle.dart';
 
 // 单例
@@ -15,11 +21,11 @@ class DioUtils {
   DioUtils.internal() {
     /// BaseOptions、Options、RequestOptions 都可以配置参数，优先级别依次递增，且可以根据优先级别覆盖参数
     BaseOptions options = BaseOptions(
-      ///连接服务器超时时间，单位是毫秒.
-      connectTimeout: 30 * 1000,
+      ///连接服务器超时时间.
+      connectTimeout: const Duration(seconds: 30),
 
-      /// 响应流上前后两次接受到数据的间隔，单位为毫秒。
-      receiveTimeout: 60 * 1000,
+      /// 响应流上前后两次接受到数据的间隔。
+      receiveTimeout: const Duration(seconds: 60),
     );
 
     dio = Dio(options);
@@ -30,6 +36,30 @@ class DioUtils {
 
     /// 开启请求日志
     dio.interceptors.add(LogInterceptor(responseBody: true));
+
+    /// 设置代理-debug模式下才设置代理
+    if (kDebugMode) {
+      String localHost =
+          StorageService.to.getString(StorageKeys.proxyLocalHost);
+      String port = StorageService.to.getString(StorageKeys.proxyPort);
+      if (localHost != '') {
+        dio.httpClientAdapter = IOHttpClientAdapter(
+          createHttpClient: () {
+            final client = HttpClient();
+            // Config the client.
+            client.findProxy = (uri) {
+              // Forward all request to proxy "localhost:8888".
+              // Be aware, the proxy should went through you running device,
+              // not the host platform.
+              return 'PROXY $localHost:$port';
+            };
+            // You can also create a new HttpClient for Dio instead of returning,
+            // but a client must being returned here.
+            return client;
+          },
+        );
+      }
+    }
   }
 
   Future request(

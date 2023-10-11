@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
-import '../../../../common/widgets/set_cell.dart';
-import '../controllers/env_setting_controller.dart';
+import '../../../../../../common/widgets/set_cell.dart';
+import '../controllers/setting_env_controller.dart';
 
-class EnvSettingView extends GetView<EnvSettingController> {
-  const EnvSettingView({Key? key}) : super(key: key);
+class SettingEnvView extends GetView<SettingEnvController> {
+  const SettingEnvView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('环境设置'.tr),
+          title: const Text('服务器环境设置'),
           centerTitle: true,
           automaticallyImplyLeading: false),
       body: WillPopScope(child: getContentBody(), onWillPop: () async => false),
@@ -49,6 +50,7 @@ class EnvSettingView extends GetView<EnvSettingController> {
 
   Widget buttonWidget() {
     return Container(
+      padding: const EdgeInsets.all(15),
       height: 100,
       child: Row(
         children: [
@@ -60,8 +62,11 @@ class EnvSettingView extends GetView<EnvSettingController> {
                 controller.onCancelButtonClick();
               },
               child: Text('cancel'.tr,
-                  style: const TextStyle(color: Colors.white, fontSize: 20)),
+                  style: const TextStyle(color: Colors.white, fontSize: 15)),
             ),
+          ),
+          const SizedBox(
+            width: 10,
           ),
           Expanded(
             child: TextButton(
@@ -71,7 +76,7 @@ class EnvSettingView extends GetView<EnvSettingController> {
                 controller.onSaveButtonClick();
               },
               child: Text('save'.tr,
-                  style: const TextStyle(color: Colors.white, fontSize: 20)),
+                  style: const TextStyle(color: Colors.white, fontSize: 15)),
             ),
           ),
         ],

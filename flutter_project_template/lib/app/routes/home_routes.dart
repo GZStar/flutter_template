@@ -10,6 +10,6 @@ abstract class HomeRoutes {
 class HomePages {
   static final routes = <GetPage>[
     GetPage(
-        name: HomeRoutes.chat, page: () => ChatView(), binding: ChatBinding()),
+        name: HomeRoutes.chat, page: () => const ChatView(), binding: ChatBinding()),
   ];
 }
