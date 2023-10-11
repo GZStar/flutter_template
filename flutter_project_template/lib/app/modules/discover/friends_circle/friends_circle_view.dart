@@ -211,7 +211,7 @@ class FriendsCircleView extends GetView<FriendsCircleController> {
   _clickNav(context) async {
     await showCupertinoModalPopup(
         context: context,
-        builder: (context) {
+        builder: (tempContext) {
           return CupertinoActionSheet(
             actions: <Widget>[
               CupertinoActionSheetAction(
