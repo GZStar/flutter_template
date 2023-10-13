@@ -5,13 +5,13 @@ Flutter project template
 基本包含了日常开发中常用的组件
 同时使用了Getx，使整个项目框架目录结构清晰，非常适合学习借鉴。
 
-# 项目运行环境
+## 项目运行环境
 ```Flutter
 1. Flutter version 3.13.6
 2. Dart version 3.1.3
 ```
 
-# 预览
+## 预览
 部分页面效果如下：
 | ![screenshot1](flutter_project_template/preview/screenshot1.png)| ![screenshot2](flutter_project_template/preview/screenshot2.png)  | ![screenshot3](flutter_project_template/preview/screenshot3.png)  | ![screenshot13](flutter_project_template/preview/screenshot13.png)  |
 | :--: | :--: | :--: | :--: |
@@ -19,15 +19,20 @@ Flutter project template
 | ![screenshot8](flutter_project_template/preview/screenshot8.png) | ![screenshot9](flutter_project_template/preview/screenshot9.png)  | ![screenshot10](flutter_project_template/preview/screenshot10.png)  | ![screenshot11](flutter_project_template/preview/screenshot11.png)  |
 | ![screenshot12](flutter_project_template/preview/screenshot12.png) | ![screenshot14](flutter_project_template/preview/screenshot14.png)  | ![screenshot15](flutter_project_template/preview/screenshot15.png)  | ![screenshot16](flutter_project_template/preview/screenshot16.png)  |
 
-# 项目框架
+## 项目框架
 ![TODO](flutter_project_template/preview/flutter_template.png)
 
 
-# 实现的内容
+## 实现的内容
 ![TODO](flutter_project_template/preview/todo.png)
 
+## 后续计划
+*[]添加单元测试
+*[]添加widget测试
+*[]添加集成测试
+*[]优化项目大小
 
-# 使用到的第三方库
+## 使用到的第三方库
 
 | 库 |  功能 |
 | :-- | :-- |
