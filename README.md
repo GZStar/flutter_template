@@ -23,10 +23,10 @@ Flutter project template
 ![TODO](flutter_project_template/preview/todo.png)
 
 ## 后续计划
-*[]添加单元测试
-*[]添加widget测试
-*[]添加集成测试
-*[]优化项目大小
+* [ ] 添加单元测试
+* [ ] 添加widget测试
+* [ ] 添加集成测试
+* [ ] 优化项目大小
 
 ## 使用到的第三方库
 
