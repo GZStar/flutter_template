@@ -7,10 +7,57 @@ Flutter project template
 
 同时使用了Getx，使整个项目框架目录结构清晰，非常适合学习借鉴。
 
-# 项目运行环境
+# 本项目运行环境
 ```Flutter
-1. Flutter version 3.13.6
-2. Dart version 3.1.3
+[✓] Flutter (Channel stable, 3.13.6, on macOS 13.0 22A8380 darwin-arm64, locale zh-Hans-CN)
+    • Flutter version 3.13.6 on channel stable at ~/development/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision ead455963c (2 weeks ago), 2023-09-26 18:28:17 -0700
+    • Engine revision a794cf2681
+    • Dart version 3.1.3
+    • DevTools version 2.25.0
+    • Pub download mirror https://pub.flutter-io.cn
+    • Flutter download mirror https://storage.flutter-io.cn
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 33.0.2)
+    • Android SDK at /Users/huangguozan/Library/Android/sdk
+    • Platform android-33, build-tools 33.0.2
+    • Java binary at: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-17.0.6b802.4-9586694)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 14.3)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Build 14E222b
+    • CocoaPods version 1.12.1
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 2022.2)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-17.0.6b802.4-9586694)
+
+[✓] VS Code (version 1.82.0)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.74.0
+
+[✓] Connected device (4 available)
+    • sdk gphone64 arm64 (mobile) • emulator-5554                        • android-arm64  • Android
+      13 (API 33) (emulator)
+    • iPhone 14 Pro (mobile)      • 16D4E680-B564-4E3C-BECA-8E64D028082B • ios            •
+      com.apple.CoreSimulator.SimRuntime.iOS-16-4 (simulator)
+    • macOS (desktop)             • macos                                • darwin-arm64   • macOS
+      13.0 22A8380 darwin-arm64
+    • Chrome (web)                • chrome                               • web-javascript • Google
+      Chrome 117.0.5938.149
+
+[✓] Network resources
+    • All expected network resources are available.
 ```
 
 # 预览
