@@ -13,8 +13,8 @@ Flutter project template
 
 # 预览
 部分页面效果如下：
-| ![screenshot1](flutter_project_template/preview/screenshot1.png) | ![screenshot2](flutter_project_template/preview/screenshot2.png)  | ![screenshot3](flutter_project_template/preview/screenshot3.png)  | ![screenshot13](flutter_project_template/preview/screenshot13.png)  |
-| -- | -- |
+| ![screenshot1](flutter_project_template/preview/screenshot1.png)| ![screenshot2](flutter_project_template/preview/screenshot2.png)  | ![screenshot3](flutter_project_template/preview/screenshot3.png)  | ![screenshot13](flutter_project_template/preview/screenshot13.png)  |
+| :--: | :--: | :--: | :--: |
 | ![screenshot4](flutter_project_template/preview/screenshot4.png) | ![screenshot5](flutter_project_template/preview/screenshot5.png)  | ![screenshot6](flutter_project_template/preview/screenshot6.png)  | ![screenshot7](flutter_project_template/preview/screenshot7.png)  |
 | ![screenshot8](flutter_project_template/preview/screenshot8.png) | ![screenshot9](flutter_project_template/preview/screenshot9.png)  | ![screenshot10](flutter_project_template/preview/screenshot10.png)  | ![screenshot11](flutter_project_template/preview/screenshot11.png)  |
 | ![screenshot12](flutter_project_template/preview/screenshot12.png) | ![screenshot14](flutter_project_template/preview/screenshot14.png)  | ![screenshot15](flutter_project_template/preview/screenshot15.png)  | ![screenshot16](flutter_project_template/preview/screenshot16.png)  |
