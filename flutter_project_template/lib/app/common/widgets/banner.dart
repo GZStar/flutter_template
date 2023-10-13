@@ -113,6 +113,7 @@ class BannerState extends State<BannerWidget> {
   @override
   void dispose() {
     stop();
+    controller.dispose();
     super.dispose();
   }
 
@@ -147,6 +148,7 @@ class BannerState extends State<BannerWidget> {
       itemCount: count,
       controller: controller,
       onPageChanged: onPageChanged,
+      allowImplicitScrolling: true,
       itemBuilder: (context, index) {
         return InkWell(
             onTap: () {

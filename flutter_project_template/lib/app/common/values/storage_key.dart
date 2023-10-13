@@ -12,4 +12,10 @@ abstract class StorageKeys {
   //  多语言
   static const String language = 'language';
   static const String themeStyle = 'theme_style';
+
+  /// 代理地址
+  static const String proxyLocalHost = 'proxy_local_host';
+
+  /// 代理端口
+  static const String proxyPort = 'proxy_port';
 }

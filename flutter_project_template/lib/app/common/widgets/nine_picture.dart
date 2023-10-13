@@ -1,6 +1,7 @@
 ///  description:  九宫格图片展示 4图处理 加载本地和网络图片
 
 import 'package:flutter/material.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import 'photo_browser.dart';
 
@@ -8,18 +9,20 @@ const double _itemSpace = 5.0;
 const double _space = 5.0; // 上下左右间距
 
 class NinePicture extends StatelessWidget {
-  const NinePicture({
-    Key? key,
-    this.imgData,
-    this.lRSpace = 0.0,
-    this.onLongPress,
-    this.isHandleFour = true,
-  }) : super(key: key);
+  const NinePicture(
+      {Key? key,
+      this.imgData,
+      this.lRSpace = 0.0,
+      this.onLongPress,
+      this.isHandleFour = true,
+      this.isAssetImage = false})
+      : super(key: key);
 
   final List? imgData;
   final double lRSpace; // 外部设置的左右间距
   final GestureTapCallback? onLongPress;
   final bool isHandleFour;
+  final bool isAssetImage;
 
   @override
   Widget build(BuildContext context) {
@@ -78,28 +81,21 @@ class NinePicture extends StatelessWidget {
   }
 
   _itemCell(context, index) {
-    var _img = imgData![index];
-    Widget _picture = _img.startsWith('http')
-        ? Image.network(_img, fit: BoxFit.cover)
-        : Image.asset(_img, fit: BoxFit.cover);
+    Widget? _picture;
+    if (isAssetImage) {
+      _picture = Image(
+          image: AssetEntityImageProvider(imgData![index]), fit: BoxFit.cover);
+    } else {
+      var _img = imgData![index];
+      _picture = _img.startsWith('http')
+          ? Image.network(_img, fit: BoxFit.cover)
+          : Image.asset(_img, fit: BoxFit.cover);
+    }
 
-    // CachedNetworkImage(
-    //   imageUrl: imgData[index],
-    //   imageBuilder: (context, imageProvider) =>
-    //       Container(
-    //         decoration: BoxDecoration(
-    //           image: DecorationImage(
-    //               image: imageProvider,
-    //               fit: BoxFit.cover),
-    //         ),
-    //       ),
-    //   placeholder: (context, url) => CircularProgressIndicator(),
-    //   errorWidget: (context, url, error) => Icon(Icons.error),
-    // ),
     return GestureDetector(
       child: ConstrainedBox(
+        constraints: const BoxConstraints.expand(),
         child: _picture,
-        constraints: BoxConstraints.expand(),
       ),
       onTap: () => _clickItemCell(context, index),
     );
@@ -112,6 +108,7 @@ class NinePicture extends StatelessWidget {
       page: PhotoBrowser(
         imgDataArr: imgData!,
         index: index,
+        isAssetImage: isAssetImage,
         onLongPress: onLongPress!,
       ),
     ));

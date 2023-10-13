@@ -1,64 +1,95 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/routes/app_pages.dart';
+import 'package:flutter_project_template/app/common/widgets/toast.dart';
+import 'package:flutter_project_template/app/routes/login_routes.dart';
+import 'package:flutter_project_template/app/routes/main_routes.dart';
+import 'package:flutter_project_template/app/routes/mine_routes.dart';
 import 'package:get/get.dart';
 
-import '../../../../common/base/base_view.dart';
-import '../../../../common/widgets/common_widget.dart';
 import '../../../../common/widgets/set_cell.dart';
 import '../../../../data/local/store/user_store.dart';
 import '../controllers/settings_controller.dart';
 
-class SettingsView extends BaseView<SettingsController> {
-  @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('settings'.tr);
-  }
+class SettingsView extends GetView<SettingsController> {
+  const SettingsView({Key? key}) : super(key: key);
 
   @override
-  Widget body(BuildContext context) {
-    return getContentBody();
+  Widget build(BuildContext context) {
+    print('setting view build');
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('settings'.tr),
+        centerTitle: true,
+      ),
+      body: getContentBody(),
+    );
   }
 
   // cell
   Widget getContentBody() {
-    return ListView(
-      children: <Widget>[
-        CommonSetCell(
-            title: 'set_language'.tr,
-            clickCallBack: () {
-              Get.toNamed(AppRoutes.languageSetting);
-            }),
-        CommonSetCell(
-            title: 'appearance'.tr,
+    return Obx(
+      () => ListView(
+        children: <Widget>[
+          CommonSetCell(
+              title: 'set_language'.tr,
+              clickCallBack: () {
+                Get.toNamed(MineRoutes.languageSetting);
+              }),
+          CommonSetCell(
+              title: 'appearance'.tr,
+              hiddenLine: true,
+              clickCallBack: () {
+                Get.toNamed(MineRoutes.themeSetting);
+              }),
+          const SizedBox(height: 8),
+          CommonSetCell(
+              title: 'clear_cache'.tr,
+              text: controller.cacheSizeString.value,
+              clickCallBack: () {
+                controller.cleanCache();
+              }),
+          CommonSetCell(
+              title: '用户条款'.tr,
+              clickCallBack: () {
+                Get.toNamed(MainRoutes.webBrowser, arguments: {
+                  'title': '用户条款',
+                  'url': 'https://democustapp.jtjms-mx.com/en-us/termofuse'
+                });
+              }),
+          CommonSetCell(
+              title: '隐私协议'.tr,
+              clickCallBack: () {
+                Get.toNamed(MainRoutes.webBrowser, arguments: {
+                  'title': '隐私协议',
+                  'url': 'https://democustapp.jtjms-mx.com/en-us/privacyPolicy'
+                });
+              }),
+          CommonSetCell(
+              title: '帮助与反馈'.tr,
+              clickCallBack: () {
+                showToast('功能开发中...');
+              }),
+          CommonSetCell(
+            title: 'about'.tr,
+            text: 'v1.0.0',
             hiddenLine: true,
             clickCallBack: () {
-              Get.toNamed(AppRoutes.themeSetting);
-            }),
-        const SizedBox(height: 8),
-        CommonSetCell(title: 'clear_cache'.tr, clickCallBack: () {}),
-        CommonSetCell(title: '网络检测'.tr, clickCallBack: () {}),
-        CommonSetCell(
-          title: 'about'.tr,
-          text: 'v2.0.1',
-          hiddenLine: true,
-          clickCallBack: () {
-            Get.toNamed(AppRoutes.about);
-          },
-        ),
-        const SizedBox(height: 8),
-        Container(
-          height: 50,
-          color: Colors.white,
-          child: TextButton(
-            onPressed: () {
-              UserStore.to.onLogout();
-              Get.offAllNamed(AppRoutes.login);
+              Get.toNamed(MineRoutes.about);
             },
-            child: Text('logout'.tr,
-                style: const TextStyle(color: Colors.red, fontSize: 20)),
           ),
-        ),
-      ],
+          const SizedBox(height: 8),
+          SizedBox(
+            height: 50,
+            child: TextButton(
+              onPressed: () {
+                UserStore.to.onLogout();
+                Get.offAllNamed(AccountRoutes.login);
+              },
+              child: Text('logout'.tr,
+                  style: const TextStyle(color: Colors.red, fontSize: 20)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

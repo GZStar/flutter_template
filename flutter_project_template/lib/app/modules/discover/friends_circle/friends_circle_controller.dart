@@ -1,30 +1,20 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_project_template/app/routes/discover_routes.dart';
 import 'package:get/get.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
+import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
-import '../../../common/utils/screen_utils.dart';
+import '../../../common/utils/image_picker_utils.dart';
+import '../../../common/utils/permission_utils.dart';
 
 class FriendsCircleController extends GetxController {
-  ScrollController scrollController = ScrollController();
-
-  double imgNormalHeight = 300;
-  double imgExtraHeight = 0.0;
-  var imgChangeHeight = 0.0.obs;
-  double scrollMinOffSet = 0.0;
-  double navH = 0.0;
-  var appbarOpacity = 0.0.obs;
-
   var dataArr = [].obs;
 
   @override
   void onInit() {
     super.onInit();
-    navH = ScreenUtils.navigationBarHeight;
-    imgChangeHeight.value = imgNormalHeight + imgExtraHeight;
-    scrollMinOffSet = imgNormalHeight - navH;
-    addScrollListener();
 
     loadData();
   }
@@ -37,7 +27,6 @@ class FriendsCircleController extends GetxController {
 
   @override
   void dispose() {
-    scrollController.dispose();
     super.dispose();
   }
 
@@ -48,37 +37,39 @@ class FriendsCircleController extends GetxController {
 
     Map dic = json.decode(jsonStr);
     List tempDataArr = dic['data'];
-    // dataArr.forEach((item) {
-    // });
     dataArr.value = tempDataArr;
   }
 
-  // 滚动监听
-  void addScrollListener() {
-    scrollController.addListener(() {
-      double _y = scrollController.offset;
-      // print('滑动距离: $_y');
+  void pickFromCamera(context) async {
+    if (await PermissionsUtils.getCameraPermission() == false) {
+      return;
+    }
+    final AssetEntity? entity = await CameraPicker.pickFromCamera(context);
+    if (entity != null) {
+      _getToFriendsPublicView([entity]);
+    }
+  }
 
-      if (_y < scrollMinOffSet) {
-        imgExtraHeight = -_y;
-//        print(_topH);
-        imgChangeHeight.value = imgNormalHeight + imgExtraHeight;
-      } else {
-        imgChangeHeight.value = navH;
-      }
+  void pickFromPhoto(context) async {
+    if (await PermissionsUtils.getPhotosPermission() == false) {
+      return;
+    }
+    final List<AssetEntity>? fileList = await ImagePickerUtils.pickImage(
+        context,
+        requestType: RequestType.image);
 
-      // appbar 透明度
-      double appBarOpacity = _y / navH;
-      if (appBarOpacity < 0) {
-        // 透明
-        appBarOpacity = 0.0;
-      } else if (appBarOpacity > 1) {
-        // 不透明
-        appBarOpacity = 1.0;
-      }
+    if (fileList != null) {
+      _getToFriendsPublicView(fileList);
+    }
+  }
 
-      // 更新透明度
-      appbarOpacity.value = appBarOpacity;
-    });
+  void _getToFriendsPublicView(entitys) async {
+    var data = await Get.toNamed(DiscoverRoutes.friendsPublic,
+        arguments: {'entitys': entitys});
+
+    print('back data = ${data}');
+    if (data != null) {
+      dataArr.insert(0, data);
+    }
   }
 }

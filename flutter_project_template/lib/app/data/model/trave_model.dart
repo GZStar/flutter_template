@@ -11,7 +11,7 @@ String travelModelToJson(TravelModel data) => json.encode(data.toJson());
 
 class TravelModel {
   int totalCount;
-  ResultList resultList;
+  List<ResultList> resultList;
 
   TravelModel({
     required this.totalCount,
@@ -20,12 +20,13 @@ class TravelModel {
 
   factory TravelModel.fromJson(Map<String, dynamic> json) => TravelModel(
         totalCount: json["totalCount"],
-        resultList: ResultList.fromJson(json["resultList"]),
+        resultList: List<ResultList>.from(
+            json["resultList"].map((x) => ResultList.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "totalCount": totalCount,
-        "resultList": resultList.toJson(),
+        "resultList": List<dynamic>.from(resultList.map((x) => x.toJson())),
       };
 }
 
@@ -51,29 +52,30 @@ class ResultList {
 
 class Article {
   int articleId;
-  String articleType;
+  String? articleType;
   int productType;
-  int sourceType;
+  int? sourceType;
   String articleTitle;
   Author author;
-  Images images;
-  Urls urls;
-  int hasVideo;
-  int readCount;
-  int likeCount;
-  int commentCount;
-  String publishTime;
-  String publishTimeDisplay;
-  String shootTime;
-  String shootTimeDisplay;
-  int level;
-  String distanceText;
-  String isLike;
-  int imageCounts;
-  String isCollected;
-  int collectCount;
-  int articleStatus;
-  String poiName;
+  List<Images> images;
+  List<Url> urls;
+  List<Pois>? pois;
+  bool hasVideo;
+  int? readCount;
+  int? likeCount;
+  int? commentCount;
+  String? publishTime;
+  String? publishTimeDisplay;
+  String? shootTime;
+  String? shootTimeDisplay;
+  int? level;
+  String? distanceText;
+  bool isLike;
+  int? imageCounts;
+  bool isCollected;
+  int? collectCount;
+  int? articleStatus;
+  String? poiName;
 
   Article({
     required this.articleId,
@@ -84,6 +86,7 @@ class Article {
     required this.author,
     required this.images,
     required this.urls,
+    required this.pois,
     required this.hasVideo,
     required this.readCount,
     required this.likeCount,
@@ -109,8 +112,10 @@ class Article {
         sourceType: json["sourceType"],
         articleTitle: json["articleTitle"],
         author: Author.fromJson(json["author"]),
-        images: Images.fromJson(json["images"]),
-        urls: Urls.fromJson(json["urls"]),
+        images:
+            List<Images>.from(json["images"].map((x) => Images.fromJson(x))),
+        urls: List<Url>.from(json["urls"].map((x) => Url.fromJson(x))),
+        pois: List<Pois>.from(json["pois"].map((x) => Pois.fromJson(x))),
         hasVideo: json["hasVideo"],
         readCount: json["readCount"],
         likeCount: json["likeCount"],
@@ -136,8 +141,9 @@ class Article {
         "sourceType": sourceType,
         "articleTitle": articleTitle,
         "author": author.toJson(),
-        "images": images.toJson(),
-        "urls": urls.toJson(),
+        "images": List<dynamic>.from(images.map((x) => x.toJson())),
+        "urls": List<dynamic>.from(urls.map((x) => x.toJson())),
+        // "pois": List<dynamic>.from(pois.map((x) => x.toJson())),
         "hasVideo": hasVideo,
         "readCount": readCount,
         "likeCount": likeCount,
@@ -158,13 +164,13 @@ class Article {
 }
 
 class Author {
-  int authorId;
+  int? authorId;
   String nickName;
   String clientAuth;
   String jumpUrl;
   CoverImage coverImage;
   int identityType;
-  String tag;
+  String? tag;
 
   Author({
     required this.authorId,
@@ -199,7 +205,7 @@ class Author {
 
 class CoverImage {
   String dynamicUrl;
-  String originalUrl;
+  String? originalUrl;
 
   CoverImage({
     required this.dynamicUrl,
@@ -218,11 +224,11 @@ class CoverImage {
 }
 
 class Images {
-  int imageId;
+  int? imageId;
   String dynamicUrl;
   String originalUrl;
-  int mediaType;
-  int isWaterMarked;
+  int? mediaType;
+  int? isWaterMarked;
 
   Images({
     required this.imageId,
@@ -249,20 +255,112 @@ class Images {
       };
 }
 
-class Urls {
-  String version;
-  String appUrl;
-  String h5Url;
-  String wxUrl;
+class Pois {
+  int? poiType;
+  int? poiId;
+  String poiName;
+  int? districtId;
+  String? districtName;
+  int? source;
+  int? isMain;
+  bool? isInChina;
+  PoiExt poiExt;
 
-  Urls({
+  Pois({
+    required this.poiType,
+    required this.poiId,
+    required this.poiName,
+    required this.districtId,
+    required this.districtName,
+    required this.source,
+    required this.isMain,
+    required this.isInChina,
+    required this.poiExt,
+  });
+
+  factory Pois.fromJson(Map<String, dynamic> json) => Pois(
+        poiType: json["poiType"],
+        poiId: json["poiId"],
+        poiName: json["poiName"],
+        districtId: json["districtId"],
+        districtName: json["districtName"],
+        source: json["source"],
+        isMain: json["isMain"],
+        isInChina: json["isInChina"],
+        poiExt: PoiExt.fromJson(json["poiExt"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "poiType": poiType,
+        "poiId": poiId,
+        "poiName": poiName,
+        "districtId": districtId,
+        "districtName": districtName,
+        "source": source,
+        "isMain": isMain,
+        "isInChina": isInChina,
+        "poiExt": poiExt.toJson(),
+      };
+}
+
+class PoiExt {
+  String h5Url;
+  String appUrl;
+
+  PoiExt({
+    required this.h5Url,
+    required this.appUrl,
+  });
+
+  factory PoiExt.fromJson(Map<String, dynamic> json) => PoiExt(
+        h5Url: json["h5Url"],
+        appUrl: json["appUrl"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "h5Url": h5Url,
+        "appUrl": appUrl,
+      };
+}
+
+class Topic {
+  int topicId;
+  String topicName;
+  String level;
+
+  Topic({
+    required this.topicId,
+    required this.topicName,
+    required this.level,
+  });
+
+  factory Topic.fromJson(Map<String, dynamic> json) => Topic(
+        topicId: json["topicId"],
+        topicName: json["topicName"],
+        level: json["level"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "topicId": topicId,
+        "topicName": topicName,
+        "level": level,
+      };
+}
+
+class Url {
+  String version;
+  String? appUrl;
+  String? h5Url;
+  String? wxUrl;
+
+  Url({
     required this.version,
     required this.appUrl,
     required this.h5Url,
     required this.wxUrl,
   });
 
-  factory Urls.fromJson(Map<String, dynamic> json) => Urls(
+  factory Url.fromJson(Map<String, dynamic> json) => Url(
         version: json["version"],
         appUrl: json["appUrl"],
         h5Url: json["h5Url"],

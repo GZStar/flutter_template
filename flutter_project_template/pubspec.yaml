@@ -44,17 +44,15 @@ dependencies:
   # 弹框 https://pub.flutter-io.cn/packages/fluttertoast
   fluttertoast: ^8.1.1
   # 网络请求 https://pub.flutter-io.cn/packages/dio
-  dio: ^4.0.6
+  dio: ^5.3.2
   dio_cookie_manager: ^2.0.0
   cookie_jar: ^3.0.1
   # 监测网络状态 https://pub.flutter-io.cn/packages/connectivity_plus
   connectivity_plus: ^3.0.2
-  # 下拉刷新 https://pub.flutter-io.cn/packages/pull_to_refresh
-  pull_to_refresh: ^2.0.0 
   # 加载指示器 https://pub.flutter-io.cn/packages/flutter_easyloading
   flutter_easyloading: ^3.0.5
   # 屏幕参数适配 https://pub.flutter-io.cn/packages/flutter_screenutil
-  flutter_screenutil: ^5.6.0
+  flutter_screenutil: ^5.8.4
   # 加密 https://pub.flutter-io.cn/packages/encrypt
   encrypt: ^5.0.1
   # 侧滑删除 https://pub.flutter-io.cn/packages/flutter_slidable
@@ -62,7 +60,7 @@ dependencies:
   # 小红点 https://pub.flutter-io.cn/packages/badges
   badges: ^2.0.3
   # 获取安卓iOS设备信息 https://pub.flutter-io.cn/packages/device_info_plus
-  device_info_plus: ^8.0.0
+  device_info_plus: ^9.0.2
   # 获取版本信息 https://pub.flutter-io.cn/packages/package_info_plus
   package_info_plus: ^4.0.1
   # 二维码生成 https://pub.flutter-io.cn/packages/qr_flutter
@@ -73,6 +71,19 @@ dependencies:
   barcode_scan2: ^4.2.1
   # 图片手势 https://pub.flutter-io.cn/packages/photo_view
   photo_view: ^0.14.0
+  flutter_staggered_grid_view: ^0.7.0
+  card_swiper: ^3.0.1
+  webview_flutter: ^4.2.2
+  url_launcher: ^6.1.12
+  easy_refresh: ^3.3.2+1
+  flutter_spinkit: ^5.2.0
+  emoji_picker_flutter: ^1.6.1
+    # 媒体选择
+  wechat_assets_picker: ^8.7.1
+  wechat_camera_picker: ^4.0.0
+  video_player: ^2.7.0
+  path_provider: ^2.1.0
+  permission_handler: ^10.4.3
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +95,18 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path_android: "assets/launcher/icon-710x599-android.png"
+  image_path_ios: "assets/launcher/icon-1024x1024.png"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  adaptive_icon_background: "assets/launcher/christmas-background.png" # only available for Android 8.0 devices and above
+  adaptive_icon_foreground: "assets/launcher/icon-foreground-432x432.png" # only available for Android 8.0 devices and above
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  remove_alpha_ios: true
+  background_color_ios: "#ffffff"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -127,6 +150,7 @@ flutter:
     - assets/data/wx_contacts.json
     - assets/data/wx_motion_top.json
     - assets/data/wx_friends_circle.json
+    - assets/data/travel_params.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

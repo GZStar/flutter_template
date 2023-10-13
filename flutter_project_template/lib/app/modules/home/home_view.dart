@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/style/app_colors.dart';
 import 'package:get/get.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:badges/badges.dart' as badges;
 
-import '../../common/base/base_view.dart';
-
 import '../../common/utils/qr_code_utils.dart';
 import '../../common/widgets/common_widget.dart';
 import '../../common/widgets/home_pop_menus.dart';
+import '../../routes/home_routes.dart';
 import 'home_controller.dart';
 
-class HomeView extends BaseView<HomeController> {
-  @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    return CommonWidget.appBar('home'.tr,
-        isBackButtonEnabled: false, actions: [getRightButton()]);
-  }
+class HomeView extends GetView<HomeController> {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget body(BuildContext context) {
-    return Center(
-      child: cellBody(controller.dataArray),
+  Widget build(BuildContext context) {
+    print('HomeView page build');
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('home'.tr),
+        centerTitle: true,
+        actions: [_getRightButton()],
+      ),
+      body: _cellBody(controller.dataArray),
     );
   }
 
-  Widget getRightButton() {
+  Widget _getRightButton() {
     return IconButton(
       icon: Image.asset(
         'assets/images/other/ic_nav_add.png',
@@ -39,10 +40,9 @@ class HomeView extends BaseView<HomeController> {
   }
 
   // body
-  Widget cellBody(dataArr) {
+  Widget _cellBody(dataArr) {
     Widget noRead = CustomSlidableAction(
       padding: const EdgeInsets.all(0),
-//      foregroundColor:Colors.white,
       backgroundColor: Colors.black87,
       child: const Text(
         '标为未读',
@@ -97,7 +97,7 @@ class HomeView extends BaseView<HomeController> {
           height: .5,
           indent: 70,
           endIndent: 0,
-          color: AppColors.separateLine,
+          // color: AppColors.separateLine,
         );
       },
       itemBuilder: (context, index) {
@@ -139,80 +139,67 @@ class HomeView extends BaseView<HomeController> {
 
   // cell
   Widget cell(item) {
-    return InkWell(
-        onTap: () => clickCell(item),
-        child: Container(
-            color: AppColors.backgroundColor,
-            height: 70,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                badges.Badge(
-                  showBadge: item['isNew'],
-                  padding: EdgeInsets.all(5),
-                  position: badges.BadgePosition.topEnd(top: 5, end: 5),
-                  child: Container(
-                      width: 70,
-                      height: 70,
-                      padding: EdgeInsets.all(10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: Image.asset(
-                          item['img'],
-                          width: 60,
-                        ),
-                      )),
-                ),
-                Expanded(
-                    child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-//                Container(color: KColors.kLineColor, height: 0.8),
-                    const SizedBox(height: 6),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                            flex: 70,
-                            child: Text(item['title'],
-                                style: const TextStyle(fontSize: 18))),
-                        Expanded(
-                            flex: 30,
-                            child: Text(
-                              item['time'],
-                              style: const TextStyle(
-                                  fontSize: 13, color: Colors.grey),
-                              textAlign: TextAlign.right,
-                            )),
-                        const SizedBox(width: 10),
-                      ],
-                    ),
-                    const SizedBox(height: 4),
-                    Text(item['subtitle'],
-                        style:
-                            const TextStyle(fontSize: 15, color: Colors.grey)),
-                  ],
-                )),
-              ],
-            )));
+    return Material(
+      child: InkWell(
+          onTap: () => clickCell(item),
+          child: Container(
+              height: 70,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  badges.Badge(
+                    showBadge: item['isNew'],
+                    padding: EdgeInsets.all(5),
+                    position: badges.BadgePosition.topEnd(top: 5, end: 5),
+                    child: Container(
+                        width: 70,
+                        height: 70,
+                        padding: EdgeInsets.all(10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            item['img'],
+                            width: 60,
+                          ),
+                        )),
+                  ),
+                  Expanded(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const SizedBox(height: 6),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                              flex: 70,
+                              child: Text(item['title'],
+                                  style: const TextStyle(fontSize: 18))),
+                          Expanded(
+                              flex: 30,
+                              child: Text(
+                                item['time'],
+                                style: const TextStyle(
+                                    fontSize: 13, color: Colors.grey),
+                                textAlign: TextAlign.right,
+                              )),
+                          const SizedBox(width: 10),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(item['subtitle'],
+                          style: const TextStyle(
+                              fontSize: 15, color: Colors.grey)),
+                    ],
+                  )),
+                ],
+              ))),
+    );
   }
 
   // 点击cell
   void clickCell(item) {
-    // JhToast.showText(context, msg: '点击 $item['title']');
-    CommonWidget.toast(item['title']);
-
-    // if (item['title'] == 'Demo 列表') {
-    //   CommonWidget.toast(item['title']);
-    // } else if (item['title'] == 'QQ邮箱提醒') {
-    //   JhNavUtils.pushNamed(context, 'WxQQMessagePage');
-    // } else if (item['title'] == '订阅号消息') {
-    //   JhNavUtils.pushNamed(context, 'WxSubscriptionNumberPage');
-    // } else if (item['title'] == '微信运动') {
-    //   JhNavUtils.pushNamed(context, 'WxMotionPage');
-    // } else {
-    //   JhNavUtils.pushNamed(context, 'DemoListPage');
-    // }
+    Get.toNamed(HomeRoutes.chat);
   }
 
   // 右上角pop
@@ -225,23 +212,6 @@ class HomeView extends BaseView<HomeController> {
         scanClick();
       }
     });
-    // // 带分割线带背景
-    // HomePopMenus.showLinePop(context, isShowBg: true,
-    //     clickCallback: (index, selText) {
-    //   print('选中index: ${index}');
-    //   print('选中text: ${selText}');
-    // });
-
-    // // 带分割线不带背景
-    // HomePopMenus.showLinePop(context, clickCallback: (index, selText) {
-    //   print('选中index: $index');
-    //   print('选中text: $selText');
-
-    //   if (selText == '添加朋友') {}
-    // if (selText == '扫一扫') {
-    //   _scan(context);
-    // }
-    // });
   }
 
   void scanClick() {
@@ -250,7 +220,9 @@ class HomeView extends BaseView<HomeController> {
         isShowScanLine: false,
         callBack: (data) {
           print('扫码结果：$data');
+          if (data != "") {
           CommonWidget.toast('扫码结果：$data');
+        }
         });
   }
 }

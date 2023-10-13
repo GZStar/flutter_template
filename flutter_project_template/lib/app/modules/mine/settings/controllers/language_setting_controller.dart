@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import '../../../../common/langs/translation_service.dart';
 
 class LanguageSettingController extends GetxController {
-  var languages = TranslationService.languages;
-  var selectIndex = 0.obs;
+  final languages = TranslationService.languages;
+  final selectIndex = 0.obs;
 
   @override
   void onInit() {

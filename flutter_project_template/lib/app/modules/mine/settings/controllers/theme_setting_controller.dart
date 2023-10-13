@@ -27,17 +27,25 @@ class ThemeSettingController extends GetxController {
   @override
   void onClose() {}
 
-  void selectTheme(int index) {
-    if (index == 1) {
-      Get.changeTheme(ThemeData.light());
-    } else if (index == 2) {
-      Get.changeTheme(ThemeData.dark());
-    } else {
-      Get.changeTheme(ThemeData.fallback());
+  void selectTheme(int index) async {
+    if (index == 1 && selectIndex.value != 1) {
+      Get.changeThemeMode(ThemeMode.light);
+    } else if (index == 2 && selectIndex.value != 2) {
+      Get.changeThemeMode(ThemeMode.dark);
+    } else if (index == 0 && selectIndex.value != 0) {
+      Get.changeThemeMode(ThemeMode.system);
     }
 
-    ConfigStore.to.onThemeUpdate(themes[index].key);
-    getSelectIndex();
+    if (index != selectIndex.value) {
+      ConfigStore.to.onThemeUpdate(themes[index].key);
+      selectIndex.value = themes[index].key;
+
+      // Loading.show();
+      // Future.delayed(const Duration(milliseconds: 300), () {
+      //   Get.forceAppUpdate();
+      //   Loading.dismiss();
+      // });
+    }
   }
 
   void getSelectIndex() {

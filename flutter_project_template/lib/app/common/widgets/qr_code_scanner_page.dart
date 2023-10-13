@@ -4,15 +4,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
-import 'package:flutter_project_template/app/common/widgets/common_widget.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 const double _borderRadius = 0;
 const double _borderLength = 15;
 const double _borderWidth = 5;
-const Color _borderColor = AppColors.primaryColor;
-const Color _scanLineColor = AppColors.primaryColor;
+const Color _borderColor = AppColors.appMain;
+const Color _scanLineColor = AppColors.appMain;
 
 class QrCodeScannerPage extends StatefulWidget {
   const QrCodeScannerPage({
@@ -120,7 +119,10 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage>
   }
 
   _appBar2() {
-    return CommonWidget.appBar('QRCODE');
+    return AppBar(
+      title: const Text('QRCODE'),
+      centerTitle: true,
+    );
   }
 
   void _onQRViewCreated(QRViewController controller) {

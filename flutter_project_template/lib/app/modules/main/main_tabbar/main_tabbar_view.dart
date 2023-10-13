@@ -1,39 +1,34 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/style/app_colors.dart';
+import 'package:flutter_project_template/app/modules/travel/views/travel_view.dart';
 
 import 'package:get/get.dart';
 
 import '../../../common/style/my_icons.dart';
+import '../../discover/index/discover_view.dart';
 import 'main_tabbar_controller.dart';
-import '../../contacts/contact_index.dart';
-import '../../discover/discover_index.dart';
 import '../../home/home_index.dart';
 import '../../mine/mine/mine_index.dart';
 
 class MainTabbarView extends GetView<MainTabbarController> {
-  List<Widget> indexedStackPages = [
-    HomeView(),
-    ContactView(),
-    DiscoverView(),
-    MineView()
-  ];
+  const MainTabbarView({Key? key}) : super(key: key);
 
-  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange,
-      body: buildBody(),
+      body: PageView(
+        controller: controller.pageController,
+        onPageChanged: (index) => controller.onJumpTo(index),
+        physics: const NeverScrollableScrollPhysics(),
+        children: const <Widget>[
+          HomeView(),
+          TravelView(),
+          DiscoverView(),
+          MineView()
+        ],
+      ),
       bottomNavigationBar: buildBottomNavigationBar(),
     );
-  }
-
-  Widget buildBody() {
-    return Obx(() => IndexedStack(
-          index: controller.currentIndex.value,
-          children: indexedStackPages,
-        ));
   }
 
   // 底部导航
@@ -44,9 +39,9 @@ class MainTabbarView extends GetView<MainTabbarController> {
           unselectedFontSize: 12,
           selectedFontSize: 12,
           // backgroundColor: Colors.green,
-          selectedItemColor: AppColors.primaryColor,
+          // selectedItemColor: AppColors.primaryColor,
           currentIndex: controller.currentIndex.value,
-          onTap: (index) => controller.switchTab(index),
+          onTap: (index) => controller.onJumpTo(index),
         ));
   }
 
@@ -61,17 +56,19 @@ class MainTabbarView extends GetView<MainTabbarController> {
       BottomNavigationBarItem(
         icon: const Icon(MyIcons.work),
         activeIcon: const Icon(MyIcons.work),
-        label: "work".tr,
+        label: "travel".tr,
       ),
       BottomNavigationBarItem(
         icon: badges.Badge(
-          showBadge: controller.showCalendarBadge.value,
+          badgeColor: Colors.red,
+          showBadge: true,
           padding: const EdgeInsets.all(4),
           position: const badges.BadgePosition(top: -1, end: -5),
           child: const Icon(MyIcons.calendar),
         ),
         activeIcon: badges.Badge(
-          showBadge: controller.showCalendarBadge.value,
+          badgeColor: Colors.red,
+          showBadge: true,
           padding: const EdgeInsets.all(4),
           position: const badges.BadgePosition(top: -1, end: -5),
           child: const Icon(MyIcons.calendar),

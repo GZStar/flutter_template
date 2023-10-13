@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_template/app/common/style/app_colors.dart';
+import 'package:get/get.dart';
 
 const int _maxLines = 5; // 最大行数
 const int _maxLength = 100; // 最大录入长度
@@ -121,24 +122,6 @@ class CommonTextFieldState extends State<CommonTextField> {
           TextPosition(offset: _textController!.text.length));
     }
     _textController!.selection = cursorPos;
-
-    // 有bug，删除中间的文字会跳到最后
-    // // 更新text值到_textController
-    // _textController!.text = widget.text ?? '';
-    // // 光标保持在文本最后
-    // _textController!.selection = TextSelection.fromPosition(
-    //   TextPosition(offset: _textController!.text.length),
-    // );
-
-    // 同上
-    // _textController!.value = _textController!.value.copyWith(
-    //   text: widget.text,
-    //   selection: TextSelection(
-    //     baseOffset: _textController!.text.length,
-    //     extentOffset: _textController!.text.length,
-    //   ),
-    //   composing: TextRange.empty,
-    // );
   }
 
   @override
@@ -153,7 +136,7 @@ class CommonTextFieldState extends State<CommonTextField> {
 
   @override
   Widget build(BuildContext context) {
-    var themeColor = AppColors.titleColor;
+    var themeColor = Get.isDarkMode ? AppColors.textDark : AppColors.text;
     var labelTextStyle =
         TextStyle(fontSize: _labelTextFontSize, color: themeColor);
     // 设置的颜色优先级高于暗黑模式

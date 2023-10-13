@@ -30,6 +30,7 @@ class ExceptionHandle {
     receive_timeout_error: NetError(receive_timeout_error, '响应超时！'),
     cancel_error: NetError(cancel_error, '取消请求'),
     unknown_error: NetError(unknown_error, '未知异常'),
+    not_found: NetError(not_found, '服务不响应404'),
   };
 
   static NetError handleException(dynamic error) {

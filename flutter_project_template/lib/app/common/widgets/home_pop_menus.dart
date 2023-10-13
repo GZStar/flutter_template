@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_template/app/common/utils/screen_utils.dart';
+import '../values/dimens.dart';
 
 List _listData = [
   {'text': '发起群聊', 'icon': 'assets/images/popMenus/ic_chat.png'},
@@ -51,7 +51,7 @@ class HomePopMenus {
 
     Widget menusView(dataArr) {
       var cellH = dataArr.length * _cellHeight;
-      var navH = ScreenUtils.navigationBarHeight;
+      var navH = MediaQuery.of(context).padding.top + Dimens.appBarbarHeight;
       return Positioned(
         right: 10,
         top: navH,
@@ -123,9 +123,9 @@ class HomePopMenus {
 
     Widget menusView(dataArr) {
       var cellH = dataArr.length * _cellHeight;
-      var navH = ScreenUtils.navigationBarHeight;
+      var navH = MediaQuery.of(context).padding.top + Dimens.appBarbarHeight;
       if (isShowBg == true) {
-        navH = navH - ScreenUtils.topSafeHeight;
+        navH = navH - MediaQuery.of(context).padding.top;
       } else {
         navH = navH;
       }

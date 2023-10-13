@@ -1,6 +1,6 @@
 import 'package:flutter_project_template/app/common/utils/loading.dart';
 import 'package:flutter_project_template/app/data/local/store/user_store.dart';
-import 'package:flutter_project_template/app/routes/app_pages.dart';
+import 'package:flutter_project_template/app/routes/login_routes.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -93,7 +93,7 @@ class HomeController extends GetxController {
   logout() async {
     Loading.show();
     await UserStore.to.onLogout();
-    Get.offAndToNamed(AppRoutes.login);
+    Get.offAndToNamed(AccountRoutes.login);
     Loading.dismiss();
   }
 }

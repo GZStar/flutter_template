@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_template/app/common/widgets/toast.dart';
+import 'package:flutter_project_template/app/data/network/error_handle.dart';
+import 'package:flutter_project_template/app/routes/main_routes.dart';
 
 import 'package:get/get.dart';
-import '../../common/utils/encrypt_utils.dart';
 import '../../common/utils/loading.dart';
 import '../../data/apis/login.dart';
 import '../../data/local/store/user_store.dart';
 import '../../data/model/user_model.dart';
-import '../../data/network/http_utils.dart';
-import '../../routes/app_pages.dart';
 
 class LoginController extends GetxController {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
@@ -27,28 +27,29 @@ class LoginController extends GetxController {
 
   void login() async {
     if (loginFormKey.currentState!.validate()) {
-      var params = {
-        "phoneNum": loginAccountController.value.text,
-        "pwd": EncryptUtils.aesEncrypt(loginPasswordController.value.text),
-        "countryCode": "+86"
-      };
+      // Loading.show();
+      // try {
+      //   UserLoginResponseModel userProfile = await LoginAPI.loginWithPassword(
+      //       loginAccountController.value.text,
+      //       loginPasswordController.value.text);
+      //   UserStore.to.saveProfile(userProfile);
+      //   Loading.dismiss();
+      //   Get.offAndToNamed(MainRoutes.mainTabbar);
+      // } on NetError catch (e) {
+      //   Loading.dismiss();
+      //   // showWarnToast(e.msg);
+
+      //   UserStore.to.isLogin = true;
+      //   Get.offAndToNamed(MainRoutes.mainTabbar);
+      // }
 
       Loading.show();
-      HttpUtils.request(
-        LoginAPI.loginWithPassword(params),
-        success: (data) {
-          UserLoginResponseModel userProfile =
-              UserLoginResponseModel.fromJson(data);
-          UserStore.to.saveProfile(userProfile);
-          Loading.dismiss();
-
-          Get.offAndToNamed(AppRoutes.mainTabbar);
-        },
-        fail: (code, msg) {
-          Loading.dismiss();
-          Get.offAndToNamed(AppRoutes.mainTabbar);
-        },
-      );
+      Future.delayed(const Duration(seconds: 3), () {
+        Loading.dismiss();
+        UserStore.to.setToken("profile.token");
+        UserStore.to.isLogin = true;
+        Get.offAndToNamed(MainRoutes.mainTabbar);
+      });
     }
   }
 }

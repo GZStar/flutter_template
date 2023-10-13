@@ -3,7 +3,6 @@
 ///  Created by iotjin on 2020/07/28.
 ///  description:  APP更新弹框
 
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -52,8 +51,8 @@ class _UpdateDialogState extends State<UpdateDialog> {
                     Container(
                       height: 120.0,
                       width: 280.0,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8.0),
                             topRight: Radius.circular(8.0)),
                         image: DecorationImage(
@@ -93,7 +92,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                                   style: ButtonStyle(
                                     // 设置按钮大小
                                     minimumSize: MaterialStateProperty.all(
-                                        Size(110.0, 36.0)),
+                                        const Size(110.0, 36.0)),
                                     // 背景色
                                     backgroundColor:
                                         MaterialStateProperty.resolveWith(
@@ -146,7 +145,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
                                     }
                                   },
                                   child: Text('立即更新',
-                                      style: TextStyle(fontSize: 16.0)),
+                                      style: const TextStyle(fontSize: 16.0)),
                                   style: ButtonStyle(
                                     // 设置按钮大小
                                     minimumSize: MaterialStateProperty.all(

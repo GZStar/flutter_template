@@ -22,7 +22,7 @@ class AboutController extends GetxController {
   void onClose() {}
 
   void getDeviceInfo() async {
-    if (DeviceUtils.isIOS) {
+    if (GetPlatform.isIOS) {
       DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
       print(iosInfo.toString());

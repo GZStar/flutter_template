@@ -15,9 +15,16 @@ class TranslationService extends Translations {
       };
 
   static List<LanguageModel> languages = [
-    LanguageModel(key: 'zh_CN', name: '中文', locale: const Locale('zh', 'CN')),
     LanguageModel(
-        key: 'en_US', name: 'English', locale: const Locale('en', 'US')),
+        key: 'zh_CN',
+        name: '中文',
+        locale: const Locale('zh', 'CN'),
+        type: LanguageType.chiness),
+    LanguageModel(
+        key: 'en_US',
+        name: 'English',
+        locale: const Locale('en', 'US'),
+        type: LanguageType.english),
   ];
 }
 
@@ -25,10 +32,14 @@ class LanguageModel {
   late String key;
   late String name;
   late Locale locale;
+  late LanguageType type;
 
   LanguageModel({
     required this.key,
     required this.name,
     required this.locale,
+    required this.type,
   });
 }
+
+enum LanguageType { chiness, english }

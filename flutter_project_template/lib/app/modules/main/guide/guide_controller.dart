@@ -1,13 +1,20 @@
 import 'package:flutter_project_template/app/data/local/store/config_store.dart';
+import 'package:flutter_project_template/app/routes/login_routes.dart';
+import 'package:flutter_project_template/app/routes/main_routes.dart';
 import 'package:get/get.dart';
 
 import '../../../common/widgets/banner.dart';
 import '../../../data/local/store/user_store.dart';
-import '../../../routes/app_pages.dart';
 
 class GuideController extends GetxController {
   List<BannerItem> bannerList = [];
   var isLastPage = false.obs;
+  final imageUrls = [
+    'assets/images/guide/guide1.png',
+    'assets/images/guide/guide2.png',
+    'assets/images/guide/guide3.png',
+    'assets/images/guide/guide4.png',
+  ];
 
   @override
   void onInit() {
@@ -48,9 +55,9 @@ class GuideController extends GetxController {
     ConfigStore.to.saveAlreadyOpen();
 
     if (UserStore.to.isLogin == true) {
-      return Get.offAllNamed(AppRoutes.mainTabbar);
+      return Get.offAllNamed(MainRoutes.mainTabbar);
     } else {
-      return Get.offAllNamed(AppRoutes.login);
+      return Get.offAllNamed(AccountRoutes.login);
     }
   }
 }
