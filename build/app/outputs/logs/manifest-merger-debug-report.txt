@@ -1,0 +1,479 @@
+-- Merging decision tree log ---
+application
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:3:4-33:19
+MERGED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
+MERGED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
+MERGED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:19
+MERGED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:19
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
+MERGED from [com.google.android.material:material:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/c040ba3b8c8962645743126d5be8107a/transformed/material-1.1.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/c040ba3b8c8962645743126d5be8107a/transformed/material-1.1.0/AndroidManifest.xml:22:5-20
+MERGED from [com.github.bumptech.glide:glide:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/99fa857b9fea9e9e3b865202473ae4a4/transformed/jetified-glide-4.15.1/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:glide:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/99fa857b9fea9e9e3b865202473ae4a4/transformed/jetified-glide-4.15.1/AndroidManifest.xml:9:5-20
+MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/eac74386c77168502c9601665b614412/transformed/jetified-zxing-1.9.8/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/eac74386c77168502c9601665b614412/transformed/jetified-zxing-1.9.8/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/ca7e8a6d9f0763a85167371eada68422/transformed/jetified-core-1.9.8/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/ca7e8a6d9f0763a85167371eada68422/transformed/jetified-core-1.9.8/AndroidManifest.xml:11:5-20
+MERGED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/2a37e0177e3c4f04e50c7793504c9be9/transformed/jetified-startup-runtime-1.0.0/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/2a37e0177e3c4f04e50c7793504c9be9/transformed/jetified-startup-runtime-1.0.0/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/huangguozan/.gradle/caches/transforms-3/99f8f67e8328b4e73d971779ce05f2a1/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/huangguozan/.gradle/caches/transforms-3/99f8f67e8328b4e73d971779ce05f2a1/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/ee9a93ad5863914070c11b93b338a9c4/transformed/jetified-gifdecoder-4.15.1/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/ee9a93ad5863914070c11b93b338a9c4/transformed/jetified-gifdecoder-4.15.1/AndroidManifest.xml:9:5-20
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:46:5-54:19
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:46:5-54:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+	android:name
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+manifest
+ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:1-43:12
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:1-43:12
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:1-43:12
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:1-43:12
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:1-43:12
+MERGED from [:camera_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/camera_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-12:12
+MERGED from [:flutter_plugin_android_lifecycle] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
+MERGED from [:path_provider_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:qr_code_scanner] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/qr_code_scanner/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:connectivity_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:webview_flutter_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:shared_preferences_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:permission_handler_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:photo_manager] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/photo_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:package_info_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:fluttertoast] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:device_info_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/device_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:emoji_picker_flutter] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/emoji_picker_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:video_player_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/61c49aceffb05c0cfb6d693f959a7b39/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
+MERGED from [com.google.android.material:material:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/c040ba3b8c8962645743126d5be8107a/transformed/material-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.4.2] /Users/huangguozan/.gradle/caches/transforms-3/068def2adeee1d8b6f09663c2ff795ac/transformed/appcompat-1.4.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.webkit:webkit:1.7.0] /Users/huangguozan/.gradle/caches/transforms-3/d8f3f8a975c58380606875eeb0ffd88b/transformed/webkit-1.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/ae4e5c13dfffcf1b4ea031ce4dbdf37d/transformed/jetified-exoplayer-hls-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/11238523bca8c1e8efe18a36dead391e/transformed/jetified-exoplayer-dash-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/c98302e327b68295af05e23cd63e4859/transformed/jetified-exoplayer-smoothstreaming-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/7f74f614dbba07d067bb160001c3e96f/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:17:1-26:12
+MERGED from [com.github.bumptech.glide:glide:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/99fa857b9fea9e9e3b865202473ae4a4/transformed/jetified-glide-4.15.1/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/d312f726aa14c630f9d5bd38dd9d504f/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/eac74386c77168502c9601665b614412/transformed/jetified-zxing-1.9.8/AndroidManifest.xml:2:1-13:12
+MERGED from [me.dm7.barcodescanner:core:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/ca7e8a6d9f0763a85167371eada68422/transformed/jetified-core-1.9.8/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/5fda07e7c6dd41d90ea410c27c88f358/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.3.6] /Users/huangguozan/.gradle/caches/transforms-3/088f22c6a203ba4fd3ad751790f35266/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.2.4] /Users/huangguozan/.gradle/caches/transforms-3/1b82c00e89ed07f9ab5fd015730bca8e/transformed/jetified-activity-1.2.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.4.2] /Users/huangguozan/.gradle/caches/transforms-3/a3ddf7ddd5d41d984333e0d1fff9f06b/transformed/jetified-appcompat-resources-1.4.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/af0bee5d831ef8143ae32fca03a81133/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/f6c55cf3aa80b5d78dd4edb9ea1f4be6/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/77433594dfd2a3e2b66d85ade2d97f4a/transformed/jetified-emoji2-views-helper-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/442bd804fcb20495d213caad54cd21bb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/huangguozan/.gradle/caches/transforms-3/62f97b743a00662dd6ca93847a605dc1/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/db366091c5768e59218ce1d95af24df1/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/cb9d82c389cca33cb46d43016854c2ff/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/21b0aaad540bdaa047a55e45e3ee5013/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/118e98042b7c90525022aa5483cddb35/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/95c4fd6bca068356d168e5eddd081b3f/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/00c780e79f03e315938702e5ca227a66/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/cc4a27b55f9529f93c47777d01bc67ea/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/696b30a1a0f98dadd96327eb257b63ea/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/c75f9e40c5938404a15ba24a6e75f147/transformed/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/a58bceaabddc9fa4adb31bedbdc24caf/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/ccb712c881134248e745078fdda9f12a/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/huangguozan/.gradle/caches/transforms-3/3f4781681d0ef3d5778da989f9a4f077/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/2a37e0177e3c4f04e50c7793504c9be9/transformed/jetified-startup-runtime-1.0.0/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/472b00505ac40dac901c82daeb5e65c8/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/a3abdcf7d36ff50dc48c4c414166cd3e/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/huangguozan/.gradle/caches/transforms-3/99f8f67e8328b4e73d971779ce05f2a1/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/241a1370991ef8797d9cedc8d895e91d/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/f841073fcc7f929971d2ec703ccbe063/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/59b809cc87310741d36c05d28b370eb9/transformed/jetified-savedstate-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/1b5704bbbfa19aaedfadb2e18d17c6ab/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/ee9a93ad5863914070c11b93b338a9c4/transformed/jetified-gifdecoder-4.15.1/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/70322dca5e6fd9674c4e05a182ffd1f9/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/86622a8e297d6b3cad7106b1f0f2c5aa/transformed/jetified-exoplayer-datasource-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/b6c417c9731a6093e6a35b038f902ab9/transformed/jetified-exoplayer-extractor-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/733a061eda5f3577c86e29350e2ab14a/transformed/jetified-exoplayer-decoder-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/2a7ce619abed566b9275041d6d75bc09/transformed/jetified-exoplayer-database-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/0a62868b74695157525fb85af8112262/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/huangguozan/.gradle/caches/transforms-3/908c5d89c46cab0d300419a7ebe8956d/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/c90d6e5318690a4107965d0093b04eb0/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/bac0489da05df157a1d15f05dd2cb581/transformed/lifecycle-runtime-2.4.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/huangguozan/.gradle/caches/transforms-3/b0e8dcac463f65cd6b6d8ab4ae0069f8/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/7b5f4dc0ae6a667767ade152989d41db/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/fb1e0141ec46f31e6259a26f8f201337/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/ca6bab1c60d20856c38945422ea84aa2/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:17:1-56:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/huangguozan/.gradle/caches/transforms-3/f517a2a23a5bb7a1b2ca6a0129b16c2f/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml:1:1-17:12
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml:1:1-17:12
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml:1:1-17:12
+	package
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:2:5-51
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:1-43:12
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:1-43:12
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:35:5-80
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:35:5-80
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:35:5-80
+MERGED from [:photo_manager] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/photo_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-80
+MERGED from [:photo_manager] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/photo_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:35:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:36:5-80
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:36:5-80
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:36:5-80
+	android:name
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:36:22-78
+uses-permission#android.permission.READ_MEDIA_IMAGES
+ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:38:5-76
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:38:5-76
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:38:5-76
+	android:name
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:38:22-73
+uses-permission#android.permission.READ_MEDIA_CAMERA
+ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:39:5-76
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:39:5-76
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:39:5-76
+	android:name
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:39:22-73
+uses-permission#android.permission.READ_MEDIA_VIDEO
+ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:40:5-75
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:40:5-75
+MERGED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:40:5-75
+	android:name
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml:40:22-72
+uses-sdk
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+MERGED from [:camera_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/camera_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:camera_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/camera_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_plugin_android_lifecycle] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_plugin_android_lifecycle] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:qr_code_scanner] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/qr_code_scanner/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-9:67
+MERGED from [:qr_code_scanner] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/qr_code_scanner/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-9:67
+MERGED from [:connectivity_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:connectivity_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:shared_preferences_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:shared_preferences_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:permission_handler_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:permission_handler_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:photo_manager] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/photo_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:photo_manager] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/photo_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:package_info_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:package_info_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:device_info_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/device_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:device_info_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/device_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:emoji_picker_flutter] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/emoji_picker_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:emoji_picker_flutter] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/emoji_picker_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/61c49aceffb05c0cfb6d693f959a7b39/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/61c49aceffb05c0cfb6d693f959a7b39/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/c040ba3b8c8962645743126d5be8107a/transformed/material-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/c040ba3b8c8962645743126d5be8107a/transformed/material-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.4.2] /Users/huangguozan/.gradle/caches/transforms-3/068def2adeee1d8b6f09663c2ff795ac/transformed/appcompat-1.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.2] /Users/huangguozan/.gradle/caches/transforms-3/068def2adeee1d8b6f09663c2ff795ac/transformed/appcompat-1.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.7.0] /Users/huangguozan/.gradle/caches/transforms-3/d8f3f8a975c58380606875eeb0ffd88b/transformed/webkit-1.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.7.0] /Users/huangguozan/.gradle/caches/transforms-3/d8f3f8a975c58380606875eeb0ffd88b/transformed/webkit-1.7.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/ae4e5c13dfffcf1b4ea031ce4dbdf37d/transformed/jetified-exoplayer-hls-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/ae4e5c13dfffcf1b4ea031ce4dbdf37d/transformed/jetified-exoplayer-hls-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/11238523bca8c1e8efe18a36dead391e/transformed/jetified-exoplayer-dash-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/11238523bca8c1e8efe18a36dead391e/transformed/jetified-exoplayer-dash-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/c98302e327b68295af05e23cd63e4859/transformed/jetified-exoplayer-smoothstreaming-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/c98302e327b68295af05e23cd63e4859/transformed/jetified-exoplayer-smoothstreaming-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/7f74f614dbba07d067bb160001c3e96f/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/7f74f614dbba07d067bb160001c3e96f/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:glide:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/99fa857b9fea9e9e3b865202473ae4a4/transformed/jetified-glide-4.15.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:glide:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/99fa857b9fea9e9e3b865202473ae4a4/transformed/jetified-glide-4.15.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/d312f726aa14c630f9d5bd38dd9d504f/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/d312f726aa14c630f9d5bd38dd9d504f/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/eac74386c77168502c9601665b614412/transformed/jetified-zxing-1.9.8/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/eac74386c77168502c9601665b614412/transformed/jetified-zxing-1.9.8/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/ca7e8a6d9f0763a85167371eada68422/transformed/jetified-core-1.9.8/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9.8] /Users/huangguozan/.gradle/caches/transforms-3/ca7e8a6d9f0763a85167371eada68422/transformed/jetified-core-1.9.8/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/5fda07e7c6dd41d90ea410c27c88f358/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/5fda07e7c6dd41d90ea410c27c88f358/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.3.6] /Users/huangguozan/.gradle/caches/transforms-3/088f22c6a203ba4fd3ad751790f35266/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /Users/huangguozan/.gradle/caches/transforms-3/088f22c6a203ba4fd3ad751790f35266/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] /Users/huangguozan/.gradle/caches/transforms-3/1b82c00e89ed07f9ab5fd015730bca8e/transformed/jetified-activity-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] /Users/huangguozan/.gradle/caches/transforms-3/1b82c00e89ed07f9ab5fd015730bca8e/transformed/jetified-activity-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.2] /Users/huangguozan/.gradle/caches/transforms-3/a3ddf7ddd5d41d984333e0d1fff9f06b/transformed/jetified-appcompat-resources-1.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.2] /Users/huangguozan/.gradle/caches/transforms-3/a3ddf7ddd5d41d984333e0d1fff9f06b/transformed/jetified-appcompat-resources-1.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/af0bee5d831ef8143ae32fca03a81133/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/af0bee5d831ef8143ae32fca03a81133/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/f6c55cf3aa80b5d78dd4edb9ea1f4be6/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/f6c55cf3aa80b5d78dd4edb9ea1f4be6/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/77433594dfd2a3e2b66d85ade2d97f4a/transformed/jetified-emoji2-views-helper-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/77433594dfd2a3e2b66d85ade2d97f4a/transformed/jetified-emoji2-views-helper-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/442bd804fcb20495d213caad54cd21bb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/442bd804fcb20495d213caad54cd21bb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/huangguozan/.gradle/caches/transforms-3/62f97b743a00662dd6ca93847a605dc1/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/huangguozan/.gradle/caches/transforms-3/62f97b743a00662dd6ca93847a605dc1/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/db366091c5768e59218ce1d95af24df1/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/db366091c5768e59218ce1d95af24df1/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/cb9d82c389cca33cb46d43016854c2ff/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/cb9d82c389cca33cb46d43016854c2ff/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/21b0aaad540bdaa047a55e45e3ee5013/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/21b0aaad540bdaa047a55e45e3ee5013/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/118e98042b7c90525022aa5483cddb35/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/118e98042b7c90525022aa5483cddb35/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/95c4fd6bca068356d168e5eddd081b3f/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/95c4fd6bca068356d168e5eddd081b3f/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/00c780e79f03e315938702e5ca227a66/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/00c780e79f03e315938702e5ca227a66/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/cc4a27b55f9529f93c47777d01bc67ea/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/cc4a27b55f9529f93c47777d01bc67ea/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/696b30a1a0f98dadd96327eb257b63ea/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/696b30a1a0f98dadd96327eb257b63ea/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/c75f9e40c5938404a15ba24a6e75f147/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/c75f9e40c5938404a15ba24a6e75f147/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/a58bceaabddc9fa4adb31bedbdc24caf/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/a58bceaabddc9fa4adb31bedbdc24caf/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/ccb712c881134248e745078fdda9f12a/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/ccb712c881134248e745078fdda9f12a/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/huangguozan/.gradle/caches/transforms-3/3f4781681d0ef3d5778da989f9a4f077/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/huangguozan/.gradle/caches/transforms-3/3f4781681d0ef3d5778da989f9a4f077/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/2a37e0177e3c4f04e50c7793504c9be9/transformed/jetified-startup-runtime-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/2a37e0177e3c4f04e50c7793504c9be9/transformed/jetified-startup-runtime-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/472b00505ac40dac901c82daeb5e65c8/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/472b00505ac40dac901c82daeb5e65c8/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/a3abdcf7d36ff50dc48c4c414166cd3e/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/a3abdcf7d36ff50dc48c4c414166cd3e/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/huangguozan/.gradle/caches/transforms-3/99f8f67e8328b4e73d971779ce05f2a1/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/huangguozan/.gradle/caches/transforms-3/99f8f67e8328b4e73d971779ce05f2a1/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/241a1370991ef8797d9cedc8d895e91d/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/241a1370991ef8797d9cedc8d895e91d/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/f841073fcc7f929971d2ec703ccbe063/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/f841073fcc7f929971d2ec703ccbe063/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/59b809cc87310741d36c05d28b370eb9/transformed/jetified-savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/huangguozan/.gradle/caches/transforms-3/59b809cc87310741d36c05d28b370eb9/transformed/jetified-savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/1b5704bbbfa19aaedfadb2e18d17c6ab/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/1b5704bbbfa19aaedfadb2e18d17c6ab/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/ee9a93ad5863914070c11b93b338a9c4/transformed/jetified-gifdecoder-4.15.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.15.1] /Users/huangguozan/.gradle/caches/transforms-3/ee9a93ad5863914070c11b93b338a9c4/transformed/jetified-gifdecoder-4.15.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/70322dca5e6fd9674c4e05a182ffd1f9/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/70322dca5e6fd9674c4e05a182ffd1f9/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/86622a8e297d6b3cad7106b1f0f2c5aa/transformed/jetified-exoplayer-datasource-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/86622a8e297d6b3cad7106b1f0f2c5aa/transformed/jetified-exoplayer-datasource-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/b6c417c9731a6093e6a35b038f902ab9/transformed/jetified-exoplayer-extractor-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/b6c417c9731a6093e6a35b038f902ab9/transformed/jetified-exoplayer-extractor-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/733a061eda5f3577c86e29350e2ab14a/transformed/jetified-exoplayer-decoder-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/733a061eda5f3577c86e29350e2ab14a/transformed/jetified-exoplayer-decoder-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/2a7ce619abed566b9275041d6d75bc09/transformed/jetified-exoplayer-database-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/2a7ce619abed566b9275041d6d75bc09/transformed/jetified-exoplayer-database-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/0a62868b74695157525fb85af8112262/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/0a62868b74695157525fb85af8112262/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/huangguozan/.gradle/caches/transforms-3/908c5d89c46cab0d300419a7ebe8956d/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/huangguozan/.gradle/caches/transforms-3/908c5d89c46cab0d300419a7ebe8956d/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/c90d6e5318690a4107965d0093b04eb0/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/huangguozan/.gradle/caches/transforms-3/c90d6e5318690a4107965d0093b04eb0/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/bac0489da05df157a1d15f05dd2cb581/transformed/lifecycle-runtime-2.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/bac0489da05df157a1d15f05dd2cb581/transformed/lifecycle-runtime-2.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/huangguozan/.gradle/caches/transforms-3/b0e8dcac463f65cd6b6d8ab4ae0069f8/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/huangguozan/.gradle/caches/transforms-3/b0e8dcac463f65cd6b6d8ab4ae0069f8/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/7b5f4dc0ae6a667767ade152989d41db/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/7b5f4dc0ae6a667767ade152989d41db/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/fb1e0141ec46f31e6259a26f8f201337/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/fb1e0141ec46f31e6259a26f8f201337/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/ca6bab1c60d20856c38945422ea84aa2/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/ca6bab1c60d20856c38945422ea84aa2/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/huangguozan/.gradle/caches/transforms-3/f517a2a23a5bb7a1b2ca6a0129b16c2f/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/huangguozan/.gradle/caches/transforms-3/f517a2a23a5bb7a1b2ca6a0129b16c2f/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [:qr_code_scanner] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/qr_code_scanner/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-64
+	android:targetSdkVersion
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/android/app/src/debug/AndroidManifest.xml:7:22-64
+uses-permission#android.permission.CAMERA
+ADDED from [:camera_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/camera_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-65
+MERGED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-65
+MERGED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:22:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:22:5-65
+	android:name
+		ADDED from [:camera_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/camera_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from [:camera_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/camera_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-71
+	android:name
+		ADDED from [:camera_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/camera_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-68
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+	android:exported
+		ADDED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+	android:theme
+		ADDED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+	android:name
+		ADDED from [:url_launcher_android] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:connectivity_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/7f74f614dbba07d067bb160001c3e96f/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/7f74f614dbba07d067bb160001c3e96f/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/0a62868b74695157525fb85af8112262/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/huangguozan/.gradle/caches/transforms-3/0a62868b74695157525fb85af8112262/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [:connectivity_plus] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
+activity#de.mintware.barcode_scan.BarcodeScannerActivity
+ADDED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-84
+	android:name
+		ADDED from [:barcode_scan2] /Users/huangguozan/Documents/项目工作区/git_project/flutter_template/flutter_project_template/build/barcode_scan2/intermediates/merged_manifest/debug/AndroidManifest.xml:12:19-81
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/huangguozan/.gradle/caches/transforms-3/1ef43e594bfdd4d324a6fd61443b5f22/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/2a37e0177e3c4f04e50c7793504c9be9/transformed/jetified-startup-runtime-1.0.0/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/2a37e0177e3c4f04e50c7793504c9be9/transformed/jetified-startup-runtime-1.0.0/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:30:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /Users/huangguozan/.gradle/caches/transforms-3/68c7d2f8e17642bd90dea64a0336c7a6/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+permission#com.example.flutter_project_template.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+uses-permission#com.example.flutter_project_template.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /Users/huangguozan/.gradle/caches/transforms-3/33ea6619dad66716f45041239e9188c1/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] /Users/huangguozan/.gradle/caches/transforms-3/29031ff8b0d3efe780a940df8019d8d4/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+uses-feature#android.hardware.camera
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:25:5-27:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:27:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:26:9-47
+uses-feature#android.hardware.camera.front
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:28:5-30:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:30:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:29:9-53
+uses-feature#android.hardware.camera.autofocus
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:33:5-35:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:35:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:34:9-57
+uses-feature#android.hardware.camera.flash
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:36:5-38:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:38:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:37:9-53
+uses-feature#android.hardware.screen.landscape
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:39:5-41:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:41:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:40:9-57
+uses-feature#android.hardware.wifi
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:42:5-44:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:44:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:43:9-45
+activity#com.journeyapps.barcodescanner.CaptureActivity
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:47:9-53:63
+	android:screenOrientation
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:50:13-56
+	android:clearTaskOnLaunch
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:49:13-45
+	android:stateNotNeeded
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:51:13-42
+	android:windowSoftInputMode
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:53:13-60
+	android:theme
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:52:13-54
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] /Users/huangguozan/.gradle/caches/transforms-3/9f50956d9ca8542884f85c37d4db6a50/transformed/jetified-zxing-android-embedded-4.3.0/AndroidManifest.xml:48:13-74

@@ -1,0 +1,22 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="de.mintware.barcode_scan" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="18"
+6-->/Users/huangguozan/.pub-cache/hosted/pub.flutter-io.cn/barcode_scan2-4.2.4/android/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="18" />
+7-->/Users/huangguozan/.pub-cache/hosted/pub.flutter-io.cn/barcode_scan2-4.2.4/android/src/main/AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.CAMERA" />
+9-->/Users/huangguozan/.pub-cache/hosted/pub.flutter-io.cn/barcode_scan2-4.2.4/android/src/main/AndroidManifest.xml:4:3-63
+9-->/Users/huangguozan/.pub-cache/hosted/pub.flutter-io.cn/barcode_scan2-4.2.4/android/src/main/AndroidManifest.xml:4:20-60
+10
+11    <application>
+11-->/Users/huangguozan/.pub-cache/hosted/pub.flutter-io.cn/barcode_scan2-4.2.4/android/src/main/AndroidManifest.xml:6:3-8:17
+12        <activity android:name="de.mintware.barcode_scan.BarcodeScannerActivity" />
+12-->/Users/huangguozan/.pub-cache/hosted/pub.flutter-io.cn/barcode_scan2-4.2.4/android/src/main/AndroidManifest.xml:7:5-80
+12-->/Users/huangguozan/.pub-cache/hosted/pub.flutter-io.cn/barcode_scan2-4.2.4/android/src/main/AndroidManifest.xml:7:15-77
+13    </application>
+14
+15</manifest>
