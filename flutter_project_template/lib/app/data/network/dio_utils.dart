@@ -42,7 +42,7 @@ class DioUtils {
       String localHost =
           StorageService.to.getString(StorageKeys.proxyLocalHost);
       String port = StorageService.to.getString(StorageKeys.proxyPort);
-      if (localHost != '') {
+      if (localHost != '' && port != '') {
         dio.httpClientAdapter = IOHttpClientAdapter(
           createHttpClient: () {
             final client = HttpClient();
@@ -83,7 +83,7 @@ class DioUtils {
           options: options,
           cancelToken: cancelToken,
           onSendProgress: sendProgress);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       /// 抛出NetError
       final NetError netError = ExceptionHandle.handleException(e);
       throw _onError(netError.code, netError.msg);
