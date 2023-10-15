@@ -29,7 +29,7 @@ Flutter project template
 * [ ] 优化项目大小
 
 ## 使用到的第三方库
-
+下方只是列出部分，具体可查看项目文件[pubspec.yaml](flutter_project_template/pubspec.yaml)
 | 库 |  功能 |
 | :-- | :-- |
 | dio| 网络库 |
@@ -56,6 +56,7 @@ Flutter project template
 
 
 # 本项目运行环境
+
 ```Flutter
 [✓] Flutter (Channel stable, 3.13.6, on macOS 13.0 22A8380 darwin-arm64, locale zh-Hans-CN)
     • Flutter version 3.13.6 on channel stable at ~/development/flutter
@@ -107,3 +108,12 @@ Flutter project template
 [✓] Network resources
     • All expected network resources are available.
 ```
+
+## 运行项目注意事项
+下载代码后，在工程目录下命令运行flutter pub get，然后就可以使用 VSCode或者Android Studio打开工程编译运行项目。
+
+注意自己当前的flutter版本，本项目使用的是最新的Flutter 3.13.6版本，如果你使用的是其他版本，注意查看第三方库wechat_assets_picker/wechat_camera_picker使用的版本是否对应正确，因为这个库未做全版本适配，需自行选择对应版本，具体请查看[wechat_assets_picker](https://pub.dev/packages/wechat_assets_picker) | [wechat_camera_picker](https://pub.dev/packages/wechat_camera_picker)
+
+登录页面只校验了长度，输入足够长度内容即可跳转进入主页面（可自行根据业务设置校验）
+
+
