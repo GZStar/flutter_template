@@ -9,27 +9,27 @@ Flutter project template
 
 ## 预览
 部分页面效果如下：
-| ![screenshot1](flutter_project_template/preview/screenshot1.png)| ![screenshot2](flutter_project_template/preview/screenshot2.png)  | ![screenshot3](flutter_project_template/preview/screenshot3.png)  | ![screenshot13](flutter_project_template/preview/screenshot13.png)  |
+| ![screenshot1](preview/screenshot1.png)| ![screenshot2](preview/screenshot2.png)  | ![screenshot3](preview/screenshot3.png)  | ![screenshot13](preview/screenshot13.png)  |
 | :--: | :--: | :--: | :--: |
-| ![screenshot4](flutter_project_template/preview/screenshot4.png) | ![screenshot5](flutter_project_template/preview/screenshot5.png)  | ![screenshot6](flutter_project_template/preview/screenshot6.png)  | ![screenshot7](flutter_project_template/preview/screenshot7.png)  |
-| ![screenshot8](flutter_project_template/preview/screenshot8.png) | ![screenshot9](flutter_project_template/preview/screenshot9.png)  | ![screenshot10](flutter_project_template/preview/screenshot10.png)  | ![screenshot11](flutter_project_template/preview/screenshot11.png)  |
-| ![screenshot12](flutter_project_template/preview/screenshot12.png) | ![screenshot14](flutter_project_template/preview/screenshot14.png)  | ![screenshot15](flutter_project_template/preview/screenshot15.png)  | ![screenshot16](flutter_project_template/preview/screenshot16.png)  |
+| ![screenshot4](preview/screenshot4.png) | ![screenshot5](preview/screenshot5.png)  | ![screenshot6](preview/screenshot6.png)  | ![screenshot7](preview/screenshot7.png)  |
+| ![screenshot8](preview/screenshot8.png) | ![screenshot9](preview/screenshot9.png)  | ![screenshot10](preview/screenshot10.png)  | ![screenshot11](preview/screenshot11.png)  |
+| ![screenshot12](preview/screenshot12.png) | ![screenshot14](preview/screenshot14.png)  | ![screenshot15](preview/screenshot15.png)  | ![screenshot16](preview/screenshot16.png)  |
 
 ## 项目框架
-![TODO](flutter_project_template/preview/flutter_template.png)
+![TODO](preview/flutter_template.png)
 
 
 ## 实现的内容
-![TODO](flutter_project_template/preview/todo.png)
+![TODO](preview/todo.png)
 
 ## 后续计划
 * [ ] 添加单元测试
 * [ ] 添加widget测试
 * [ ] 添加集成测试
-* [ ] 优化项目大小
+* [ ] 优化项目（代码、包大小）
 
 ## 使用到的第三方库
-下方只是列出部分，具体可查看项目文件[pubspec.yaml](flutter_project_template/pubspec.yaml)
+下方只是列出部分，具体可查看项目文件[pubspec.yaml](pubspec.yaml)
 | 库 |  功能 |
 | :-- | :-- |
 | dio| 网络库 |
@@ -109,11 +109,17 @@ Flutter project template
     • All expected network resources are available.
 ```
 
-## 运行项目注意事项
-下载代码后，在工程目录下命令运行flutter pub get，然后就可以使用 VSCode或者Android Studio打开工程编译运行项目。
+## 运行项目
+安卓版本下载地址：[Download apk URL](https://www.pgyer.com/oaPPzN)
 
-注意自己当前的flutter版本，本项目使用的是最新的Flutter 3.13.6版本，如果你使用的是其他版本，注意查看第三方库wechat_assets_picker/wechat_camera_picker使用的版本是否对应正确，因为这个库未做全版本适配，需自行选择对应版本，具体请查看[wechat_assets_picker](https://pub.dev/packages/wechat_assets_picker) | [wechat_camera_picker](https://pub.dev/packages/wechat_camera_picker)
+iOS版本可下载代码后，在工程目录下命令运行flutter pub get，然后就可以使用 VSCode或者Android Studio打开工程编译运行项目。
 
-登录页面只校验了长度，输入足够长度内容即可跳转进入主页面（可自行根据业务设置校验）
+## 注意事项
 
+本项目使用的是最新的Flutter 3.13.6版本，如果你使用的是其他版本，注意查看第三方库 wechat_assets_picker | wechat_camera_picker 使用的版本是否对应正确，因为这个库未做全版本适配，需自行选择对应版本，具体请查看[wechat_assets_picker](https://pub.dev/packages/wechat_assets_picker) | [wechat_camera_picker](https://pub.dev/packages/wechat_camera_picker)
+
+登录页面只校验了长度，输入足够长度内容即可跳转进入主页面
+
+## Notice
+有任何疑问可联系我，邮箱：757355040@qq.com
 
