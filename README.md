@@ -110,7 +110,7 @@ Flutter project template
 ```
 
 ## 运行项目
-安卓版本下载地址：[Download apk URL](https://www.pgyer.com/oaPPzN)
+安卓版本下载地址：[Download URL](https://www.pgyer.com/oaPPzN)
 
 iOS版本可下载代码后，在工程目录下命令运行flutter pub get，然后就可以使用 VSCode或者Android Studio打开工程编译运行项目。
 
