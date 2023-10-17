@@ -65,6 +65,7 @@ class BottomChatFieldView extends GetView<ChatController> {
                       }),
                     ),
                   ),
+                  onEditingComplete: () {},
                   onSubmitted: (value) {
                     controller.onSend();
                   },
