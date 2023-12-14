@@ -86,6 +86,7 @@ dependencies:
   permission_handler: ^10.4.3
 
 dev_dependencies:
+  # Widget测试
   flutter_test:
     sdk: flutter
 

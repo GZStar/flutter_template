@@ -3,22 +3,14 @@ import '../local/store/storage_service.dart';
 
 /// APP中可能存在多个域名请求数据的情况，所以根据参数获取对应域名URL
 enum DomainNameType {
-  normal,
-
-  /// 常规域名
-  version,
-
-  /// 版本升级域名
+  normal,// 常规域名
+  version,// 版本升级域名
 }
 
 /// 路径中可能存在不同的前缀路径，所以根据参数获取对应前缀路径
 enum URLPathType {
-  normal,
-
-  /// 常规前缀
-  allUrl,
-
-  /// 不使用domainNameType,直接使用path中的全url作为地址。
+  normal,// 常规前缀
+  allUrl,// 不使用domainNameType,直接使用path中的全url作为地址。
 }
 
 class EnvConfig {
