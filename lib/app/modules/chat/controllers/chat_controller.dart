@@ -225,9 +225,15 @@ class ChatController extends GetxController with GetTickerProviderStateMixin {
   void showKeyboard() => focusNode.requestFocus();
   void hideKeyboard() => focusNode.unfocus();
 
+  void onMessageViewClick() {
+    if (isShowEmojiContainer) {
+      hideEmojiContainer();
+    }
+    focusNode.unfocus();
+  }
+
   void toggleEmojiKeyboardContainer() {
     if (isShowEmojiContainer) {
-      // showKeyboard();
       hideEmojiContainer();
     } else {
       hideKeyboard();

@@ -15,6 +15,7 @@ class TravelController extends GetxController with GetTickerProviderStateMixin {
 
   RxList<TabGroups> tabs = <TabGroups>[].obs;
   TravelParamsModel? travelParamsModel;
+  var selectIndex = 0.obs;
 
   @override
   void onInit() {
@@ -41,6 +42,7 @@ class TravelController extends GetxController with GetTickerProviderStateMixin {
     try {
       TravelParamsModel paramsModel = await TravelAPI.loadTravelParams();
       travelParamsModel = paramsModel;
+      update();
 
       Loading.dismiss();
     } on NetError catch (e) {
@@ -50,6 +52,7 @@ class TravelController extends GetxController with GetTickerProviderStateMixin {
 
       TravelParamsModel paramsModel = TravelParamsModel.fromJson(dic);
       travelParamsModel = paramsModel;
+      update();
       print(e);
       Loading.dismiss();
     }
@@ -57,6 +60,11 @@ class TravelController extends GetxController with GetTickerProviderStateMixin {
     TravelTabModel travelTabModel = await TravelAPI.loadTravelTabData();
     tabs.value = travelTabModel.district.groups;
     tabcontroller = TabController(length: tabs.length, vsync: this);
+    tabcontroller.addListener(() {
+      print("tab listen");
+      selectIndex.value = tabcontroller.index;
+      update();
+    });
 
     //非.obs声明的属性需手动更新
     update();

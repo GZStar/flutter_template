@@ -15,7 +15,7 @@ class ChatView extends GetView<ChatController> {
     print("ChatView build");
     return GestureDetector(
       onTap: () {
-        controller.focusNode.unfocus();
+        controller.onMessageViewClick();
       },
       child: Scaffold(
         appBar: AppBar(

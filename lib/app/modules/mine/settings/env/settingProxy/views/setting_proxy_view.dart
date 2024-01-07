@@ -111,46 +111,58 @@ class SettingProxyView extends GetView<SettingProxyController> {
       height: 100,
       child: Row(
         children: [
-          Expanded(
-            child: TextButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
-              onPressed: () {
-                controller.onCancelButtonClick();
-              },
-              child: Text('cancel'.tr,
-                  style: const TextStyle(color: Colors.white, fontSize: 15)),
-            ),
-          ),
+          _cancelButton(),
           const SizedBox(
             width: 10,
           ),
-          Expanded(
-            child: TextButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red)),
-              onPressed: () {
-                controller.onSaveButtonClick();
-              },
-              child: Text('save'.tr,
-                  style: const TextStyle(color: Colors.white, fontSize: 15)),
-            ),
-          ),
+          _saveButton(),
           const SizedBox(
             width: 10,
           ),
-          Expanded(
-            child: TextButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red)),
-              onPressed: () {
-                controller.onCleanButtonClick();
-              },
-              child: const Text('清空代理',
-                  style: TextStyle(color: Colors.white, fontSize: 15)),
-            ),
-          ),
+          clearProxy(),
         ],
+      ),
+    );
+  }
+
+  Expanded _cancelButton() {
+    return Expanded(
+      child: TextButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.blue)),
+        onPressed: () {
+          controller.onCancelButtonClick();
+        },
+        child: Text('cancel'.tr,
+            style: const TextStyle(color: Colors.white, fontSize: 15)),
+      ),
+    );
+  }
+
+  Expanded _saveButton() {
+    return Expanded(
+      child: TextButton(
+        style:
+            ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+        onPressed: () {
+          controller.onSaveButtonClick();
+        },
+        child: Text('save'.tr,
+            style: const TextStyle(color: Colors.white, fontSize: 15)),
+      ),
+    );
+  }
+
+  Expanded clearProxy() {
+    return Expanded(
+      child: TextButton(
+        style:
+            ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+        onPressed: () {
+          controller.onCleanButtonClick();
+        },
+        child: const Text('清空代理',
+            style: TextStyle(color: Colors.white, fontSize: 15)),
       ),
     );
   }
