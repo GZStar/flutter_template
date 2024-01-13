@@ -94,7 +94,7 @@ class MineView extends GetView<MineController> {
         cellHeight: cellH,
         lineLeftEdge: leftSpace,
         leftImgPath: 'assets/images/wechat/mine/ic_album.png',
-        title: '相册',
+        title: '测试相册',
         clickCallBack: () {
           Get.toNamed(MineRoutes.testImage);
         },
@@ -112,10 +112,10 @@ class MineView extends GetView<MineController> {
         cellHeight: cellH,
         lineLeftEdge: leftSpace,
         leftImgPath: 'assets/images/wechat/mine/ic_emotions.png',
-        title: '表情',
+        title: '测试隐藏状态栏',
         hiddenLine: true,
         clickCallBack: () {
-          showToast('功能开发中...');
+          Get.toNamed(MineRoutes.testHideStatusBar);
         },
       ),
       SizedBox(height: rowSpace),

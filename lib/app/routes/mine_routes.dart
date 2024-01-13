@@ -6,6 +6,8 @@ import 'package:flutter_project_template/app/modules/mine/settings/env/settingPr
 import 'package:flutter_project_template/app/modules/mine/settings/env/settingProxy/views/setting_proxy_view.dart';
 import 'package:flutter_project_template/app/modules/mine/testImage/bindings/test_image_binding.dart';
 import 'package:flutter_project_template/app/modules/mine/testImage/views/test_image_view.dart';
+import 'package:flutter_project_template/app/modules/mine/test_hide_status_bar/bindings/test_hide_status_bar_binding.dart';
+import 'package:flutter_project_template/app/modules/mine/test_hide_status_bar/views/test_hide_status_bar_view.dart';
 import 'package:flutter_project_template/app/modules/mine/userProfile/bindings/user_profile_binding.dart';
 import 'package:flutter_project_template/app/modules/mine/userProfile/views/user_profile_view.dart';
 import 'package:flutter_project_template/app/modules/mine/userQrCode/views/user_qr_code_view.dart';
@@ -36,6 +38,7 @@ abstract class MineRoutes {
   static const userQrCode = '/userProfile/qrCode';
 
   static const testImage = '/testImage';
+  static const testHideStatusBar = '/testHideStatusBar';
 }
 
 class MinePages {
@@ -89,5 +92,10 @@ class MinePages {
       page: () => const SettingProxyView(),
       binding: SettingProxyBinding(),
     ),
+    GetPage(
+      name: MineRoutes.testHideStatusBar,
+      page: () => const TestHideStatusBarView(),
+      binding: TestHideStatusBarBinding(),
+    )
   ];
 }

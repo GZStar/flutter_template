@@ -45,15 +45,15 @@ class TravelTabPageContainerState extends State<TravelTabPageContainer>
 }
 
 class TravelTabPage extends GetView<TravelPageController> {
-  final String? tag;
+  final String? tagName;
 
-  const TravelTabPage(this.tag, {super.key});
+  const TravelTabPage(this.tagName, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    print('travel page tag = {$tag}');
+    print('travel page tagName = {$tagName}');
     return GetBuilder<TravelPageController>(
-        tag: tag,
+        tag: tagName,
         builder: (controller) {
           return Scaffold(
             body: LoadingContainer(
